@@ -28,5 +28,5 @@
 - npm run test
 - npm run e2e
 
-# Tutoriaux
+# Tutorials
 - https://www.ganatan.com/docs
