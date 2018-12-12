@@ -1,9 +1,9 @@
 # angular-starter
-- Date : 08/12/2018 10:03
+- Date : 12/12/2018 17:51
 - Author : chendra
 
 # Prerequisites
-- Angular version 7.1.2
+- Angular version 7.1.3
 - Angular-cli version 7.1.2
 - Visual studio code version 1.29.1
 - Typescript version 3.1.6
