@@ -1,5 +1,5 @@
 # angular-starter
-- Date : 16/12/2018 13:08
+- Date : 16/12/2018 16:38
 - Author : danny ganatan
 
 # Prerequisites
@@ -18,7 +18,7 @@
 - npm run start
 - http://localhost:4200
 
-# AOT Compilation 
+# Compilation 
 - npm run build
 - http-server -p 8080 -c-1 dist/angular-starter 
 - http://localhost:8080/
