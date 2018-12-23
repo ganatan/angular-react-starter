@@ -1,13 +1,13 @@
 # angular-starter
-- Date : 16/12/2018 16:38
+- Date : 23/12/2018 08:14
 - Author : danny ganatan
 
 # Prerequisites
-- Angular version 7.1.3
-- Angular-cli version 7.1.3
+- Angular version 7.1.4
+- Angular-cli version 7.1.4
 - Visual studio code version 1.30
 - Typescript version 3.1.6
-- node.js version 10.14.2 LTS (Long Term Support)
+- node.js version 10.14.1 LTS (Long Term Support)
 - npm (node package manager) version 6.4.1
 
 # Installation
@@ -29,5 +29,6 @@
 - npm run e2e
 
 # Tutorials
-- https://www.ganatan.com/docs
 - https://www.ganatan.com/tutorials/demarrer-avec-angular
+- https://www.ganatan.com/docs
+
