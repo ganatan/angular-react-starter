@@ -8,7 +8,7 @@
 - Visual studio code version 1.30.1
 - Typescript version 3.1.6
 - node.js version 10.15.0 LTS (Long Term Support)
-- npm (node package manager) version 6.4.1
+- npm (node package manager) version 6.5.0
 
 # Installation
 - npm install (installing dependencies)
