@@ -1,13 +1,13 @@
 # angular-starter
-- Date : 11/01/2019 09:27
+- Date : 03/02/2019 11:27
 - Author : danny ganatan
 
 # Prerequisites
-- Angular version 7.2.0
-- Angular-cli version 7.2.1
-- Visual studio code version 1.30.1
-- Typescript version 3.1.6
-- node.js version 10.15.0 LTS (Long Term Support)
+- Angular version 7.2.3
+- Angular-cli version 7.3.0
+- Visual studio code version 1.30.2
+- Typescript version 3.2.4
+- node.js version 10.15.1 LTS (Long Term Support)
 - npm (node package manager) version 6.5.0
 
 # Installation
