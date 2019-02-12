@@ -29,7 +29,11 @@
 - npm run e2e
 
 # Tutorials
-- https://www.ganatan.com/tutorials/getting-started-with-angular
-- https://www.ganatan.com/tutorials/demarrer-avec-angular
+- English Version
+    https://www.ganatan.com/tutorials/getting-started-with-angular
+
+- Version Française
+    https://www.ganatan.com/tutorials/demarrer-avec-angular
+
 - https://www.ganatan.com/docs
 
