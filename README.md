@@ -1,5 +1,5 @@
 # angular-starter
-- Date : 20/03/2019 19:04
+- Date   : 21/03/2019
 - Author : danny ganatan
 
 # Prerequisites
@@ -35,5 +35,5 @@
 - Version Française 
 - https://www.ganatan.com/tutorials/demarrer-avec-angular
 
-- https://www.ganatan.com/docs
+- https://www.ganatan.com/guide
 
