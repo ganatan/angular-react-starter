@@ -67,14 +67,10 @@ What you need to run this app:
 ### author
 * Updated : 22/03/2019
 * Author  : danny ganatan
-
+* Website : https://www.ganatan.com/guide
 
 ### Tutorials
-* English Version 
-* https://www.ganatan.com/tutorials/getting-started-with-angular
+* [English Version](https://www.ganatan.com/tutorials/getting-started-with-angular),
+* [Version Française](https://www.ganatan.com/tutorials/demarrer-avec-angular),
 
-* Version Française 
-* https://www.ganatan.com/tutorials/demarrer-avec-angular
-
-* https://www.ganatan.com/guide
 
