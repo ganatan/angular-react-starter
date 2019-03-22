@@ -64,13 +64,13 @@ What you need to run this app:
 * `npm run test`
 * `npm run e2e`
 
-### author
+### Author
 * Updated : 22/03/2019
 * Author  : danny ganatan
 * Website : https://www.ganatan.com/guide
 
 ### Tutorials
-* [English Version](https://www.ganatan.com/tutorials/getting-started-with-angular),
-* [Version Française](https://www.ganatan.com/tutorials/demarrer-avec-angular),
+* [English Version](https://www.ganatan.com/tutorials/getting-started-with-angular)
+* [Version Française](https://www.ganatan.com/tutorials/demarrer-avec-angular)
 
 
