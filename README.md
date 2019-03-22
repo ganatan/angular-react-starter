@@ -3,6 +3,18 @@
 
 > An Angular starter kit featuring [Angular 7.2.10](https://angular.io), [Angular-cli 7.3.6](https://cli.angular.io/)
 
+> it's part of a repo series designed to create a Progressive WebApp with Angular
+
+> [Starter](https://github.com/ganatan/angular-starter),
+[Routing](https://github.com/ganatan/angular-starter-routing),
+[Lazy-loading](https://github.com/ganatan/angular-starter-lazy),
+[Bootstrap](https://github.com/ganatan/angular-starter-bootstrap),
+[Server Side Rendering](https://github.com/ganatan/angular-starter-ssr),
+[HTTP Client](https://github.com/ganatan/angular-starter-httpclient),
+[Transfer State](https://github.com/ganatan/angular-starter-transferstate),
+[Progressive WebApp](https://github.com/ganatan/angular-starter-pwa),
+[Final Application](https://github.com/ganatan/angular-webapp)
+
 ### Quick start
 
 ```bash
@@ -26,12 +38,12 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 
 ### Prerequisites
 What you need to run this app:
-- Angular version 7.2.10
-- Angular-cli version 7.3.6
-- Visual studio code version 1.32.3
-- Typescript version 3.2.4
-- node.js version 10.15.3 LTS (Long Term Support)
-- npm (node package manager) version 6.9.0
+* Angular version 7.2.10
+* Angular-cli version 7.3.6
+* Visual studio code version 1.32.3
+* Typescript version 3.2.4
+* node.js version 10.15.3 LTS (Long Term Support)
+* npm (node package manager) version 6.9.0
 
 ### Installation
 * `npm install` (installing dependencies)
@@ -39,13 +51,13 @@ What you need to run this app:
 
 ### Developpement
 * `npm run start`
-* in your browser [http://localhost:4200](http://localhost:4200) 
+*  in your browser [http://localhost:4200](http://localhost:4200) 
 
 
 ### Compilation 
 * `npm run build`
 * `http-server -p 8080 -c-1 dist/angular-starter`
-* in your browser [http://localhost:8080](http://localhost:8080) 
+*  in your browser [http://localhost:8080](http://localhost:8080) 
 
 ### Tests
 * `npm run lint`
@@ -53,8 +65,8 @@ What you need to run this app:
 * `npm run e2e`
 
 ### author
-- Updated : 22/03/2019
-- Author  : danny ganatan
+* Updated : 22/03/2019
+* Author  : danny ganatan
 
 
 ### Tutorials
