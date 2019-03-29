@@ -69,8 +69,7 @@ What you need to run this app:
 * Author  : danny ganatan
 * Website : https://www.ganatan.com/guide
 
-### Tutorials
-* [English Version](https://www.ganatan.com/tutorials/getting-started-with-angular)
-* [Version Française](https://www.ganatan.com/tutorials/demarrer-avec-angular)
+### Tutorial
+* https://www.ganatan.com/tutorials/demarrer-avec-angular-7
 
 
