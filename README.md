@@ -1,7 +1,7 @@
 # Angular 7 Starter
 
 
-> An Angular starter kit featuring [Angular 7.2.10](https://angular.io), [Angular-cli 7.3.6](https://cli.angular.io/)
+> An Angular starter kit featuring [Angular 7.2.11](https://angular.io), [Angular-cli 7.3.7](https://cli.angular.io/)
 
 > it's part of a repo series designed to create a Progressive WebApp with Angular
 
