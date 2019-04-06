@@ -1,7 +1,7 @@
 # Angular 7 Starter
 
 
-> An Angular starter kit featuring [Angular 7.2.11](https://angular.io), [Angular-cli 7.3.7](https://cli.angular.io/)
+> An Angular starter kit featuring [Angular 7.2.12](https://angular.io), [Angular-cli 7.3.8](https://cli.angular.io/)
 
 > it's part of a repo series designed to create a Progressive WebApp with Angular
 
@@ -38,8 +38,8 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 
 ### Prerequisites
 What you need to run this app:
-* Angular version 7.2.11
-* Angular-cli version 7.3.7
+* Angular version 7.2.12
+* Angular-cli version 7.3.8
 * Visual studio code version 1.32.3
 * Typescript version 3.2.4
 * node.js version 10.15.3 LTS (Long Term Support)
@@ -65,7 +65,7 @@ What you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 03/04/2019
+* Updated : 06/04/2019
 * Author  : danny ganatan
 * Website : https://www.ganatan.com/guide
 
