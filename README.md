@@ -15,10 +15,6 @@
 [Progressive WebApp](https://github.com/ganatan/angular-starter-pwa),
 [Final Application](https://github.com/ganatan/angular-webapp)
 
-# Demo
-
-[angular.ganatan.com](https://angular.ganatan.com)
-
 # Lighthouse Audits
 
 <p align="center">
@@ -26,6 +22,10 @@
     <img  alt="lighthouse" src="https://www.ganatan.org/articles/img/ApplicationWeb-lightouse-result-final.jpg" class="img-responsive">
   </a>
 </p>
+
+# Demo
+
+[https://angular.ganatan.com](https://angular.ganatan.com)
 
 
 ### Quick start
