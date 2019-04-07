@@ -15,6 +15,10 @@
 [Progressive WebApp](https://github.com/ganatan/angular-starter-pwa),
 [Final Application](https://github.com/ganatan/angular-webapp)
 
+# Demo
+
+[angular.ganatan.com](https://angular.ganatan.com)
+
 # Lighthouse Audits
 
 <p align="center">
@@ -23,9 +27,6 @@
   </a>
 </p>
 
-# Demo
-
-[Live Example](https://angular.ganatan.com)
 
 ### Quick start
 
