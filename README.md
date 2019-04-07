@@ -25,7 +25,7 @@
 
 # Demo
 
-[Final Application](https://angular.ganatan.com)
+[Live Example](https://angular.ganatan.com)
 
 ### Quick start
 
