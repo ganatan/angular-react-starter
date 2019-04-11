@@ -25,11 +25,10 @@
 
 # Demo
 
-```bash
-# Launch Chrome
 [https://angular.ganatan.com](https://angular.ganatan.com)
 
-# execute audit
+```bash
+# Launch Chrome and execute audit
 Ctrl + maj + j
 Audit
 
