@@ -22,8 +22,8 @@
 
 # Lighthouse Audits
 
-* open Chrome DevTools (Ctrl + maj + j or F12)
-* select the Audits panel, and hit "Run audits".
+* Open Chrome DevTools (Ctrl + maj + j or F12)
+* Select the Audits panel, and hit "Run audits".
 
 
 <p align="center">
