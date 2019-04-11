@@ -27,12 +27,10 @@
 
 [https://angular.ganatan.com](https://angular.ganatan.com)
 
-```bash
-# Launch Chrome and execute audit
-Ctrl + maj + j
-Audit
+## Using Lighthouse in Chrome DevTools
 
-```
+**Run it**: open Chrome DevTools (Ctrl + maj + j), select the Audits panel, and hit "Run audits".
+
 
 ## Quick start
 
