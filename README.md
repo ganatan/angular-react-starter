@@ -25,10 +25,17 @@
 
 # Demo
 
+```bash
+# Launch Chrome
 [https://angular.ganatan.com](https://angular.ganatan.com)
 
+# execute audit
+Ctrl + maj + j
+Audit
 
-### Quick start
+```
+
+## Quick start
 
 ```bash
 # clone the repo
