@@ -15,7 +15,15 @@
 [Progressive WebApp](https://github.com/ganatan/angular-starter-pwa),
 [Final Application](https://github.com/ganatan/angular-webapp)
 
+# Demo
+
+[https://angular.ganatan.com](https://angular.ganatan.com)
+
+
 # Lighthouse Audits
+
+**Run Lighthouse**: open Chrome DevTools (Ctrl + maj + j), select the Audits panel, and hit "Run audits".
+
 
 <p align="center">
   <a href="https://angular.ganatan.com" target="_blank">
@@ -23,13 +31,6 @@
   </a>
 </p>
 
-# Demo
-
-[https://angular.ganatan.com](https://angular.ganatan.com)
-
-## Using Lighthouse in Chrome DevTools
-
-**Run it**: open Chrome DevTools (Ctrl + maj + j), select the Audits panel, and hit "Run audits".
 
 
 ## Quick start
