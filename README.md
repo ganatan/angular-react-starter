@@ -28,7 +28,7 @@
 
 <p align="center">
   <a href="https://angular.ganatan.com" target="_blank">
-    <img  alt="lighthouse" src="https://www.ganatan.org/articles/img/ApplicationWeb-lightouse-result-final.jpg" class="img-responsive">
+    <img  alt="lighthouse" src="https://www.ganatan.org/articles/img/applicationweb-lightouse-result-final.jpg" class="img-responsive">
   </a>
 </p>
 
