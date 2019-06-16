@@ -1,7 +1,7 @@
 # Angular 8 Starter
 
 
-> An Angular starter kit featuring [Angular 8.0.0](https://angular.io), [Angular CLI 8.0.2](https://cli.angular.io/)
+> An Angular starter kit featuring [Angular 8.0.1](https://angular.io), [Angular CLI 8.0.3](https://cli.angular.io/)
 
 > it's part of a repo series designed to create a Progressive WebApp with Angular
 
@@ -57,8 +57,8 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 
 ### Prerequisites
 What you need to run this app:
-* Angular version 8.0.0
-* Angular CLI version 8.0.2
+* Angular version 8.0.1
+* Angular CLI version 8.0.3
 * Visual studio code version 1.35
 * Typescript version 3.4.5
 * node.js version 10.16.0 LTS (Long Term Support)
@@ -84,11 +84,11 @@ What you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 07/06/2019
+* Updated : 16/06/2019
 * Author  : danny ganatan
 
 ### Documentation
-* Tutorials    : https://www.ganatan.com/angular
+* Tutorials    : https://www.ganatan.com/tutorials
 
 * English Tutorial : https://www.ganatan.com/tutorials/getting-started-with-angular
 * French Tutorial  : https://www.ganatan.com/tutorials/demarrer-avec-angular
