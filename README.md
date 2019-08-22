@@ -1,6 +1,6 @@
 # Angular 8 Starter
 
-> An Angular starter kit featuring [Angular 8.2.3](https://angular.io), [Angular CLI 8.2.2](https://cli.angular.io/
+> An Angular starter kit featuring [Angular 8.2.3](https://angular.io), [Angular CLI 8.2.2](https://cli.angular.io/)
 
 > it's part of a repo series designed to create a Progressive WebApp with Angular
 
