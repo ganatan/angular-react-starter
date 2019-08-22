@@ -15,7 +15,7 @@
 [Optimize Application](https://github.com/ganatan/angular-webapp),
 [Final Application](https://github.com/ganatan/wosiris)
 
-# Demo
+# Live Demo
 
 [https://www.wosiris.com](https://www.wosiris.com)
 
