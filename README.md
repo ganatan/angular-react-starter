@@ -4,32 +4,17 @@
 
 > it's part of a repo series designed to create a Progressive Web App with Angular
 
-* [Starter](https://github.com/ganatan/angular-starter),
-* [Routing](https://github.com/ganatan/angular-starter-routing),
-* [Lazy-loading](https://github.com/ganatan/angular-starter-lazy),
-* [Bootstrap](https://github.com/ganatan/angular-starter-bootstrap),
-* [Server Side Rendering](https://github.com/ganatan/angular-starter-ssr),
-* [HTTP Client](https://github.com/ganatan/angular-starter-httpclient),
-* [Transfer State](https://github.com/ganatan/angular-starter-transferstate),
-* [Progressive Web App](https://github.com/ganatan/angular8-starter-pwa),
-
+* [Starter](https://github.com/ganatan/angular-starter)
+* [Routing](https://github.com/ganatan/angular-starter-routing)
+* [Lazy-loading](https://github.com/ganatan/angular-starter-lazy)
+* [Bootstrap](https://github.com/ganatan/angular-starter-bootstrap)
+* [Server Side Rendering](https://github.com/ganatan/angular-starter-ssr)
+* [HTTP Client](https://github.com/ganatan/angular-starter-httpclient)
+* [Transfer State](https://github.com/ganatan/angular-starter-transferstate)
+* [Progressive Web App](https://github.com/ganatan/angular8-example-pwa)
 
 # Live Demo
-
 [https://angular.ganatan.com](https://angular.ganatan.com)
-
-
-# Lighthouse Audits
-
-* Open Chrome DevTools (Ctrl + maj + j or F12)
-* Select the Audits panel, and hit "Run audits".
-
-
-<p align="center">
-  <a href="https://angular.ganatan.com" target="_blank">
-    <img  alt="lighthouse" src="https://www.ganatan.org/articles/img/wosiris-angular822.jpg" class="img-responsive">
-  </a>
-</p>
 
 
 ## Quick start
