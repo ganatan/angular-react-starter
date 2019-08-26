@@ -39,7 +39,6 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 What you need to run this app:
 * Angular version 8.2.3
 * Angular CLI version 8.3.0
-* Visual studio code version 1.37.1
 * Typescript version 3.4.5
 * node.js version 10.16.3 LTS (Long Term Support)
 * npm (node package manager) version 6.9.0
