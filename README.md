@@ -21,10 +21,10 @@
 
 ```bash
 # clone the repo
-git clone https://github.com/ganatan/angular-starter.git
+git clone https://github.com/ganatan/angular-example-starter.git
 
 # change directory
-cd angular-starter
+cd angular-example-starter
 
 # install the repo with npm
 npm install
