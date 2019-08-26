@@ -4,14 +4,14 @@
 
 > it's part of a repo series designed to create a Progressive Web App with Angular
 
-* [Starter](https://github.com/ganatan/angular-starter)
-* [Routing](https://github.com/ganatan/angular-starter-routing)
-* [Lazy-loading](https://github.com/ganatan/angular-starter-lazy)
-* [Bootstrap](https://github.com/ganatan/angular-starter-bootstrap)
-* [Server Side Rendering](https://github.com/ganatan/angular-starter-ssr)
-* [HTTP Client](https://github.com/ganatan/angular-starter-httpclient)
-* [Transfer State](https://github.com/ganatan/angular-starter-transferstate)
-* [Progressive Web App](https://github.com/ganatan/angular8-example-pwa)
+* [Step 1 : Starter](https://github.com/ganatan/angular-starter)
+* [Step 2 : Routing](https://github.com/ganatan/angular-starter-routing)
+* [Step 3 : Lazy-loading](https://github.com/ganatan/angular-starter-lazy)
+* [Step 4 : Bootstrap](https://github.com/ganatan/angular-starter-bootstrap)
+* [Step 5 : Server Side Rendering](https://github.com/ganatan/angular-starter-ssr)
+* [Step 6 : HTTP Client](https://github.com/ganatan/angular-starter-httpclient)
+* [Step 7 : Transfer State](https://github.com/ganatan/angular-starter-transferstate)
+* [Step 8 : Progressive Web App](https://github.com/ganatan/angular8-example-pwa)
 
 # PWA Live Demo
 [https://angular.ganatan.com](https://angular.ganatan.com)
