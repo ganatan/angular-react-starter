@@ -1,23 +1,21 @@
-# Angular 8 Starter
+# Angular 8 Example Starter
 
 > An Angular starter kit featuring [Angular 8.2.3](https://angular.io), [Angular CLI 8.2.2](https://cli.angular.io/)
 
-> it's part of a repo series designed to create a Progressive WebApp with Angular
+> it's part of a repo series designed to create a Progressive Web App with Angular
 
 > [Starter](https://github.com/ganatan/angular-starter),
-[Routing](https://github.com/ganatan/angular-starter-routing),
-[Lazy-loading](https://github.com/ganatan/angular-starter-lazy),
-[Bootstrap](https://github.com/ganatan/angular-starter-bootstrap),
-[Server Side Rendering](https://github.com/ganatan/angular-starter-ssr),
-[HTTP Client](https://github.com/ganatan/angular-starter-httpclient),
-[Transfer State](https://github.com/ganatan/angular-starter-transferstate),
-[Progressive WebApp](https://github.com/ganatan/angular-starter-pwa),
-[Optimize Application](https://github.com/ganatan/angular-webapp),
-[Final Application](https://github.com/ganatan/wosiris)
+> [Routing](https://github.com/ganatan/angular-starter-routing),
+> [Lazy-loading](https://github.com/ganatan/angular-starter-lazy),
+> [Bootstrap](https://github.com/ganatan/angular-starter-bootstrap),
+> [Server Side Rendering](https://github.com/ganatan/angular-starter-ssr),
+> [HTTP Client](https://github.com/ganatan/angular-starter-httpclient),
+> [Transfer State](https://github.com/ganatan/angular-starter-transferstate),
+> [Progressive Web App](https://github.com/ganatan/angular8-starter-pwa),
 
 # Live Demo
 
-[https://www.wosiris.com](https://www.wosiris.com)
+[https://angular.ganatan.com](https://angular.ganatan.com)
 
 
 # Lighthouse Audits
@@ -83,7 +81,7 @@ What you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 22/08/2019
+* Updated : 26/08/2019
 * Author  : danny ganatan
 
 ### Documentation
