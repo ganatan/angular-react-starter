@@ -69,7 +69,7 @@ What you need to run this app:
 ### Documentation
 
 guidelines in English
--  Tutorial - https://www.ganatan.com/tutorials/getting-started-with-angular
+-  Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
 -  Tutorials Step by Step - https://www.ganatan.com/tutorials/en
 
 guidelines in French
