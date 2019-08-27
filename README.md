@@ -56,8 +56,6 @@ What you need to run this app:
 
 ### Production 
 * `npm run build`
-* `http-server -p 8080 -c-1 dist/angular-starter`
-* in your browser [http://localhost:8080](http://localhost:8080) 
 
 ### Tests
 * `npm run lint`
