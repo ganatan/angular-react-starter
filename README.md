@@ -53,7 +53,6 @@ What you need to run this app:
 ### Developpement
 * `npm run start`
 * in your browser [http://localhost:4200](http://localhost:4200) 
-ng build --prod --output-path docs --base-href /angular-example-starter/
 
 ### Production 
 * `npm run build`
