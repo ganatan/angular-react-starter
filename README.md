@@ -6,7 +6,7 @@
 
 * [Step 1 : Example Starter](https://github.com/ganatan/angular-example-starter)
 * [Step 2 : Example Routing](https://github.com/ganatan/angular-example-routing)
-* [Step 3 : Example Lazy-loading](https://github.com/ganatan/angular-example-lazy)
+* [Step 3 : Example Lazy-loading](https://github.com/ganatan/angular-example-lazy-loading)
 * [Step 4 : Example Bootstrap](https://github.com/ganatan/angular-example-bootstrap)
 * [Step 5 : Example Server Side Rendering](https://github.com/ganatan/angular-example-ssr)
 * [Step 6 : Example HTTP Client](https://github.com/ganatan/angular-example-httpclient)
