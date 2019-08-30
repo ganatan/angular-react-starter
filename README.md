@@ -14,7 +14,7 @@
 * [Step 8 : Example PWA](https://github.com/ganatan/angular-example-pwa)
 * [Step 9 : Example SEO](https://github.com/ganatan/angular-example-seo)
 
-* [Step 10 : Angular Progressive Web App](https://github.com/ganatan/angular8-pwa)
+* [Step 10 : Angular 8 Full Progressive Web App](https://github.com/ganatan/angular8-pwa)
 
 # PWA Live Demo
 [https://angular.ganatan.com](https://angular.ganatan.com)
