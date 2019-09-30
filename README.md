@@ -1,6 +1,6 @@
 # Angular 8 Example Starter
 
-> An Angular starter kit featuring [Angular 8.2.4](https://angular.io), [Angular CLI 8.3.1](https://cli.angular.io/)
+> An Angular starter kit featuring [Angular 8.2.8](https://angular.io), [Angular CLI 8.3.6](https://cli.angular.io/)
 
 > it's part of a repo series designed to create a Progressive Web App with Angular
 
@@ -40,8 +40,8 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 
 ### Prerequisites
 What you need to run this app:
-* Angular version 8.2.4
-* Angular CLI version 8.3.1
+* Angular version 8.2.8
+* Angular CLI version 8.3.6
 * Typescript version 3.5.3
 * node.js version 10.16.3 LTS (Long Term Support)
 * npm (node package manager) version 6.9.0
