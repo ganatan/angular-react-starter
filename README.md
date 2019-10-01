@@ -66,7 +66,7 @@ What you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 30/08/2019
+* Updated : 01/10/2019
 * Author  : danny ganatan
 
 ### Documentation
@@ -78,4 +78,3 @@ guidelines in English
 guidelines in French
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
 - Tutoriels Etapes par étapes - https://www.ganatan.com/tutorials
-- Cours - https://www.ganatan.com/courses
