@@ -77,4 +77,4 @@ guidelines in English
 
 guidelines in French
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
-- Tutoriels Etapes par étapes - https://www.ganatan.com/tutorials
+- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
