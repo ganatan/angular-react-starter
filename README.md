@@ -71,10 +71,10 @@ What you need to run this app:
 
 ### Documentation
 
-guidelines in English
--  Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
--  Tutorials Step by Step - https://www.ganatan.com/tutorials/en
+English Tutorials
+- Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
+- Tutorials Step by Step - https://www.ganatan.com/tutorials/en
 
-guidelines in French
+Tutoriels en français
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
 - Tutoriels Etape par étape - https://www.ganatan.com/tutorials
