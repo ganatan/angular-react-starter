@@ -39,11 +39,11 @@ npm start
 in your browser go to [http://localhost:4200](http://localhost:4200) 
 
 ### Prerequisites
-What you need to run this app:
+What do you need to run this app:
 * Angular version 8.2.10
 * Angular CLI version 8.3.9
 * Typescript version 3.5.3
-* node.js version 10.16.3 LTS (Long Term Support)
+* Node.js version 10.16.3 LTS (Long Term Support)
 * npm (node package manager) version 6.9.0
 
 ## Getting Started
