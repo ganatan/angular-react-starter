@@ -68,7 +68,7 @@ What do you need to run this app:
 
 ### Author
 * Updated : 15/12/2019
-* Author  : danny ganatan
+* Author  : danny
 
 ### Documentation
 
