@@ -42,7 +42,7 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 ### Prerequisites
 What do you need to run this app:
 * Angular version 8.2.14
-* Angular CLI version 8.3.21
+* Angular CLI version 8.3.22
 * Typescript version 3.5.3
 * Node.js version 12.14.0 LTS (Long Term Support)
 * npm (node package manager) version 6.13.4
@@ -67,7 +67,7 @@ What do you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 07/01/2020
+* Updated : 09/01/2020
 * Author  : danny
 
 ### Documentation
