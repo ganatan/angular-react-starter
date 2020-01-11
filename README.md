@@ -67,7 +67,7 @@ What do you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 09/01/2020
+* Updated : 11/01/2020
 * Author  : danny
 
 ### Documentation
