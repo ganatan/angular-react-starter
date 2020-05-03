@@ -44,7 +44,7 @@ What do you need to run this app:
 * Angular version 9.1.4
 * Angular CLI version 9.1.4
 * Typescript version 3.8.3
-* Node.js version 12.16.2 LTS (Long Term Support)
+* Node.js version 12.16.3 LTS (Long Term Support)
 * npm (node package manager) version 6.14.4
 
 ## Getting Started
@@ -67,7 +67,7 @@ What do you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 02/05/2020
+* Updated : 03/05/2020
 * Author  : danny
 
 ### Documentation
