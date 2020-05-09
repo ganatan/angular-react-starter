@@ -1,6 +1,6 @@
 # Angular 9 Example Starter
 
-> An Angular starter kit featuring [Angular 9.1.4](https://angular.io), [Angular CLI 9.1.4](https://cli.angular.io/)
+> An Angular starter kit featuring [Angular 9.1.6](https://angular.io), [Angular CLI 9.1.5](https://cli.angular.io/)
 
 > it's part of a repo series designed to create a Web Application with Angular
 
@@ -41,8 +41,8 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 
 ### Prerequisites
 What do you need to run this app:
-* Angular version 9.1.4
-* Angular CLI version 9.1.4
+* Angular version 9.1.6
+* Angular CLI version 9.1.5
 * Typescript version 3.8.3
 * Node.js version 12.16.3 LTS (Long Term Support)
 * npm (node package manager) version 6.14.4
@@ -67,7 +67,7 @@ What do you need to run this app:
 * `npm run e2e`
 
 ### Author
-* Updated : 08/05/2020
+* Updated : 09/05/2020
 * Author  : danny
 
 ### Documentation
