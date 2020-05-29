@@ -1,24 +1,51 @@
+# Angular Example Lazy loading
+
+<table>
+<tr>
+<td>
+  <a href="https://www.ganatan.com/en">
+    <img src="./img/ganatan-about.png" align="right" alt="About Ganatan" width="160" height="160">
+  </a>
+
+it's part of a repo series designed to create a Full Web Application with Angular
+
+- [**Angular 9.1.9**](https://github.com/angular/angular/releases)
+- [**Angular CLI 9.1.7**](https://github.com/angular/angular-cli/releases/)
+
+- See the [**Live demo**](#demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
+- And if you want to [**support**](#support)
+:star: Star us on GitHub
+
+
+</td>
+</tr>
+</table>
+
+# [Support](#support)
+[![GitHub stars](https://img.shields.io/github/stars/ganatan/angular-example-starter.svg?style=social&label=Star)](https://github.com/ganatan/angular-example-starter)
+[![GitHub forks](https://img.shields.io/github/forks/ganatan/angular-example-starter.svg?style=social&label=Fork)](https://github.com/ganatan/angular-example-starter/fork)
+
+# [Demo](#demo)
+Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
+
+
 <p align="center">
-  <h1 align="center">Angular Example Starter</h1>
   <p align="center">
-    Example with Angular 9.1.9 & Angular CLI 9.1.7
-    <br>
-    <br>
     <a href="https://demo.ganatan.com/angular-example-starter">
-      <img src="https://api.ganatan.com/articles/img/demo-angular-example-starter.png" alt="Demo example"/>
+      <img src="img/demo-angular-example-starter.png" alt="Demo example"/>
     </a>
   </p>
 </p>
 
 
-# Quick start
+# [Quick start](#quick-start)
 
 ```bash
 # clone the repo
-git clone https://github.com/ganatan/angular-example-starter.git
+git clone https://github.com/ganatan/angular-example-lazy-starter.git
 
 # change directory
-cd angular-example-starter
+cd angular-example-lazy-starter
 
 # install the repo with npm
 npm install
@@ -30,31 +57,17 @@ npm start
 in your browser go to [http://localhost:4200](http://localhost:4200) 
 
 
-# Tutorial
+# [Tutorial](#quick-start)
+
+Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-started-with-angular
 
 <p align="center">
-  <h3 align="center">Angular 9 Example Starter Tutorial</h3>
-
-  <p align="center">
-    Step-by-step Tutorials
-    <br>
-    <br>
-    <a href="https://www.ganatan.com/tutorials/getting-started-with-angular">
-      <img src="https://api.ganatan.com/articles/img/tutorial-demarrer-avec-angular.png" alt="Demo example"/>
-    </a>
-  </p>
+  <a href="https://www.ganatan.com/tutorials/lazy-loading-with-angular">
+    <img src="img/tutorial-demarrer-avec-angular.png" alt="Demo example"/>
+  </a>
 </p>
 
-English Tutorials
-- Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
-- step-by-step Tutorials - https://www.ganatan.com/tutorials/en
-
-Tutoriels en français
-- Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
-- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
-
-
-# Getting Started
+# [Getting started](#getting-started)
 
 
 ## Installation
@@ -73,7 +86,15 @@ Tutoriels en français
 * `npm run test`
 * `npm run e2e`
 
-# Author
+# [Author](#author)
 * Updated : 29/05/2020
 * Author  : danny
+
+## [English Tutorials](#english-tutorials)
+- Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
+- Tutorials Step by Step - https://www.ganatan.com/tutorials/en
+
+## [Tutoriels en français](#french-tutorials)
+- Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
+- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
 
