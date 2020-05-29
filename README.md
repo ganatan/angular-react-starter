@@ -62,7 +62,7 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-started-with-angular
 
 <p align="center">
-  <a href="https://www.ganatan.com/tutorials/lazy-loading-with-angular">
+  <a href="https://www.ganatan.com/tutorials/getting-started-with-angular">
     <img src="img/tutorial-demarrer-avec-angular.png" alt="Demo example"/>
   </a>
 </p>
