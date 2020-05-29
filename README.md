@@ -1,4 +1,4 @@
-# Angular Example Lazy loading
+# Angular Example Starter
 
 <table>
 <tr>
