@@ -4,7 +4,7 @@
 <tr>
 <td>
   <a href="https://www.ganatan.com/en">
-    <img src="./img/ganatan-about.png" align="right" alt="About Ganatan">
+    <img src="./img/ganatan-about.png" align="right" alt="About Ganatan" width=100px>
   </a>
 
 it's part of a repo series designed to create a Full Web Application with Angular
