@@ -4,7 +4,7 @@
 <tr>
 <td>
   <a href="https://www.ganatan.com/en">
-    <img src="./img/ganatan-about.png" align="right" alt="About Ganatan" width="160" height="160">
+    <img src="./img/ganatan-about.png" align="right" alt="About Ganatan">
   </a>
 
 it's part of a repo series designed to create a Full Web Application with Angular
@@ -42,10 +42,10 @@ Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 
 ```bash
 # clone the repo
-git clone https://github.com/ganatan/angular-example-lazy-starter.git
+git clone https://github.com/ganatan/angular-example-starter.git
 
 # change directory
-cd angular-example-lazy-starter
+cd angular-example-starter
 
 # install the repo with npm
 npm install
