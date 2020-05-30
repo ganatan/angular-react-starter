@@ -8,7 +8,7 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Full Web Application with Angular 9**
+it's part of a repo series designed to create a **Web Application with Angular 9**
 
 
 * Featuring [**Angular 9.1.9**](https://github.com/angular/angular/releases) & [**Angular CLI 9.1.7**](https://github.com/angular/angular-cli/releases/)
