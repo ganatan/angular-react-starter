@@ -28,14 +28,14 @@ it's part of a repo series designed to create a **Full Web Application with Angu
 [![GitHub stars](https://img.shields.io/github/stars/ganatan/angular-example-starter.svg?style=social&label=Star)](https://github.com/ganatan/angular-example-starter)
 [![GitHub forks](https://img.shields.io/github/forks/ganatan/angular-example-starter.svg?style=social&label=Fork)](https://github.com/ganatan/angular-example-starter/fork)
 
-# [Demo](#demo)
+# [Live Demo](#live-demo)
 Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 
 
 <p align="center">
   <p align="center">
     <a href="https://demo.ganatan.com/angular-example-starter">
-      <img src="img/demo-angular-example-starter.png" alt="Demo example"/>
+      <img src="img/demo-angular-example-starter-github.png" alt="Demo example"/>
     </a>
   </p>
 </p>
@@ -66,7 +66,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 
 <p align="center">
   <a href="https://www.ganatan.com/tutorials/getting-started-with-angular">
-    <img src="img/tutorial-demarrer-avec-angular.png" alt="Demo example"/>
+    <img src="img/angular-example-starter-github.png" alt="Demo example"/>
   </a>
 </p>
 
