@@ -4,22 +4,22 @@
 <tr>
 <td>
   <a href="https://www.ganatan.com/en">
-    <img src="./img/ganatan-about.png" align="right" alt="About Ganatan" width=100px>
+    <img src="./img/ganatan-about-github.png" align="right"
+    alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a Full Web Application with Angular
+it's part of a repo series designed to create a Full Web Application with Angular 9
 
 - [**Angular 9.1.9**](https://github.com/angular/angular/releases)
 - [**Angular CLI 9.1.7**](https://github.com/angular/angular-cli/releases/)
-
 - See the [**Live demo**](#demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
 - And if you want to [**support**](#support)
 :star: Star us on GitHub
 
-
 </td>
 </tr>
 </table>
+
 
 # [Support](#support)
 [![GitHub stars](https://img.shields.io/github/stars/ganatan/angular-example-starter.svg?style=social&label=Star)](https://github.com/ganatan/angular-example-starter)
@@ -87,7 +87,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 * `npm run e2e`
 
 # [Author](#author)
-* Updated : 29/05/2020
+* Updated : 30/05/2020
 * Author  : danny
 
 ## [English Tutorials](#english-tutorials)
