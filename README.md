@@ -90,7 +90,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 * `npm run e2e`
 
 # [Author](#author)
-* Updated : 30/05/2020
+* Updated : 03/06/2020
 * Author  : danny
 
 ## [English Tutorials](#english-tutorials)
