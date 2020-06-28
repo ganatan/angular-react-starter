@@ -1,4 +1,4 @@
-# Angular Example Starter
+# Angular 10 Example Starter
 
 <table>
 <tr>
@@ -8,10 +8,10 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Web Application with Angular 9**
+it's part of a repo series designed to create a **Web Application with Angular 10**
 
 
-* Featuring [**Angular 9.1.9**](https://github.com/angular/angular/releases) & [**Angular CLI 9.1.7**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 10.0.0**](https://github.com/angular/angular/releases) & [**Angular CLI 10.0.0**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
@@ -90,7 +90,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 * `npm run e2e`
 
 # [Author](#author)
-* Updated : 06/06/2020
+* Updated : 25/06/2020
 * Author  : danny
 
 ## [English Tutorials](#english-tutorials)
