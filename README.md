@@ -11,7 +11,7 @@
 it's part of a repo series designed to create a **Web Application with Angular 10**
 
 
-* Featuring [**Angular 10.0.2**](https://github.com/angular/angular/releases) & [**Angular CLI 10.0.1**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 10.0.3**](https://github.com/angular/angular/releases) & [**Angular CLI 10.0.2**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
@@ -90,7 +90,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 * `npm run e2e`
 
 # [Author](#author)
-* Updated : 02/07/2020
+* Updated : 13/07/2020
 * Author  : danny
 
 ## [English Tutorials](#english-tutorials)
