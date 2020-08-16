@@ -92,7 +92,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 
 
 # [Author](#author)
-* Updated : 05/08/2020
+* Updated : 16/08/2020
 * Author  : danny
 
 ## [English Tutorials](#english-tutorials)
