@@ -84,13 +84,14 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 ## Production 
 * `npm run build`
 
+### Use Chrome version 85 min !!!!
+
 ## Tests
 * `npm run lint`
 * `npm run test`
 * `npm run e2e`
 
-# Use Chrome version 84 min
-* Installation on Linux
+## Chrome Installation on Linux
 
 sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
