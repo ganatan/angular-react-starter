@@ -98,7 +98,6 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-ke
 sudo apt-get update
 sudo apt-get install google-chrome-stable --yes
 
-
 # [Author](#author)
 * Updated : 31/08/2020
 * Author  : danny
