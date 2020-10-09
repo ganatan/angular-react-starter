@@ -11,7 +11,7 @@
 it's part of a repo series designed to create a **Web Application with Angular 10**
 
 
-* Featuring [**Angular 10.1.2**](https://github.com/angular/angular/releases) & [**Angular CLI 10.1.2**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 10.1.5**](https://github.com/angular/angular/releases) & [**Angular CLI 10.1.6**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
@@ -106,7 +106,7 @@ sudo apt-get install google-chrome-stable --yes
 
 
 # [Author](#author)
-* Updated : 30/09/2020
+* Updated : 09/10/2020
 * Author  : danny
 
 ## [English Tutorials](#english-tutorials)
