@@ -11,7 +11,7 @@
 it's part of a repo series designed to create a **Web Application with Angular 10**
 
 
-* Featuring [**Angular 10.2.1**](https://github.com/angular/angular/releases) & [**Angular CLI 10.2.0**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 10.2.2**](https://github.com/angular/angular/releases) & [**Angular CLI 10.2.0**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
@@ -83,8 +83,6 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 
 ## Production 
 * `npm run build`
-
-### Use Chrome version 85 min !!!!
 
 ## Tests
 * `npm run lint`
