@@ -1,4 +1,4 @@
-# Angular 10 Example Starter
+# Angular 11 Example Starter
 
 <table>
 <tr>
@@ -8,10 +8,10 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Web Application with Angular 10**
+it's part of a repo series designed to create a **Web Application with Angular 11**
 
 
-* Featuring [**Angular 10.2.3**](https://github.com/angular/angular/releases) & [**Angular CLI 10.2.0**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 11.0.0**](https://github.com/angular/angular/releases) & [**Angular CLI 11.0.0**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
