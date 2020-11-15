@@ -23,11 +23,6 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 </tr>
 </table>
 
-
-# [Support](#support)
-[![GitHub stars](https://img.shields.io/github/stars/ganatan/angular-example-starter.svg?style=social&label=Star)](https://github.com/ganatan/angular-example-starter)
-[![GitHub forks](https://img.shields.io/github/forks/ganatan/angular-example-starter.svg?style=social&label=Fork)](https://github.com/ganatan/angular-example-starter/fork)
-
 # [Live Demo](#live-demo)
 Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 
@@ -44,7 +39,7 @@ Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 # [Quick start](#quick-start)
 
 ```bash
-# clone the repo
+# download the example or clone the repo
 git clone https://github.com/ganatan/angular-example-starter.git
 
 # change directory

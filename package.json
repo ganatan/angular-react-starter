@@ -9,20 +9,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ganatan/angular-example-starter.git"
-  },
   "author": {
     "name": "danny",
     "email": "dannyganatan@gmail.com",
     "url": "https://www.ganatan.com/"
   },
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ganatan/angular-example-starter/issues"
-  },
-  "homepage": "https://github.com/ganatan/angular-example-starter#readme",
   "private": true,
   "dependencies": {
     "@angular/animations": "11.0.0",
