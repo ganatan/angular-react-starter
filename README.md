@@ -16,9 +16,6 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
 
-* And if you want to [**support**](#support)
-:star: Star us on GitHub
-
 </td>
 </tr>
 </table>
