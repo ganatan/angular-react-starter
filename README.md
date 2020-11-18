@@ -36,6 +36,7 @@ Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 # [Quick start](#quick-start)
 
 ```bash
+# select a repo
 # download the example or clone the repo from github
 git clone https://github.com/ganatan/angular-example-starter.git
 
