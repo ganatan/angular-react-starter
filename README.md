@@ -36,8 +36,14 @@ Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 # [Quick start](#quick-start)
 
 ```bash
-# download the example or clone the repo
+# download the example or clone the repo from github
 git clone https://github.com/ganatan/angular-example-starter.git
+
+# download the example or clone the repo from gitlab
+git clone https://gitlab.com/ganatan/angular-example-starter.git
+
+# download the example or clone the repo from bitbucket
+git clone https://bitbucket.org/ganatan/angular-example-starter.git
 
 # change directory
 cd angular-example-starter
