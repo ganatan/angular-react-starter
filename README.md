@@ -83,10 +83,10 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 ## Production 
 * `npm run build`
 
-## Tests
+## Tests (Use Chrome Version 87 minimum)
 * `npm run lint`
 * `npm run test`
-* `npm run e2e`
+* `npm run e2e` 
 
 # [Author](#author)
 * Author  : danny
