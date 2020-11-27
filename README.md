@@ -36,7 +36,7 @@ Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 # [Quick start](#quick-start)
 
 ```bash
-# select a repo
+# choose a repo
 # download the example or clone the repo from github
 git clone https://github.com/ganatan/angular-example-starter.git
 
@@ -83,7 +83,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 ## Production 
 * `npm run build`
 
-## Tests (Use Chrome Version 87 minimum)
+## Tests
 * `npm run lint`
 * `npm run test`
 * `npm run e2e` 
