@@ -11,7 +11,7 @@
 it's part of a repo series designed to create a **Web Application with Angular 11**
 
 
-* Featuring [**Angular 11.2.5**](https://github.com/angular/angular/releases) & [**Angular CLI 11.2.4**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 11.2.10**](https://github.com/angular/angular/releases) & [**Angular CLI 11.2.9**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
@@ -21,12 +21,12 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 </table>
 
 # [Live Demo](#live-demo)
-Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
+Here is a working live demo :  https://angular-starter.ganatan.com
 
 
 <p align="center">
   <p align="center">
-    <a href="https://demo.ganatan.com/angular-example-starter">
+    <a href="https://angular-starter.ganatan.com">
       <img src="img/demo-angular-example-starter-github.png" alt="Demo example"/>
     </a>
   </p>
@@ -38,16 +38,16 @@ Here is a working live demo :  https://demo.ganatan.com/angular-example-starter
 ```bash
 # choose a repo
 # download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-example-starter.git
+git clone https://github.com/ganatan/angular-starter.git
 
 # download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-example-starter.git
+git clone https://gitlab.com/ganatan/angular-starter.git
 
 # download the example or clone the repo from bitbucket
-git clone https://bitbucket.org/ganatan/angular-example-starter.git
+git clone https://bitbucket.org/ganatan/angular-starter.git
 
 # change directory
-cd angular-example-starter
+cd angular-starter
 
 # install the repo with npm
 npm install
