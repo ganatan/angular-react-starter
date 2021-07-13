@@ -1,22 +1,31 @@
-on: push
-name: Build Angular
+name: Build
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
-      with:
-        node-version: '14.x'
-    - run: npm install
-    - run: npm install -g @angular/cli > /dev/null
-    - run: npm install -g karma-cli
-    - run: ng test
+      - uses: actions/checkout@v1
 
-
-#      - name: Push Build to Releases
-#        uses: ncipollo/release-action@v1
-#        with:
-#          artifacts: "dist/angular-githubaction/*"
-#          token: ${{ secrets.TOKEN }}
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm ci and npm run build
+        run: |
+          npm ci
+          npm run test:ci
