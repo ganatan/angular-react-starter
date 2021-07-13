@@ -19,7 +19,7 @@ jobs:
         run: npm i
 
       - name: Test
-        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   bild:
     runs-on: ubuntu-latest
     needs: [test]
@@ -34,6 +34,6 @@ jobs:
       - name: Setup
         run: npm i
       - name: build
-        run: npm run build
+        run: npm build
   
     
