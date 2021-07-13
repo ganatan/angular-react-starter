@@ -35,8 +35,8 @@ jobs:
 
       - name: Setup npm&build
         run: |
-              run npm install
-              run nmp build
+              npm install
+              npm run build
       - name: Publish generated content to GitHub Pages
         uses: ncipollo/release-action@v1
         with:
