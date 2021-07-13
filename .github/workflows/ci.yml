@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -27,5 +27,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm ci and npm run build
         run: |
-          npm ci
-          npm run test:ci
+          npm i
+          npm run test --no-watch --no-progress --browsers=ChromeHeadlessCI
