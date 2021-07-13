@@ -1,9 +1,8 @@
 name: Build
 on:
   push:
-    branches:
-      - master
-
+   tags:
+      - '*'
 jobs:
 #  test:
 #    runs-on: ubuntu-latest
