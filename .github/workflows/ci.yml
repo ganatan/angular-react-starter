@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
         run: |
-          npm i
+          npm ci
           npm run test
 #      - name: Push Build to Releases
 #        uses: ncipollo/release-action@v1
