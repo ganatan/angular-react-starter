@@ -40,7 +40,7 @@ jobs:
       - name: build
         run: ng build
       - name: Publish generated content to GitHub Pages
-        uses: akarpovos/angular-starter@v1.0
+        uses: akarpovos/angular-starter@releases
         with:
           dir: dist
           branch: master
