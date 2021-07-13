@@ -1,8 +1,9 @@
 name: Build
 on:
   push:
-   tags:
-      - '*'
+   branches: 
+    -master
+    
 jobs:
 #  test:
 #    runs-on: ubuntu-latest
@@ -37,8 +38,9 @@ jobs:
               npm install
               npm run build -- --output-path=dist
       - name: Publish generated content to GitHub Pages
-        uses: ncipollo/release-action@v1
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          artifacts: "dist/angular-starter/*"
-          token: $ {{secrets.GITHUB_TOKEN }}
+          branch: master
+          folder: dist/angular-starter/
+  #        token: $ {{secrets.GITHUB_TOKEN }}
             
