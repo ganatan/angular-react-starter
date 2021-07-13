@@ -41,5 +41,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist/angular-starter/*"
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: $ {{secrets.GITHUB_TOKEN }}
             
