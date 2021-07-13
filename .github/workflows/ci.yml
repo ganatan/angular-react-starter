@@ -5,10 +5,11 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Git Clone
+      - uses: actions/checkout@v1
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
@@ -18,5 +19,21 @@ jobs:
         run: npm i
 
       - name: Test
-        run: |
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  bild:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Git Clone
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Setup
+        run: npm i
+      - name: build
+        run: npm run build
+  
+    
