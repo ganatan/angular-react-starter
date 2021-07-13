@@ -37,8 +37,23 @@ jobs:
         run: |
               npm install
               npm run build -- --output-path=dist
+      
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+            name: deploy_dist
+            path: dist
+      - name: Archive code coverage result
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+            name: deploy_coverage
+            path: coverage
+              
+              
       - name: 'Build:dockerimage'
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
