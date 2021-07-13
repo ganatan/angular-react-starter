@@ -7,11 +7,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Git Clone
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: 14.x
 
@@ -20,14 +21,15 @@ jobs:
 
       - name: Test
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  bild:
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
+    
+  build:
+      runs-on: ubuntu-latest
+      needs: [test]
+      steps:
       - name: Git Clone
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: 14.x
 
@@ -35,5 +37,4 @@ jobs:
         run: npm i
       - name: build
         run: npm build
-  
     
