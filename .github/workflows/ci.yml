@@ -3,19 +3,16 @@ name: Build Angular
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.3.x]
-
+    
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ env.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.node-version }}
-      - run: yarn install
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
+      with:
+        node-version: '16.x'
+    - run: npm install
+    - run: npm install -g @angular/cli > /dev/null
+    - run: ng test
 
-      - run: yarn test
 
 #      - name: Push Build to Releases
 #        uses: ncipollo/release-action@v1
