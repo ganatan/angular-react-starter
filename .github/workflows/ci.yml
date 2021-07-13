@@ -16,6 +16,7 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm i
+          npm i -g npm
           npm run test
 #      - name: Push Build to Releases
 #        uses: ncipollo/release-action@v1
