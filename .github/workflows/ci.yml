@@ -42,5 +42,4 @@ jobs:
         with:
           branch: master
           folder: dist
-
-       
+          repository-name: akarpovos/angular-starter/dist
