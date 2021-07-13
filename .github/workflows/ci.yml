@@ -28,4 +28,4 @@ jobs:
       - name: npm ci and npm run build
         run: |
           npm i
-          npm run test --no-watch --no-progress --browsers=ChromeHeadlessCI
+          npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
