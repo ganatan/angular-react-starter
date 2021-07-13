@@ -1,8 +1,8 @@
-#name: Build
-#on:
-#  push:
-#   branches: 
-#    master
+name: Build
+on:
+    push:
+        branches: 
+            master
     
 jobs:
 #  test:
@@ -37,9 +37,11 @@ jobs:
         run: |
               npm install
               npm run build -- --output-path=dist
-      - name: Publish generated content to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+      - name: 'Build:dockerimage'
+        uses: docker/build-push-action@v1
         with:
-          branch: master
-          folder: dist
-          repository-name: akarpovos/angular-starter/dist
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: akarpovos/angular-starter
+#          tags: latest
