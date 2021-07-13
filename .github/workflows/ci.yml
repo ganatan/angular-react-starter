@@ -18,7 +18,6 @@ jobs:
           npm i
           npm update
           npm install uuid
-          npm install -g karma-cli
           npm run test
 #      - name: Push Build to Releases
 #        uses: ncipollo/release-action@v1
