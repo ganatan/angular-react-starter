@@ -9,14 +9,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Node ${{ matrix.node-version }}
+      - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install and npm run build
-        run: |
-          npm ci
-          npm run test
+          node-version: ${{ env.node-version }}
+      - run: yarn install
+
+      - run: yarn test
+
 #      - name: Push Build to Releases
 #        uses: ncipollo/release-action@v1
 #        with:
