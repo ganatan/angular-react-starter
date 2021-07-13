@@ -36,7 +36,7 @@ jobs:
       - name: Setup npm&build
         run: |
               npm install
-              npm run build:prod
+              npm run build --prod --output-path=dist
       - name: Publish generated content to GitHub Pages
         uses: ncipollo/release-action@v1
         with:
