@@ -42,5 +42,5 @@ jobs:
         with:
           branch: master
           folder: dist/angular-starter/
-  #        token: $ {{secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: $ {{secrets.GITHUB_TOKEN }}
             
