@@ -33,8 +33,16 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Setup
-        run: npm i
+      - name: Setup npm&cli
+        run: |
+              run npm install
+              run npm install -g @angular/cli > /dev/null
       - name: build
-        run: npm build
-    
+        run: ng build
+      - name: Publish generated content to GitHub Pages
+        uses: akarpovos/angular-starter@v1.0
+        with:
+          dir: dist
+          branch: master
+          token: ${{ secrets.ACCESS_TOKEN }}
+            
