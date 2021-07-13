@@ -41,7 +41,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           branch: master
-          folder: dist/angular-starter/
-          token: process.env['ACCESS_TOKEN'],
+          folder: dist
 
        
