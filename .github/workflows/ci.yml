@@ -2,7 +2,7 @@ on: push
 name: Build Angular
 jobs:
   build:
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.3.x]
