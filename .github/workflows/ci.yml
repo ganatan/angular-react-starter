@@ -2,10 +2,10 @@ on: push
 name: Build Angular
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16.3.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -15,9 +15,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
         run: |
-          npm i --force
-          npm update
-          npm install uuid
+          npm i
           npm run test
 #      - name: Push Build to Releases
 #        uses: ncipollo/release-action@v1
