@@ -36,10 +36,10 @@ jobs:
       - name: Setup npm&build
         run: |
               npm install
-              npm run build -- --prod --output-path=/dist
+              npm run build -- --output-path=dist
       - name: Publish generated content to GitHub Pages
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/angular-starter/*"
+          artifacts: "./dist/angular-starter/*"
           token: $ {{secrets.GITHUB_TOKEN }}
             
