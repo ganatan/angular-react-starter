@@ -41,10 +41,8 @@ jobs:
               
               
       - name: 'Build:dockerimage'
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          repository: akarpovos/angular-starter
-#          tags: latest
