@@ -6,6 +6,6 @@ RUN rm /etc/nginx/conf.d/default.conf
 RUN chown -R nginx:nginx /usr/share/nginx/html
 RUN ls mnt
 COPY ./nginx.conf /etc/nginx/conf.d/
-COPY --from=build ./dist/angular-starter /usr/share/nginx/html
+COPY /home/runner/work/angular-starter/angular-starter/dist /usr/share/nginx/html
 
 EXPOSE 8080
