@@ -38,10 +38,27 @@ jobs:
               npm install
               npm run build -- --output-path=dist
       
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist       
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: dist      
               
               
       - name: 'Build:dockerimage'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
