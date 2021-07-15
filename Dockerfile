@@ -1,4 +1,4 @@
-FROM nginx:1.21.1-alpine
+FROM nginx:alpine
 
 
 RUN rm /etc/nginx/conf.d/default.conf
@@ -9,4 +9,4 @@ COPY dist /usr/share/nginx/html
 
 EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
