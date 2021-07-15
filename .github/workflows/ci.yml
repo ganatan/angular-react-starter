@@ -22,36 +22,43 @@ jobs:
 #      - name: Test
 #        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
     
-  build:
-      runs-on: ubuntu-latest
-#      needs: [test]
-      steps:
-      - name: Git Clone
-        uses: actions/checkout@v2
-      - name: Cache node modules
-        uses: actions/cache@v1
+ build:
+    runs-on: ubuntu-latest
+#    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v2
+          node-version: 14.x
+      - name: Setup
+        run: npm i
+      - name: Build
+        run: npm run build
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
         with:
-          node-version: 12.x
+          name: dist
+          path: dist 
 
-      - name: Setup npm&build
-        run: |
-              npm install
-              npm run build -- --output-path=dist
-                   
-      - name: 'Build:dockerimage'
+ deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: dist 
+      - name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          cache-from: |
-            user/app:cache
-            type=local,src=path/to/dir
+          context: .
+          push: true    
