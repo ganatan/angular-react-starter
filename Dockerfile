@@ -1,13 +1,8 @@
-FROM node:alpine as builder
-
-WORKDIR /usr/src/app
-
-COPY . .
-
-RUN npm i @angular/cli --no-progress --loglevel=error
-RUN npm i --only=production --no-progress --loglevel=error
-
-RUN npm run build:app
+FROM node:16.4-alpine AS build
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
+RUN npm install
+RUN npm run build
 
 ### STAGE 2: Setup ###
 FROM nginx:alpine
@@ -16,6 +11,6 @@ COPY ./nginx.conf /etc/nginx/conf.d/
 RUN rm /etc/nginx/conf.d/default.conf
 RUN chown -R nginx:nginx /usr/share/nginx/html
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/angular-starter /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
 EXPOSE 8080
