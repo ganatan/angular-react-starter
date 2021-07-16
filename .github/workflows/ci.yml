@@ -77,7 +77,12 @@ jobs:
           push: true    
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      
+          
+      - name: Dump Time
+        env:
+          STEPS_CONTEXT: ${{ env.time }}
+        run: echo "time cleanup.sh"
+        
       - name: Send mail
         if: always()
         uses: dawidd6/action-send-mail@v2
@@ -87,12 +92,8 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} ${{ env.time }}
             to: 79002486911@yandex.ru
             from: angular-starter
   
-      - name: Dump Time
-        env:
-          STEPS_CONTEXT: ${{ env.time }}
-        run: echo "time cleanup.sh"
-       
+  
