@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Set Sec
-        id: sec
-        run: echo "::set-output name=sec::$(SECONDS=0)"
         
       - name: Git Clone
         uses: actions/checkout@v2
@@ -57,6 +54,9 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Set Sec
+        id: sec
+        run: echo "::set-output name=sec::$(SECONDS=0)"
       
       - name: Checkout
         uses: actions/checkout@v1
