@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Set Sec
+        id: sec
+        run: echo "::set-output name=sec::$(SECONDS=0)"
         
       - name: Git Clone
         uses: actions/checkout@v2
@@ -54,7 +57,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - run:  SECONDS=0
+      
       - name: Checkout
         uses: actions/checkout@v1
       - name: Download build
@@ -80,10 +83,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           
-      - name: Dump Time
-        env:
-          STEPS_CONTEXT: ${{ env.time }}
-        run: echo "Completed in $SECONDS seconds"
         
       - name: Send mail
         if: always()
@@ -94,7 +93,7 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} ${{ env.time }}
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} ${{steps.sec.outputs.sec}}
             to: 79002486911@yandex.ru
             from: angular-starter
   
