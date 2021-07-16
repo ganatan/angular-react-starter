@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-        
+      - run: |
+          echo "INS=INS-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
       - name: Git Clone
         uses: actions/checkout@v2
         
@@ -31,59 +32,43 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - uses: actions/checkout@v2
+      - name: Git Clone
+        uses: actions/checkout@v2
+        
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
+          
       - name: Setup and Build
         run: npm i
       - name: Build
         run: npm run build
-      - name: Archive build
-        if: success()
-        uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: dist 
-
- deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - name: Set Sec
-        id: sec
-        run: echo "::set-output name=sec::$(SECONDS=0)"
-      
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Download build
-        uses: actions/download-artifact@v1
-        with:
-          name: dist 
-      - name: Login to DockerHub
+        
+      - name: Login to Github
         uses: docker/login-action@v1 
         with:
             registry: ${{ env.REGISTRY }}
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
+            
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}     
       - name: Build and push Docker image
+      
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true    
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
-        
+      - run: |
+          echo "OUS=OUS-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
+      - run: |
+          echo "SUMS=SUMS-$(${{ env.INS }} + ${{ env.OUS }})" >> $GITHUB_ENV  
       - name: Send mail
         if: always()
         uses: dawidd6/action-send-mail@v2
@@ -92,9 +77,8 @@ jobs:
             server_port: 465
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
-            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }} ${{ env.SUMS }}
             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} ${{steps.sec.outputs.sec}}
             to: 79002486911@yandex.ru
             from: angular-starter
-  
   
