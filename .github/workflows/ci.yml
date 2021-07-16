@@ -81,7 +81,7 @@ jobs:
       - name: Dump Time
         env:
           STEPS_CONTEXT: ${{ env.time }}
-        run: echo "time cleanup.sh"
+        run: echo "time docker build ."
         
       - name: Send mail
         if: always()
