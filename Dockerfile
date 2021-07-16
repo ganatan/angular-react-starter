@@ -11,5 +11,5 @@ RUN touch /var/run/nginx.pid &&\
     chown -R nginx:nginx /var/log/nginx
      
 EXPOSE 8080
-
+USER nginx
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
