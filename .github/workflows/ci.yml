@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - run: |
-          echo "INS=INS-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
+          echo "INS=$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
       - name: Git Clone
         uses: actions/checkout@v2
         
@@ -66,7 +66,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       - run: |
-          echo "OUS=OUS-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
+          echo "OUS=$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
       - run: |
           echo "SUMS=SUMS-$(${{ env.INS }} + ${{ env.OUS }})" >> $GITHUB_ENV  
       - name: Send mail
