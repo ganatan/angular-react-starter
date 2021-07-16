@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: |
-          echo "INS=$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
+    
       - name: Git Clone
         uses: actions/checkout@v2
         
@@ -65,10 +64,7 @@ jobs:
           push: true    
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - run: |
-          echo "OUS=$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
-      - run: |
-          echo "SUMS=SUMS-$(${{ env.INS }} + ${{ env.OUS }})" >> $GITHUB_ENV  
+  
       - name: Send mail
         if: always()
         uses: dawidd6/action-send-mail@v2
@@ -78,7 +74,7 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }} ${{ env.SUMS }}
-            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} ${{steps.sec.outputs.sec}}
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
             to: 79002486911@yandex.ru
             from: angular-starter
   
