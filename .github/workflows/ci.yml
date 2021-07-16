@@ -93,6 +93,6 @@ jobs:
   
       - name: Dump Time
         env:
-          STEPS_CONTEXT: ${{ time }}
+          STEPS_CONTEXT: ${{ env.time }}
         run: echo "time cleanup.sh"
        
