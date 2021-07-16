@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+        
       - name: Git Clone
         uses: actions/checkout@v2
         
@@ -53,6 +54,7 @@ jobs:
       contents: read
       packages: write
     steps:
+      - run:  SECONDS=0
       - name: Checkout
         uses: actions/checkout@v1
       - name: Download build
@@ -81,7 +83,7 @@ jobs:
       - name: Dump Time
         env:
           STEPS_CONTEXT: ${{ env.time }}
-        run: echo "time docker build ."
+        run: echo "Completed in $SECONDS seconds"
         
       - name: Send mail
         if: always()
