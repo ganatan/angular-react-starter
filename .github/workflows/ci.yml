@@ -90,9 +90,9 @@ jobs:
             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
             to: 79002486911@yandex.ru
             from: angular-starter
-      - name: Time
-        shell: bash
-        run: time docker build . >> $GITHUB_ENV
-        if: always()
-        id: ex_time
+  
+      - name: Dump Time
+        env:
+          STEPS_CONTEXT: ${{ time }}
+        run: echo "time cleanup.sh"
        
