@@ -1,4 +1,4 @@
-# Angular 12 Example Starter
+# Angular 13 Example Starter
 
 <table>
 <tr>
@@ -8,7 +8,7 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Web Application with Angular 12**
+it's part of a repo series designed to create a **Web Application with Angular 13**
 
 
 * Featuring [**Angular 13.0.0**](https://github.com/angular/angular/releases) & [**Angular CLI 13.0.0**](https://github.com/angular/angular-cli/releases/)
