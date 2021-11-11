@@ -24,15 +24,6 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 Here is a working live demo :  https://angular-starter.ganatan.com
 
 
-<p align="center">
-  <p align="center">
-    <a href="https://angular-starter.ganatan.com">
-      <img src="img/demo-angular-example-starter-github.png" alt="Demo example"/>
-    </a>
-  </p>
-</p>
-
-
 # [Quick start](#quick-start)
 
 ```bash
