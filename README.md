@@ -56,7 +56,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 
 <p align="center">
   <a href="https://www.ganatan.com/tutorials/getting-started-with-angular">
-    <img src="img/angular-example-starter-github.png" alt="Demo example"/>
+    <img src="img/ganatan-angular-starter-github.png" alt="Demo example"/>
   </a>
 </p>
 
@@ -76,9 +76,6 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 
 ## Tests
 * `npm run test`
-
-## Tests prerequisites
-- ChromeDriver only supports Chrome version 89
 
 # [Author](#author)
 * Author  : danny
