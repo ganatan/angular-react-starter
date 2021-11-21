@@ -21,7 +21,7 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 </table>
 
 # [Live Demo](#live-demo)
-Here is a working live demo :  https://angular-starter.ganatan.com
+Here is a working live demo :  https://angular.ganatan.com
 
 
 # [Quick start](#quick-start)
