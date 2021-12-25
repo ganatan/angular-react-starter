@@ -23,6 +23,15 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 # [Live Demo](#live-demo)
 Here is a working live demo :  https://angular.ganatan.com
 
+<p align="center">
+  <p align="center">
+    <a href="https://angular.ganatan.com/">
+      <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular 13 Example 
+      Application"/>
+    </a>
+  </p>
+</p>
+
 
 # [Quick start](#quick-start)
 
