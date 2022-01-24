@@ -15,7 +15,7 @@ RUN apk add --no-cache --update \
     
 #Копируем конфиг nginx-а
     COPY ./nginx.conf /etc/nginx/nginx.conf 
-    COPY dist/angular-starter /usr/share/nginx/html
+    COPY ./angular-starter /usr/share/nginx/html
     
 #Выдаем права пользователя необходимым директориям
     RUN chown -R nginx:nginx /var/run \
