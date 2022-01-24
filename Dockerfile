@@ -14,24 +14,24 @@ RUN apk add --no-cache --update \
     /usr/share/nginx/html/*
     
 #Копируем конфиг nginx-а
-    RUN cp ./nginx.conf /etc/nginx/nginx.conf 
-#    COPY /angular-starter/* /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf 
+COPY angular-starter /usr/share/nginx/html
     
 #Выдаем права пользователя необходимым директориям
-    RUN chown -R nginx:nginx /var/run \
+RUN chown -R nginx:nginx /var/run \
     && chown -R nginx:nginx /var/lib \
     && chown -R nginx:nginx /var/log/nginx \
     && chown -R nginx:nginx /etc/nginx/conf.d \
     && chown -R nginx:nginx /usr/share/nginx/html
     
 #Переключаемся на нашего пользователя
-    USER nginx
+USER nginx
     
 #Порт, который принимает подключения
-    EXPOSE 8080
+EXPOSE 8080
     
 #Точка входа. Команда, выполняемая при старте контейнера
-    ENTRYPOINT ["/sbin/tini", "--", "nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/sbin/tini", "--", "nginx", "-g", "daemon off;"]
 
 #Проверка nginx на работоспособность
     HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
