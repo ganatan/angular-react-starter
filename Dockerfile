@@ -6,8 +6,6 @@ RUN apk add --no-cache --update \
     nginx \
 #curl проверка состояния контейнера
     curl \
-#tzdata поддержка часовых поясов 
-    tzdata \
 #tini управление процессами
     tini \
 #supervisor Запуск процессов под управлением одного процесса
