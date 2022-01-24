@@ -1,0 +1,30 @@
+#Устанавливаем образ akpine версии 3.15.0
+FROM alpine:3.15.0
+#Устанавливаем необходимые пакеты (--no-cache не кешировать установочники. --update обновить список и версии пакетов)
+RUN apk add --no-cache --update \
+    nginx \
+#curl проверка состояния контейнера
+	curl \
+#tzdata поддержка часовых поясов 
+	tzdata \
+#tini управление процессами
+    tini \
+#supervisor Запуск процессов под управлением одного процесса
+	supervisor \
+#Логи
+    logrotate \
+#Облегченный крон
+    dcron \
+#Запуск крона пользователями без админки
+    libcap \
+#chown назначаем владельца файла. Разрешаем запускать файл crond пользователям с использованием рут прав, изменив setid
+    && chown nobody:nobody /usr/sbin/crond \
+    && setcap cap_setgid=ep /usr/sbin/crond \
+#Создать каталог под логи
+	&& mkdir -p /logs \
+#Удалить все дефолтные конфиги, логи, кэши и т.д.
+	&& rm -rf /tmp/* \
+    /var/{cache,log}/* \
+    /etc/logrotate.d \
+    /etc/crontabs/* \
+    /etc/periodic/daily/logrotate
