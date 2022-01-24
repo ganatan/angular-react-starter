@@ -21,9 +21,9 @@ RUN apk add --no-cache --update \
     && chown nobody:nobody /usr/sbin/crond \
     && setcap cap_setgid=ep /usr/sbin/crond \
 #Создать каталог под логи
-	&& mkdir -p /logs \
+    && mkdir -p /logs \
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
-	&& rm -rf /tmp/* \
+    && rm -rf /tmp/* \
     /var/{cache,log}/* \
     /etc/logrotate.d \
     /etc/crontabs/* \
