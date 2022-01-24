@@ -17,8 +17,8 @@ RUN apk add --no-cache --update \
     dcron \
 #Запуск крона пользователями без админки
     libcap \
-#chown назначаем владельца файла. Разрешаем запускать файл crond пользователям с использованием рут прав, изменив setid
-    && chown nobody:nobody /usr/sbin/crond \
+#chown назначаем пользователя владельцем файла. Разрешаем запускать файл crond пользователям с использованием рут прав, изменив setid
+    && chown myuser:myuser /usr/sbin/crond \
     && setcap cap_setgid=ep /usr/sbin/crond \
 #Создать каталог под логи
     && mkdir -p /logs \
@@ -30,3 +30,9 @@ RUN apk add --no-cache --update \
     /etc/periodic/daily/logrotate
 #Копируем содержимое roots в корень образа
     COPY roots /
+#Выдаем права пользователя необходимым директориям
+    RUN chown -R myuser:myuser /logs \
+    && chown -R myuser:myuser /run \
+    && chown -R myuser:myuser /var/lib \
+    && chown -R myuser:myuser /var/log/nginx \
+    && chown -R nobody:nobody /etc/crontabs 
