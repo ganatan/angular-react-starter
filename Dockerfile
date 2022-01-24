@@ -31,7 +31,7 @@ RUN apk add --no-cache --update \
     EXPOSE 8080
     
 #Точка входа. Команда, выполняемая при старте контейнера
-    ENTRYPOINT ["/sbin/tini", "--"]
+    ENTRYPOINT ["/sbin/tini", "--", "nginx", "-g", "daemon off;"]
 
 #Проверка nginx на работоспособность
     HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
