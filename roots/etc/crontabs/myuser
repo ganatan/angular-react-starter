@@ -1,1 +1,2 @@
-
+#Ежедневно в 12:00 запускать службу 
+0 12 * * *    /usr/sbin/logrotate -v /etc/logrotate.conf
