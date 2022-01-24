@@ -1,7 +1,6 @@
 name: 'test my project'
 on:
   push:
-  pull-request:
 jobs:
   test-job:
     runs-on: ubuntu-16.04
