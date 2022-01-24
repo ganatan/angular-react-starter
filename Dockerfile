@@ -4,13 +4,13 @@ FROM alpine:3.15.0
 RUN apk add --no-cache --update \
     nginx \
 #curl проверка состояния контейнера
-	curl \
+    curl \
 #tzdata поддержка часовых поясов 
-	tzdata \
+    tzdata \
 #tini управление процессами
     tini \
 #supervisor Запуск процессов под управлением одного процесса
-	supervisor \
+    supervisor \
 #Логи
     logrotate \
 #Облегченный крон
