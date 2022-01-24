@@ -18,7 +18,7 @@ RUN apk add --no-cache --update \
     COPY dist/angular-starter /usr/share/nginx/html
     
 #Выдаем права пользователя необходимым директориям
-    RUN chown -R nginx:nginx /run \
+    RUN chown -R nginx:nginx /var/run \
     && chown -R nginx:nginx /var/lib \
     && chown -R nginx:nginx /var/log/nginx \
     && chown -R nginx:nginx /etc/nginx/conf.d \
