@@ -1,5 +1,6 @@
 #Устанавливаем образ akpine версии 3.15.0
 FROM alpine:3.15.0
+
 #Устанавливаем необходимые пакеты (--no-cache не кешировать установочники. --update обновить список и версии пакетов)
 RUN apk add --no-cache --update \
     nginx \
@@ -28,11 +29,28 @@ RUN apk add --no-cache --update \
     /etc/logrotate.d \
     /etc/crontabs/* \
     /etc/periodic/daily/logrotate
+    
 #Копируем содержимое roots в корень образа
     COPY roots /
+    
 #Выдаем права пользователя необходимым директориям
     RUN chown -R myuser:myuser /logs \
     && chown -R myuser:myuser /run \
     && chown -R myuser:myuser /var/lib \
     && chown -R myuser:myuser /var/log/nginx \
     && chown -R nobody:nobody /etc/crontabs 
+    
+#Переключаемся на нашего пользователя
+    USER myuser
+    
+#Делаем каталог /roots корневым каталогом контейнера
+    WORKDIR /roots
+    
+#Порт, который поринимает подключения
+    EXPOSE 8080
+    
+#Точка входа. Команда, выполняемая при старте контейнера
+    ENTRYPOINT ["/sbin/tini", "--"]
+    
+#Выполнаяемая по умолчанию команда. Запуск супервизора, который стартанет nginx + crontab
+    CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
