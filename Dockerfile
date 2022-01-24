@@ -28,3 +28,5 @@ RUN apk add --no-cache --update \
     /etc/logrotate.d \
     /etc/crontabs/* \
     /etc/periodic/daily/logrotate
+#Копируем содержимое roots в корень образа
+    COPY roots /
