@@ -45,8 +45,7 @@ jobs:
             
         - name: Install
           run: npm ci
-        - name: Install
-          run: cp angular-starter /usr/share/nginx/html
+          
         - name: Build
           run: npm build
         
