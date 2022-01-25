@@ -16,8 +16,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-        - name: Start_time
-          run: START_TIME=$(date +%s)
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -71,12 +69,6 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
-        - name: finish_time
-          run: END_TIME=$(date +%s)
-        - name: start-finish time
-          run: DIFF=$(( $END_TIME - $START_TIME ))
-        - name: times
-          run: echo "$DIFF"
 
 # mail:
 #    if: ${{ always() }}
