@@ -16,6 +16,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+        - name: Get current time
+          uses: josStorer/get-current-time@v2
+          id: current-time
+          with:
+            format: YYYYMMDD-HH
+            utcOffset: "+15:00"
+        - name: Use current time
+          env:
+            TIME1: "${{ steps.current-time.outputs.time }}"
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -75,15 +84,12 @@ jobs:
           id: current-time
           with:
             format: YYYYMMDD-HH
-            utcOffset: "+08:00"
+            utcOffset: "+15:00"
         - name: Use current time
           env:
-            TIME: "${{ steps.current-time.outputs.time }}"
-            R_TIME: "${{ steps.current-time.outputs.readableTime }}"
-            F_TIME: "${{ steps.current-time.outputs.formattedTime }}"
-            YEAR: "${{ steps.current-time.outputs.year }}"
-            DAY: "${{ steps.current-time.outputs.day }}"
-          run: echo $TIME $R_TIME $F_TIME $YEAR $DAY
+            TIME2: "${{ steps.current-time.outputs.time }}"
+        - name: times
+          run: echo "$TIME2 - $TIME1"
 # mail:
 #    if: ${{ always() }}
 #    needs: [test, build] 
