@@ -34,10 +34,10 @@ jobs:
         - name: Run Test
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
           
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
+#  build:
+#    needs: test
+#    runs-on: ubuntu-latest
+#    steps:
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
