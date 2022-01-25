@@ -14,7 +14,6 @@ env:
 # выполняемые действия
 jobs:
   test:
-    needs: [mail]
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
@@ -34,7 +33,7 @@ jobs:
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
           
   build:
-    needs: [test, mail]
+    needs: test
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
