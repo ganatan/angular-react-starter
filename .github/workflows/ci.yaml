@@ -16,6 +16,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+        - name: timer start
+          run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_EN1
+          
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -69,26 +72,33 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
-  mail:
-    if: ${{ always() }}
-    needs: [test, build] 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup-node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
+            
+        - name: timer finish
+          run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_EN2
           
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.mail.ru
-          server_port: 465
-          username:  ${{secrets.EMAIL_USER}}
-          password: ${{secrets.EMAIL_PASSWORD}}
-          subject: Github pipeline
-          to: gats1995@mail.ru
-          from: GitHubTest
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+        - name: timer
+          run: echo "$GITHUB_EN1 - $GITHUB_EN2" >> $GITHUB_ENV
+        
+# mail:
+#    if: ${{ always() }}
+#    needs: [test, build] 
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Setup-node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 14.x
+#          
+#      - name: Send mail
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          server_address: smtp.mail.ru
+#          server_port: 465
+#          username:  ${{secrets.EMAIL_USER}}
+#          password: ${{secrets.EMAIL_PASSWORD}}
+#          subject: Github pipeline
+#          to: gats1995@mail.ru
+#          from: GitHubTest
+#          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
