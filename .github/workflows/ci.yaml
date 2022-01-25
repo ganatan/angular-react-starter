@@ -38,12 +38,12 @@ jobs:
 #    needs: test
 #    runs-on: ubuntu-latest
 #    steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Setup-node
-          uses: actions/setup-node@v1
-          with:
-            node-version: 14.x
+#        - name: Checkout
+#          uses: actions/checkout@v2
+#        - name: Setup-node
+#          uses: actions/setup-node@v1
+#          with:
+#            node-version: 14.x
             
         - name: Install
           run: npm ci
@@ -74,7 +74,7 @@ jobs:
         - name: finish_time
           run: END_TIME=$(date +%s)
         - name: start-finish time
-          run: DIFF=$(( $END_TIME -$START_TIME ))
+          run: DIFF=$(( $END_TIME - $START_TIME ))
         - name: times
           run: echo "$DIFF"
 
