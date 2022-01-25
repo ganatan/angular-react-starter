@@ -25,6 +25,7 @@ jobs:
         - name: Use current time
           env:
             TIME1: "${{ steps.current-time.outputs.time }}"
+          run: echo $TIME1
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -88,6 +89,7 @@ jobs:
         - name: Use current time
           env:
             TIME2: "${{ steps.current-time.outputs.time }}"
+          run: echo $TIME2
         - name: times
           run: echo "$TIME2 - $TIME1"
 # mail:
