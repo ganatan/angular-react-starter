@@ -11,8 +11,7 @@ RUN apk add --no-cache --update \
     && mkdir -p /usr/share/nginx/html \
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
-    /var/{cache,log}/* \
-    /usr/share/nginx/html/*
+    /var/{cache,log}/* 
      
 #Копируем конфиг nginx-а
 COPY nginx.conf /etc/nginx/nginx.conf 
