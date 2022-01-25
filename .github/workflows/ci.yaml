@@ -16,16 +16,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-        - name: Get current time
-          uses: josStorer/get-current-time@v2
-          id: current-time
-          with:
-            format: YYYYMMDD-HH
-            utcOffset: "+15:00"
-        - name: Use current time
-          env:
-            TIME1: "${{ steps.current-time.outputs.time }}"
-          run: echo $TIME1
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -79,19 +69,7 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
-            
-        - name: Get current time
-          uses: josStorer/get-current-time@v2
-          id: current-time
-          with:
-            format: YYYYMMDD-HH
-            utcOffset: "+15:00"
-        - name: Use current time
-          env:
-            TIME2: "${{ steps.current-time.outputs.time }}"
-          run: echo $TIME2
-        - name: times
-          run: echo "$TIME2 - $TIME1"
+
 # mail:
 #    if: ${{ always() }}
 #    needs: [test, build] 
