@@ -1,85 +1,67 @@
 # название
-##name: Project test & build
+name: Project test 
 
 # целевые события для запуска
 # в данном случае это push и pull_request, в ветку master
-##on:
-##  push:
-##    branches: [ master ]
-##  pull_request:
-##    branches: [ master ]
-##
-# выполняемые действия
-##jobs:
-##  build-and-deploy:
-##    runs-on: ubuntu-latest
-    
-    # запускаются по шагам
-    # name - название шага
-    # в github actions будет выводиться название шага, и процессы
-##    steps:
-##      - name: Checkout 🛎️
-##        uses: actions/checkout@v2.3.1
-##        with:
-##          persist-credentials: false
-
-##      - name: Install 🔧
-##        run: npm install
-
-##      - name: Run Test 🔨
-##        run: npm run test
-
-##      - name: Build 👷
-##        run: npm run build
-
-##      - name: Deploy 🚀
-##        uses: JamesIves/github-pages-deploy-action@3.7.1
-##        with:
-          # в значение GITHUB_TOKEN помещается ссылка на ваш секрет в репозитории
-##          GITHUB_TOKEN: ${{ secrets.student }}
-##          BRANCH: gh-pages
-##          FOLDER: public
-##          CLEAN: true
-
-
-name: Create and publish a Docker image
-
 on:
   push:
-    branches: ['release']
-
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
+  IMAGE_NAME: ${{ github.repository }}    
+# выполняемые действия
 jobs:
-  build-and-push-image:
+  test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+        - name: Checkout
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 14.x
+      
+        - name: Install
+          run: npm ci
 
-      - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+#        - name: Build
+#          run: npm run build --if-present
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        - name: Run Test
+          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+          
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 14.x
+            
+        - name: Install and build
+        - run: npm ci
+        - run: npm build
+        
+        - name: Log in to the Container registry
+          uses: docker/login-action@v1
+          with:
+            registry: ${{ env.REGISTRY }}
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+            
+        - name: Extract metadata (tags, labels) for Docker
+          id: meta
+          uses: docker/metadata-action@v1
+          with:
+            images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v2
+          with:
+            context: .
+            push: true
+            tags: ${{ steps.meta.outputs.tags }}
+            labels: ${{ steps.meta.outputs.labels }}
