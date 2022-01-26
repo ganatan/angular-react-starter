@@ -1,4 +1,3 @@
-#Закоментировано 
 name: Project test 
 on:
   push:
@@ -55,18 +54,18 @@ jobs:
             labels: ${{ steps.meta.outputs.labels }}  
         - id: stop_time
           run: echo "::set-output name=test::date"
-#          
-#  time:
-#    needs: test
-#    runs-on: ubuntu-latest
-#    steps:
+          
+  time:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
         - name: time
           run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
-#  mail:
-#    if: ${{ always() }}
-#    needs: [test, time]
-#    runs-on: ubuntu-latest
-#    steps:
+  mail:
+    if: ${{ always() }}
+    needs: [test, time]
+    runs-on: ubuntu-latest
+    steps:
 #        - name: Checkout
 #          uses: actions/checkout@v2
 #        - name: Setup-node
