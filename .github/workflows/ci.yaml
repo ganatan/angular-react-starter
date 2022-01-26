@@ -77,7 +77,7 @@ jobs:
         - id: stop_time
           run: echo "::set-output name=test::date"
         - name: time
-          run: echo ${{outputs.output1}} ${{outputs.output2}}
+          run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
