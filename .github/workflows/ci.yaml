@@ -46,7 +46,7 @@ jobs:
 #        - name: Install
 #          run: npm ci
           
-#        - name: Build
+        - name: Build
           run: npm build
         
         - name: Log in to the Container registry
