@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}    
 jobs:
   test:
-    runs-on: ubuntu-18x
+    runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.start_time.outputs.test }}
       output2: ${{ steps.stop_time.outputs.test }}
