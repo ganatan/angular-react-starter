@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: time
-          run: echo ${{need.test.outputs.output1}} ${{need.test.outputs.output2}}
+          run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
