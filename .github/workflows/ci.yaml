@@ -16,10 +16,10 @@ jobs:
   test:
     runs-on: ubuntu-lates
     outputs:
-      output1: ${{ steps.start_time.outputs.test }}
-      output2: ${{ steps.stop_time.outputs.test }}
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}
     steps:
-        - id: start_time
+        - id: step1
           run: echo "::set-output name=test::date"
         - name: Checkout
           uses: actions/checkout@v2
@@ -74,7 +74,7 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
-        - id: stop_time
+        - id: step2
           run: echo "::set-output name=test::date"
           
   time:
