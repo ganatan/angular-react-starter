@@ -15,12 +15,12 @@ env:
 jobs:
   test:
     runs-on: ubuntu-lates
-#    outputs:
-#      output1: ${{ steps.step1.outputs.test }}
-#      output2: ${{ steps.step2.outputs.test }}
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}
     steps:
-        - id: step1
-          run: echo "::set-output name=test::date"
+#        - id: step1
+#          run: echo "::set-output name=test::date"
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -74,15 +74,15 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
-        - id: step2
-          run: echo "::set-output name=test::date"
+#        - id: step2
+#          run: echo "::set-output name=test::date"
           
-  time:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-        - name: time
-          run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
+ # time:
+ #   needs: test
+ #   runs-on: ubuntu-latest
+ #   steps:
+ #       - name: time
+ #         run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
