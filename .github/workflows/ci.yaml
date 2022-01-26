@@ -70,12 +70,6 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
 
-        - name: time
-          with:
-              username: ${{ github.actor }}
-              password: ${{ secrets.GITHUB_TOKEN }}
-              run: gh run view --job test --log | grep time
-
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
