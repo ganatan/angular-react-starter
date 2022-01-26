@@ -14,8 +14,14 @@ env:
 # выполняемые действия
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
+    outputs:
+      output1: ${{ steps.start_time.outputs.test }}
+      output2: ${{ steps.stop_time.outputs.test }}
+      output3: ${{ steps.time.outputs.test }}
     steps:
+        - id: start_time
+          run: echo "::set-output name=test::START_TIME=$(date +%s)"
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -69,9 +75,12 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
+        - id: stop_time
+          run: echo "::set-output name=test::END_TIME=$(date +%s)"
+        - id: time
+          run: echo "::set-output name=test::DIFF=$(( $END_TIME - $START_TIME ))"
         - name: time
-          run: echo ${{jobs.test.run.time}}
-
+          run: echo ${{outputs.output1}} ${{outputs.output2}} ${{outputs.output3}}
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
