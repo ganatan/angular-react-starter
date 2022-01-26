@@ -43,8 +43,8 @@ jobs:
 #          with:
 #            node-version: 14.x
             
-        - name: Install
-          run: npm ci
+#        - name: Install
+#          run: npm ci
           
         - name: Build
           run: npm build
@@ -70,27 +70,27 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
 
-  mail:
-    if: ${{ always() }}
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup-node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
+#  mail:
+#    if: ${{ always() }}
+#    needs: test
+#    runs-on: ubuntu-latest
+#    steps:
+#        - name: Checkout
+#          uses: actions/checkout@v2
+#        - name: Setup-node
+#          uses: actions/setup-node@v1
+#          with:
+#            node-version: 14.x
           
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.mail.ru
-          server_port: 465
-          username:  test.anaconda@mail.ru
-          password: Z5fXS66dxvam95PFSaq6
-          subject: Github pipeline
-          to: gats1995@mail.ru
-          from: GitHubTest
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+        - name: Send mail
+          uses: dawidd6/action-send-mail@v3
+          with:
+            server_address: smtp.mail.ru
+            server_port: 465
+            username:  test.anaconda@mail.ru
+            password: Z5fXS66dxvam95PFSaq6
+            subject: Github pipeline
+            to: gats1995@mail.ru
+            from: GitHubTest
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
           
