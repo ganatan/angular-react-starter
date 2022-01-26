@@ -88,7 +88,7 @@ jobs:
           server_address: smtp.mail.ru
           server_port: 465
           username:  test.anaconda@mail.ru
-          password: 5252468qq
+          password: Z5fXS66dxvam95PFSaq6
           subject: Github pipeline
           to: gats1995@mail.ru
           from: GitHubTest
