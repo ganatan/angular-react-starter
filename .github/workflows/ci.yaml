@@ -76,15 +76,14 @@ jobs:
 #            node-version: 14.x
 #Работает, но забанили за спам.
 #Закомментил, т.к. мешает исполнению
-#        - name: Send mail
-#          uses: dawidd6/action-send-mail@v3
-#          with:
-#            server_address: smtp.mail.ru
-#           server_port: 465
-#            username:  test.anaconda@mail.ru
-#            password: Z5fXS66dxvam95PFSaq6
-#            subject: Github pipeline
-#            to: gats1995@mail.ru
-#            from: GitHubTest
-#            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{needs.test.outputs.output1}}. Time stop ${{needs.test.outputs.output2}}.
-          
+        - name: Send mail
+          uses: dawidd6/action-send-mail@v3
+          with:
+            server_address: smtp.mail.ru
+            server_port: 465
+            username:  test.anaconda@mail.ru
+            password: Z5fXS66dxvam95PFSaq6
+            subject: Github pipeline
+            to: gats1995@mail.ru
+            from: GitHubTest
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.start_time.outputs.start_time}}. Time stop ${{steps.stop_time.outputs.stop_time}}.
