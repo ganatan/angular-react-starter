@@ -76,8 +76,13 @@ jobs:
             labels: ${{ steps.meta.outputs.labels }}  
         - id: stop_time
           run: echo "::set-output name=test::date"
+          
+  time:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
         - name: time
-          run: echo ${{test.outputs.output1}} ${{test.outputs.output2}}
+          run: echo ${{need.test.outputs.output1}} ${{need.test.outputs.output2}}
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
