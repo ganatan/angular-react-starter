@@ -15,9 +15,9 @@ env:
 jobs:
   test:
     runs-on: ubuntu-lates
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step2.outputs.test }}
+#    outputs:
+#      output1: ${{ steps.step1.outputs.test }}
+#      output2: ${{ steps.step2.outputs.test }}
     steps:
         - id: step1
           run: echo "::set-output name=test::date"
