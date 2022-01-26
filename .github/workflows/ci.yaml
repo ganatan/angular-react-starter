@@ -71,7 +71,7 @@ jobs:
             labels: ${{ steps.meta.outputs.labels }}  
 
         - name: time
-          run: run view --job test --log | grep time
+          run: gh run view --job test --log | grep time
 
 #  mail:
 #    if: ${{ always() }}
