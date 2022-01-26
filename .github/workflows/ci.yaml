@@ -10,12 +10,13 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.start_time.outputs.test }}
-      output2: ${{ steps.stop_time.outputs.test }}
+#    outputs:
+#      output1: ${{ steps.start_time.outputs.test }}
+#      output2: ${{ steps.stop_time.outputs.test }}
     steps:
         - id: start_time
-          run: echo "::set-output name=test::date"
+          shell: bash
+          run: echo "::set-output name=start_time::$(date)"
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -53,19 +54,20 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
         - id: stop_time
-          run: echo "::set-output name=test::date"
+          shell: bash
+          run: echo "::set-output name=stop_time::$(date)"
           
-  time:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
+#  time:
+#    needs: test
+#    runs-on: ubuntu-latest
+#    steps:
         - name: time
-          run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
-  mail:
-    if: ${{ always() }}
-    needs: [test, time]
-    runs-on: ubuntu-latest
-    steps:
+          run: echo ${{steps.start_time.outputs.start_time}} ${{steps.stop_time.outputs.stop_time}}
+#  mail:
+#    if: ${{ always() }}
+#    needs: [test, time]
+#    runs-on: ubuntu-latest
+#    steps:
 #        - name: Checkout
 #          uses: actions/checkout@v2
 #        - name: Setup-node
@@ -74,15 +76,15 @@ jobs:
 #            node-version: 14.x
 #Работает, но забанили за спам.
 #Закомментил, т.к. мешает исполнению
-        - name: Send mail
-          uses: dawidd6/action-send-mail@v3
-          with:
-            server_address: smtp.mail.ru
-            server_port: 465
-            username:  test.anaconda@mail.ru
-            password: Z5fXS66dxvam95PFSaq6
-            subject: Github pipeline
-            to: gats1995@mail.ru
-            from: GitHubTest
-            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{needs.test.outputs.output1}}. Time stop ${{needs.test.outputs.output2}}.
+#        - name: Send mail
+#          uses: dawidd6/action-send-mail@v3
+#          with:
+#            server_address: smtp.mail.ru
+#           server_port: 465
+#            username:  test.anaconda@mail.ru
+#            password: Z5fXS66dxvam95PFSaq6
+#            subject: Github pipeline
+#            to: gats1995@mail.ru
+#            from: GitHubTest
+#            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{needs.test.outputs.output1}}. Time stop ${{needs.test.outputs.output2}}.
           
