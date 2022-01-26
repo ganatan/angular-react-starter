@@ -1,8 +1,5 @@
-# название
+#Закоментировано 
 name: Project test 
-
-# целевые события для запуска
-# в данном случае это push и pull_request, в ветку master
 on:
   push:
     branches: [ master ]
@@ -11,16 +8,15 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}    
-# выполняемые действия
 jobs:
   test:
     runs-on: ubuntu-lates
-#    outputs:
-#      output1: ${{ steps.start_time.outputs.test }}
-#      output2: ${{ steps.stop_time.outputs.test }}
+    outputs:
+      output1: ${{ steps.start_time.outputs.test }}
+      output2: ${{ steps.stop_time.outputs.test }}
     steps:
-#        - id: start_time
-#          run: echo "::set-output name=test::date"
+        - id: start_time
+          run: echo "::set-output name=test::date"
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -31,26 +27,9 @@ jobs:
         - name: Install
           run: npm ci
 
-#        - name: Build
-#          run: npm run build --if-present
-
         - name: Run Test
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-          
-#  build:
-#    needs: test
-#    runs-on: ubuntu-latest
-#    steps:
-#        - name: Checkout
-#          uses: actions/checkout@v2
-#        - name: Setup-node
-#          uses: actions/setup-node@v1
-#          with:
-#            node-version: 14.x
-            
-#        - name: Install
-#          run: npm ci
-          
+
         - name: Build
           run: npm build
         
@@ -74,18 +53,18 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
-#        - id: stop_time
-#          run: echo "::set-output name=test::date"
+        - id: stop_time
+          run: echo "::set-output name=test::date"
 #          
 #  time:
 #    needs: test
 #    runs-on: ubuntu-latest
 #    steps:
-#        - name: time
-#          run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
+        - name: time
+          run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
 #  mail:
 #    if: ${{ always() }}
-#    needs: test
+#    needs: [test, time]
 #    runs-on: ubuntu-latest
 #    steps:
 #        - name: Checkout
@@ -96,15 +75,15 @@ jobs:
 #            node-version: 14.x
 #Работает, но забанили за спам.
 #Закомментил, т.к. мешает исполнению
-#        - name: Send mail
-#          uses: dawidd6/action-send-mail@v3
-#          with:
-#            server_address: smtp.mail.ru
-#            server_port: 465
-#            username:  test.anaconda@mail.ru
-#            password: Z5fXS66dxvam95PFSaq6
-#            subject: Github pipeline
-#            to: gats1995@mail.ru
-#            from: GitHubTest
-#            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{needs.test.outputs.output1}}. Time stop ${{needs.test.outputs.output2}}.
+        - name: Send mail
+          uses: dawidd6/action-send-mail@v3
+          with:
+            server_address: smtp.mail.ru
+            server_port: 465
+            username:  test.anaconda@mail.ru
+            password: Z5fXS66dxvam95PFSaq6
+            subject: Github pipeline
+            to: gats1995@mail.ru
+            from: GitHubTest
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{needs.test.outputs.output1}}. Time stop ${{needs.test.outputs.output2}}.
           
