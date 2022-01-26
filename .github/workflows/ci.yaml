@@ -18,10 +18,9 @@ jobs:
     outputs:
       output1: ${{ steps.start_time.outputs.test }}
       output2: ${{ steps.stop_time.outputs.test }}
-      output3: ${{ steps.time.outputs.test }}
     steps:
         - id: start_time
-          run: echo "::set-output name=test::START_TIME=$(date +%s)"
+          run: echo "::set-output name=test::date"
         - name: Checkout
           uses: actions/checkout@v2
         - name: Setup-node
@@ -76,11 +75,9 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
         - id: stop_time
-          run: echo "::set-output name=test::END_TIME=$(date +%s)"
-        - id: time
-          run: echo "::set-output name=test::DIFF=$(( $END_TIME - $START_TIME ))"
+          run: echo "::set-output name=test::date"
         - name: time
-          run: echo ${{outputs.output1}} ${{outputs.output2}} ${{outputs.output3}}
+          run: echo ${{outputs.output1}} ${{outputs.output2}}
 #  mail:
 #    if: ${{ always() }}
 #    needs: test
