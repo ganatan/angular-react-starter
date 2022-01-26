@@ -69,6 +69,8 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
+        - name: time
+          run: echo $ {{test.run.time}}
 
 #  mail:
 #    if: ${{ always() }}
