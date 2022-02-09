@@ -18,11 +18,11 @@ jobs:
           shell: bash
           run: echo "::set-output name=start_time::$(date)"
         - name: Checkout
-          uses: actions/checkout@latest
+          uses: actions/checkout@v2.4
         - name: Setup-node
-          uses: actions/setup-node@v1
+          uses: actions/setup-node@v2.5.1
           with:
-            node-version: 14.x
+            node-version: 16.x
       
         - name: Install
           run: npm ci
@@ -34,11 +34,11 @@ jobs:
           run: npm build
         
         - name: Log in to the Container registry
-          uses: docker/login-action@v1
+          uses: docker/login-action@v1.12.0
           with:
             registry: ${{ env.REGISTRY }}
             username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
+            password: ${{ secrets.student }}
             
         - name: Extract metadata (tags, labels) for Docker
           id: meta
