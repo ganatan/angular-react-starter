@@ -33,16 +33,16 @@ jobs:
         - name: Build
           run: npm build
         
-        - name: Log in to the Container registry
-          uses: docker/login-action@v1.12.0
-          with:
-            registry: ${{ env.REGISTRY }}
-            username: ${{ github.barsikkk }}
-            password: ${{ secrets.student }}
+#        - name: Log in to the Container registry
+#          uses: docker/login-action@v1.12.0
+#          with:
+#            registry: ${{ env.REGISTRY }}
+#            username: ${{ github.barsikkk }}
+#            password: ${{ secrets.student }}
             
         - name: Extract metadata (tags, labels) for Docker
           id: meta
-          uses: docker/metadata-action@v1
+          uses: docker/metadata-action@v3
           with:
             images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
