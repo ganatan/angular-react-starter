@@ -18,9 +18,9 @@ jobs:
           shell: bash
           run: echo "::set-output name=start_time::$(date)"
         - name: Checkout
-          uses: actions/checkout@v2.4
+          uses: actions/checkout@v2.x
         - name: Setup-node
-          uses: actions/setup-node@v2.5.1
+          uses: actions/setup-node@v2.5.x
           with:
             node-version: 16.x
       
