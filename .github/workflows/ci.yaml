@@ -1,12 +1,12 @@
 name: Project test 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}    
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+#env:
+#  REGISTRY: ghcr.io
+#  IMAGE_NAME: ${{ github.repository }}    
 jobs:
   test:
     runs-on: ubuntu-latest
