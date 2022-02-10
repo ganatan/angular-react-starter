@@ -29,17 +29,13 @@ jobs:
 
         - name: Run Test
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-
+          
+        - name: test localhost
+          run: curl localhost:80
+          
         - name: Build
           run: npm build
-        
-        - name: Deploy
-          uses: JamesIves/github-pages-deploy-action@v4.2.3
-          with:
-            branch: gh-pages
-            folder: site
-            ssh-key: ${{ secrets.student }}
-        
+
         - name: Log in to the Container registry
           uses: docker/login-action@v1.12.0
           with:
