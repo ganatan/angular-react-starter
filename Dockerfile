@@ -11,7 +11,7 @@ RUN apk add --no-cache --update \
     && mkdir -p /usr/share/nginx/html \
     mkdir -p /usr/share/nginx/html/src \
     mkdir -p /usr/share/nginx/html/img \
-    mkdir -p /usr/share/nginx/html/.vscode
+    mkdir -p /usr/share/nginx/html/.vscode \
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
     /var/{cache,log}/* 
