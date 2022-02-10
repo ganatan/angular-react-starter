@@ -15,8 +15,14 @@ RUN apk add --no-cache --update \
      
 #Копируем конфиг nginx-а
 COPY nginx.conf /etc/nginx/nginx.conf 
-COPY . ./usr/share/nginx/html
-    
+#COPY . ./usr/share/nginx/html
+COPY *.json /usr/share/nginx/html
+COPY *.js /usr/share/nginx/html
+COPY /src /usr/share/nginx/html
+COPY /img /usr/share/nginx/html
+COPY /.vscode /usr/share/nginx/html
+
+
 #Выдаем права пользователя необходимым директориям
 RUN chown -R nginx:nginx /var/run \
     && chown -R nginx:nginx /var/lib \
