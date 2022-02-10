@@ -9,6 +9,9 @@ RUN apk add --no-cache --update \
 #tini управление процессами
     tini \
     && mkdir -p /usr/share/nginx/html \
+    mkdir -p /usr/share/nginx/html/src \
+    mkdir -p /usr/share/nginx/html/img \
+    mkdir -p /usr/share/nginx/html/.vscode
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
     /var/{cache,log}/* 
@@ -16,11 +19,11 @@ RUN apk add --no-cache --update \
 #Копируем конфиг nginx-а
 COPY nginx.conf /etc/nginx/nginx.conf 
 #COPY . ./usr/share/nginx/html
-COPY *.json /usr/share/nginx/html
-COPY *.js /usr/share/nginx/html
-COPY /src /usr/share/nginx/html
-COPY /img /usr/share/nginx/html
-COPY /.vscode /usr/share/nginx/html
+COPY *.json /usr/share/nginx/html/
+COPY *.js /usr/share/nginx/html/
+COPY src /usr/share/nginx/html/src/
+COPY img /usr/share/nginx/html/img/
+COPY .vscode /usr/share/nginx/html/.vscode/
 
 
 #Выдаем права пользователя необходимым директориям
