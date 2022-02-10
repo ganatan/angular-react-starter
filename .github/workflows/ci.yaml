@@ -29,10 +29,7 @@ jobs:
 
         - name: Run Test
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-          
-        - name: test localhost
-          run: curl localhost:80
-          
+
         - name: Build
           run: npm build
 
@@ -56,6 +53,10 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
+          
+        - name: test localhost
+          run: curl localhost:80
+          
         - id: stop_time
           shell: bash
           run: echo "::set-output name=stop_time::$(date)"
