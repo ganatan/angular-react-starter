@@ -34,7 +34,7 @@ jobs:
           run: npm build
         
         - name: Deploy 🚀
-          uses: JamesIves/github-pages-deploy-action@4
+          uses: JamesIves/github-pages-deploy-action@3.7.1
           with:
           # в значение GITHUB_TOKEN помещается ссылка на ваш секрет в репозитории
             GITHUB_TOKEN: ${{ secrets.student }}
