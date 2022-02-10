@@ -79,9 +79,9 @@ jobs:
         - name: Send mail
           uses: dawidd6/action-send-mail@v3
           with:
-            server_address: smtp.mail.ru
+            server_address: smtp.yandex.ru
             server_port: 465
-            username:  test.anaconda@mail.ru
+            username: test.anaconda@yandex.ru
             password: ${{ secrets.mail }}
             subject: Github pipeline
             to: gats1995@mail.ru
