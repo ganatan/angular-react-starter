@@ -54,9 +54,6 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}  
           
-        - name: test localhost
-          run: curl localhost:8080
-          
         - id: stop_time
           shell: bash
           run: echo "::set-output name=stop_time::$(date)"
