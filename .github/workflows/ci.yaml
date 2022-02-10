@@ -33,14 +33,12 @@ jobs:
         - name: Build
           run: npm build
         
-        - name: Deploy 🚀
-          uses: JamesIves/github-pages-deploy-action@3.7.1
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4.2.3
           with:
-          # в значение GITHUB_TOKEN помещается ссылка на ваш секрет в репозитории
-            GITHUB_TOKEN: ${{ secrets.student }}
-            BRANCH: gh-pages
-            FOLDER: public
-            CLEAN: true
+            branch: gh-pages
+            folder: site
+            ssh-key: ${{ secrets.student }}
         
         - name: Log in to the Container registry
           uses: docker/login-action@v1.12.0
