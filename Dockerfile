@@ -28,7 +28,7 @@ RUN chown -R nginx:nginx /var/run \
 USER nginx
     
 #Порт, который принимает подключения
-EXPOSE 80
+EXPOSE 8080
    
 #Точка входа. Команда, выполняемая при старте контейнера
 ENTRYPOINT ["/sbin/tini", "--"]
