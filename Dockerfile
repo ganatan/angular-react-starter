@@ -4,6 +4,7 @@ FROM alpine:3.15.0
 #Устанавливаем необходимые пакеты (--no-cache не кешировать установочники. --update обновить список и версии пакетов)
 RUN apk add --no-cache --update \
     nginx \
+    npm \
 #curl проверка состояния контейнера
     curl \
 #tini управление процессами
@@ -41,7 +42,7 @@ USER nginx
 EXPOSE 8080
    
 #Точка входа. Команда, выполняемая при старте контейнера
-#ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /var/log/nginx"] 
 
