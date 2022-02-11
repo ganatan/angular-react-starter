@@ -12,7 +12,7 @@ RUN apk add --no-cache --update \
     /usr/share/nginx/html/src \
     /usr/share/nginx/html/img \
     /usr/share/nginx/html/.vscode \
-    && touch /var/log/nginx/error.log
+    && touch /var/log/nginx/error.log \
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
     /var/{cache,log}/* 
