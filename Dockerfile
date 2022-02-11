@@ -9,9 +9,10 @@ RUN apk add --no-cache --update \
 #tini управление процессами
     tini \
     && mkdir -p /usr/share/nginx/html \
-    mkdir -p /usr/share/nginx/html/src \
-    mkdir -p /usr/share/nginx/html/img \
-    mkdir -p /usr/share/nginx/html/.vscode \
+    /usr/share/nginx/html/src \
+    /usr/share/nginx/html/img \
+    /usr/share/nginx/html/.vscode \
+    && touch /var/log/nginx/error.log
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
     /var/{cache,log}/* 
