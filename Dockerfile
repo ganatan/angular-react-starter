@@ -9,6 +9,7 @@ RUN apk add --no-cache --update \
 #tini управление процессами
     tini \
     && mkdir -p /usr/share/nginx/html \
+    /var/log/nginx/logs \
     /usr/share/nginx/html/src \
     /usr/share/nginx/html/img \
     /usr/share/nginx/html/.vscode \
