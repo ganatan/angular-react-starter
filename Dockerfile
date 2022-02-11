@@ -15,7 +15,7 @@ RUN apk add --no-cache --update \
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
     /var/cache/* \
-    && touch /var/log/nginx/error.log
+    && touch /var/log/nginx/logs/error.log
      
 #Копируем конфиг nginx-а
 COPY nginx.conf /etc/nginx/nginx.conf 
