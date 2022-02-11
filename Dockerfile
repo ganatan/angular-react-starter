@@ -15,8 +15,7 @@ RUN apk add --no-cache --update \
     /usr/share/nginx/html/.vscode \
 #Удалить все дефолтные конфиги, логи, кэши и т.д.
     && rm -rf /tmp/* \
-    /var/cache/* \
-    && touch /var/log/nginx/logs/error.log
+    /var/{cache,logs}/* 
      
 #Копируем конфиг nginx-а
 COPY nginx.conf /etc/nginx/nginx.conf 
@@ -44,7 +43,7 @@ EXPOSE 8080
 #Точка входа. Команда, выполняемая при старте контейнера
 ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /var/log/nginx/logs/"] 
+CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /var/log/nginx"] 
 
 #Проверка nginx на работоспособность
     HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
