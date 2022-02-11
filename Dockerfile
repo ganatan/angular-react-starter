@@ -41,7 +41,7 @@ USER nginx
 EXPOSE 8080
    
 #Точка входа. Команда, выполняемая при старте контейнера
-ENTRYPOINT ["/sbin/tini", "--"]
+#ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /var/log/nginx"] 
 
