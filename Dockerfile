@@ -43,7 +43,7 @@ EXPOSE 8080
 #Точка входа. Команда, выполняемая при старте контейнера
 ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /home/Foo/log/nginx"] 
+CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /var/log/nginx"] 
 
 #Проверка nginx на работоспособность
     HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
