@@ -3,5 +3,5 @@ services:
   nginx:
     container_name: nginx
     build: .
-    ports:
-      - "80:8080"
+#    ports:
+#      - "80:8080"
