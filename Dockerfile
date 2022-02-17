@@ -5,8 +5,6 @@ FROM alpine:3.15.0
 RUN apk add --no-cache --update \
     nginx \
     npm \
-#curl проверка состояния контейнера
-    curl \
     && mkdir -p /usr/share/nginx/html \
     /var/log/nginx/logs \
     /usr/share/nginx/html/src \
