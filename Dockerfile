@@ -24,6 +24,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 #COPY src /usr/share/nginx/html/src/
 #COPY img /usr/share/nginx/html/img/
 COPY src /usr/share/nginx/html/
+COPY img /usr/share/nginx/html/
 
 #Выдаем права пользователя необходимым директориям
 RUN chown -R nginx:nginx /var/run \
