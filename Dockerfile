@@ -7,8 +7,6 @@ RUN apk add --no-cache --update \
     npm \
 #curl проверка состояния контейнера
     curl \
-#tini управление процессами
-    tini \
     && mkdir -p /usr/share/nginx/html \
     /var/log/nginx/logs \
     /usr/share/nginx/html/src \
@@ -25,8 +23,6 @@ COPY *.json /usr/share/nginx/html/
 COPY *.js /usr/share/nginx/html/
 COPY src /usr/share/nginx/html/src/
 COPY img /usr/share/nginx/html/img/
-COPY .vscode /usr/share/nginx/html/.vscode/
-
 
 #Выдаем права пользователя необходимым директориям
 RUN chown -R nginx:nginx /var/run \
@@ -41,9 +37,6 @@ USER nginx
 #Порт, который принимает подключения
 EXPOSE 8080
    
-#Точка входа. Команда, выполняемая при старте контейнера
-ENTRYPOINT ["/sbin/tini", "--"]
-
 CMD ["nginx", "-g", "daemon off;", "-p 80:8080", "-p /var/log/nginx"] 
 
 #Проверка nginx на работоспособность
