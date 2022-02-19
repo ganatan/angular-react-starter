@@ -43,9 +43,6 @@ git clone https://github.com/ganatan/angular-starter.git
 # download the example or clone the repo from gitlab
 git clone https://gitlab.com/ganatan/angular-starter.git
 
-# download the example or clone the repo from bitbucket
-git clone https://bitbucket.org/ganatan/angular-starter.git
-
 # change directory
 cd angular-starter
 
