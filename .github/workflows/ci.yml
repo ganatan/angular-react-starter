@@ -1,0 +1,32 @@
+name: GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - 'master, feature-workflow'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+# run tests, run build, create a docker image based on dockerfile      
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: install node packages
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17.9.0'
+          cache: 'npm'
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      - name: Build the Docker image
+        run: docker build -t ghcr.io/shurenbergen/angular-starter:latest .
+
+# store created docker image in the github packages
+      - name: Login to GitHub Packages
+        run: echo ${{ secrets.AUTH_TOKEN }} | docker login ghcr.io -u Shurenbergen --password-stdin
+      - name: Push the Docker image to GitHub Packages
+        run: docker push ghcr.io/shurenbergen/angular-starter:latest
