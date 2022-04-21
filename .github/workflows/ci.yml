@@ -1,6 +1,7 @@
 name: GitHub Actions Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master, feature-workflow'
