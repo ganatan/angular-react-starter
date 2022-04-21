@@ -23,10 +23,10 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Build the Docker image
-        run: docker build -t ghcr.io/shurenbergen/angular-starter:latest .
+        run: docker build -t ghcr.io/shurenbergen/angular-starter:${{ github.run_number }} .
 
 # store created docker image in the github packages
       - name: Login to GitHub Packages
         run: echo ${{ secrets.AUTH_TOKEN }} | docker login ghcr.io -u Shurenbergen --password-stdin
       - name: Push the Docker image to GitHub Packages
-        run: docker push ghcr.io/shurenbergen/angular-starter:latest
+        run: docker push ghcr.io/shurenbergen/angular-starter:${{ github.run_number }}
