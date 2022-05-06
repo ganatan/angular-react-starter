@@ -80,8 +80,12 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 ## Production 
 * `npm run build`
 
+## Linter
+* `npm run lint`
+
 ## Tests
 * `npm run test`
+* `npm run coverage`
 
 # [Author](#author)
 * Author  : danny
