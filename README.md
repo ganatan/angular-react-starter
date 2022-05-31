@@ -41,7 +41,7 @@ Here is a working Angular live demo :  https://angular.ganatan.com
 </p>
 
 
-# [Quick start](#quick-start)
+# [Angular Quick start](#quick-start)
 
 ```bash
 # choose a repo
@@ -61,6 +61,20 @@ npm install
 # start the server
 npm start
 
+```
+in your browser go to [http://localhost:4200](http://localhost:4200) 
+
+
+# [React Quick start](#quick-start)
+
+```bash
+# choose a repo
+# download the example or clone the repo from github
+git clone https://github.com/ganatan/angular-react-starter.git
+
+# download the example or clone the repo from gitlab
+git clone https://gitlab.com/ganatan/angular-react-starter.git
+
 # change directory
 cd angular-react-starter
 cd react
@@ -73,9 +87,9 @@ npm start
 
 
 ```
-in your browser go to [http://localhost:4200](http://localhost:4200) 
 
 in your browser go to [http://localhost:3000](http://localhost:3000) 
+
 
 
 # [Tutorial](#quick-start)
@@ -88,7 +102,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
   </a>
 </p>
 
-# [Getting started](#getting-started)
+# [Angular Getting started](#getting-started)
 
 
 ## Installation
@@ -108,6 +122,31 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 ## Tests
 * `npm run test`
 * `npm run coverage`
+
+
+
+# [React Getting started](#getting-started)
+
+
+## Installation
+* `npm install` (installing dependencies)
+* `npm outdated` (verifying dependencies)
+
+## Development
+* `npm run start`
+* in your browser go to [http://localhost:3000](http://localhost:3000) 
+
+## Production 
+* `npm run build`
+
+## Linter
+* `npm run lint`
+
+## Tests
+* `npm run test`
+* `npm run coverage`
+
+
 
 # [Author](#author)
 * Author  : danny
