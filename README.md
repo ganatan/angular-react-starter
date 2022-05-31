@@ -8,24 +8,28 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Web Application with Angular 13 & React 18**
+it's part of a repo series designed to create a **Web Application with Angular 13**
 
 
 * Featuring [**Angular 13.3.9**](https://github.com/angular/angular/releases) & [**Angular CLI 13.3.6**](https://github.com/angular/angular-cli/releases/)
 
 
+* See the [**Angular Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
+
+
+
+it's part of a repo series designed to create a **React 18**
+
 
 * Featuring [**React 18.1.0**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
 
-
-* See the [**Angular Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
 
 </td>
 </tr>
 </table>
 
 # [Live Demo](#live-demo)
-Here is a working live demo :  https://angular.ganatan.com
+Here is a working Angular live demo :  https://angular.ganatan.com
 
 <p align="center">
   <p align="center">
