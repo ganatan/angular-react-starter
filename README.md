@@ -8,13 +8,17 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Web Application with Angular 13 && React 18**
+it's part of a repo series designed to create a **Web Application with Angular 13 & React 18**
 
 
 * Featuring [**Angular 13.3.9**](https://github.com/angular/angular/releases) & [**Angular CLI 13.3.6**](https://github.com/angular/angular-cli/releases/)
 
 
-* See the [**Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
+
+* Featuring [**React 18.1.0**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
+
+
+* See the [**Angular Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
 
 </td>
 </tr>
@@ -38,13 +42,14 @@ Here is a working live demo :  https://angular.ganatan.com
 ```bash
 # choose a repo
 # download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-starter.git
+git clone https://github.com/ganatan/angular-react-starter.git
 
 # download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-starter.git
+git clone https://gitlab.com/ganatan/angular-react-starter.git
 
 # change directory
-cd angular-starter
+cd angular-react-starter
+cd angular 
 
 # install the repo with npm
 npm install
@@ -52,8 +57,21 @@ npm install
 # start the server
 npm start
 
+# change directory
+cd angular-react-starter
+cd react
+
+# install the repo with npm
+npm install
+
+# start the server
+npm start
+
+
 ```
 in your browser go to [http://localhost:4200](http://localhost:4200) 
+
+in your browser go to [http://localhost:3000](http://localhost:3000) 
 
 
 # [Tutorial](#quick-start)
@@ -90,11 +108,11 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 # [Author](#author)
 * Author  : danny
 
-## [English Tutorials](#english-tutorials)
+## [Angular English Tutorials](#english-tutorials)
 - Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
 - Tutorials Step by Step - https://www.ganatan.com/tutorials/en
 
-## [Tutoriels en français](#french-tutorials)
+## [Tutoriels Angular en français](#french-tutorials)
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
 - Tutoriels Etape par étape - https://www.ganatan.com/tutorials
 
