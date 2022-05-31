@@ -1,4 +1,4 @@
-# Angular 13 & React 18 Example Starter
+# Angular 13 & React 18 Examples Starter
 
 <table>
 <tr>
@@ -18,7 +18,7 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 
 
 
-it's part of a repo series designed to create a **React 18**
+it's part of a repo series designed to create a **Web Application with React 18**
 
 
 * Featuring [**React 18.1.0**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
@@ -28,7 +28,7 @@ it's part of a repo series designed to create a **React 18**
 </tr>
 </table>
 
-# [Live Demo](#live-demo)
+# [Angular Live Demo](#live-demo)
 Here is a working Angular live demo :  https://angular.ganatan.com
 
 <p align="center">
@@ -65,6 +65,7 @@ npm start
 in your browser go to [http://localhost:4200](http://localhost:4200) 
 
 
+
 # [React Quick start](#quick-start)
 
 ```bash
@@ -92,7 +93,7 @@ in your browser go to [http://localhost:3000](http://localhost:3000)
 
 
 
-# [Tutorial](#quick-start)
+# [Angular Tutorial](#quick-start)
 
 Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-started-with-angular
 
