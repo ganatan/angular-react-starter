@@ -14,7 +14,7 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 * Featuring [**Angular 13.3.9**](https://github.com/angular/angular/releases) & [**Angular CLI 13.3.6**](https://github.com/angular/angular-cli/releases/)
 
 
-* See the [**Angular Live demo**](#live-demo), Test the repo with [**Quick start**](#quick-start) and for more information Read the step by step [**Tutorial**](#tutorial) or read the [**Getting started**](#getting-started)
+* See the [**Angular Live demo**](#angular-live-demo), Test the repo with [**Quick start**](#angular-quick-start) and for more information Read the step by step [**Tutorial**](#angular-tutorial) or read the [**Getting started**](#angular-getting-started)
 
 
 
@@ -28,7 +28,7 @@ it's part of a repo series designed to create a **Web Application with React 18*
 </tr>
 </table>
 
-# [Angular Live Demo](#live-demo)
+# [Angular Live Demo](#angular-live-demo)
 Here is a working Angular live demo :  https://angular.ganatan.com
 
 <p align="center">
@@ -41,7 +41,7 @@ Here is a working Angular live demo :  https://angular.ganatan.com
 </p>
 
 
-# [Angular Quick start](#quick-start)
+# [Angular Quick start](#angular-quick-start)
 
 ```bash
 # choose a repo
@@ -66,7 +66,7 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 
 
 
-# [React Quick start](#quick-start)
+# [React Quick start](#react-quick-start)
 
 ```bash
 # choose a repo
@@ -93,7 +93,7 @@ in your browser go to [http://localhost:3000](http://localhost:3000)
 
 
 
-# [Angular Tutorial](#quick-start)
+# [Angular Tutorial](#angular-quick-start)
 
 Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-started-with-angular
 
@@ -103,7 +103,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
   </a>
 </p>
 
-# [Angular Getting started](#getting-started)
+# [Angular Getting started](#angular-getting-started)
 
 
 ## Installation
@@ -126,7 +126,7 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 
 
 
-# [React Getting started](#getting-started)
+# [React Getting started](#react-getting-started)
 
 
 ## Installation
