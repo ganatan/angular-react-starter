@@ -8,8 +8,10 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed to create a **Web Application with Angular 13**
+it's part of a repo series designed 
 
+
+to create a **Web Application with Angular 13**
 
 * Featuring [**Angular 13.3.11**](https://github.com/angular/angular/releases) & [**Angular CLI 13.3.6**](https://github.com/angular/angular-cli/releases/)
 
@@ -18,7 +20,7 @@ it's part of a repo series designed to create a **Web Application with Angular 1
 
 
 
-it's part of a repo series designed to create a **Web Application with React 18**
+to create a **Web Application with React 18**
 
 
 * Featuring [**React 18.1.0**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
