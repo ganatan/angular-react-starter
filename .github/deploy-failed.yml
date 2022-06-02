@@ -1,0 +1,20 @@
+#Triggered for deployment status changes
+name: Deployment Failure notification
+on: [deployment_status]
+
+jobs:
+  add-failure-comment:
+    name: Add a comment to the commit that caused the failure
+    if: github.event.deployment_status.state == 'failure'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add commit comment - failure
+        run: |
+          curl -L -X POST \
+          --url https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/comments \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "body": "Deployment has failed."
+            }'
