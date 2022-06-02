@@ -3,160 +3,197 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
 name: Create-and-publish-a-Docker-image
 
 on:
-  push:
-    branches: ['master']
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  release:
+    types: [created]
 
 jobs:
-############## Тестирование node
-  runtest:
+  build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
-
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test
 
-### Sending email when testing successfull
-      - name: Send mail
-        if: ${{ success() }}
-        uses: dawidd6/action-send-mail@v3
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          # Required mail server address:
-          server_address: smtp.gmail.com
-          # Required mail server port:
-          server_port: 465
-          # Optional (recommended): mail server username:
-          username: ${{secrets.MAIL_USERNAME}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.MAIL_PASSWORD}}
-          # Required mail subject:
-          subject: Github Actions job result
-          # Required recipients' addresses:
-          to: 192215@gmail.com
-          # Required sender full name (address can be skipped):
-          from: tigunov-it # <user@example.com>
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          # Optional plain body:
-          body: Testing job of ${{github.repository}} completed successfully!
-          # Optional HTML body read from file:
-          #html_body: file://README.html
-          # Optional carbon copy recipients:
-          #cc: kyloren@example.com,leia@example.com
-          # Optional blind carbon copy recipients:
-          # bcc: r2d2@example.com,hansolo@example.com
-          # Optional recipient of the email response:
-          reply_to: 192215@gmail.com
-          # Optional Message ID this message is replying to:
-          # in_reply_to: <random-luke@example.com>
-          # Optional unsigned/invalid certificates allowance:
-          ignore_cert: true
-          # Optional converting Markdown to HTML (set content_type to text/html too):
-          convert_markdown: true
-          # Optional attachments:
-          # attachments: attachments.zip,git.diff,./dist/static/*.js
-          # Optional priority: 'high', 'normal' (default) or 'low'
-          priority: normal
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-### Sending email when testing failed
-      - name: Send mail
-        if: ${{ failure() }}
-        uses: dawidd6/action-send-mail@v3
-        with:
-          # Required mail server address:
-          server_address: smtp.gmail.com
-          # Required mail server port:
-          server_port: 465
-          # Optional (recommended): mail server username:
-          username: ${{secrets.MAIL_USERNAME}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.MAIL_PASSWORD}}
-          # Required mail subject:
-          subject: Github Actions job result
-          # Required recipients' addresses:
-          to: 192215@gmail.com
-          # Required sender full name (address can be skipped):
-          from: tigunov-it # <user@example.com>
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          # Optional plain body:
-          body: Testing job of ${{github.repository}} is failed!
-          # Optional HTML body read from file:
-          #html_body: file://README.html
-          # Optional carbon copy recipients:
-          #cc: kyloren@example.com,leia@example.com
-          # Optional blind carbon copy recipients:
-          # bcc: r2d2@example.com,hansolo@example.com
-          # Optional recipient of the email response:
-          reply_to: 192215@gmail.com
-          # Optional Message ID this message is replying to:
-          # in_reply_to: <random-luke@example.com>
-          # Optional unsigned/invalid certificates allowance:
-          ignore_cert: true
-          # Optional converting Markdown to HTML (set content_type to text/html too):
-          convert_markdown: true
-          # Optional attachments:
-          # attachments: attachments.zip,git.diff,./dist/static/*.js
-          # Optional priority: 'high', 'normal' (default) or 'low'
-          priority: normal
+# name: Create-and-publish-a-Docker-image
 
-### Sending email when testing failed
-      - name: Send mail
-        if: ${{ cancelled() }}
-        uses: dawidd6/action-send-mail@v3
-        with:
-          # Required mail server address:
-          server_address: smtp.gmail.com
-          # Required mail server port:
-          server_port: 465
-          # Optional (recommended): mail server username:
-          username: ${{secrets.MAIL_USERNAME}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.MAIL_PASSWORD}}
-          # Required mail subject:
-          subject: Github Actions job result
-          # Required recipients' addresses:
-          to: 192215@gmail.com
-          # Required sender full name (address can be skipped):
-          from: tigunov-it # <user@example.com>
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          # Optional plain body:
-          body: Testing job of ${{github.repository}} is cancelled!
-          # Optional HTML body read from file:
-          #html_body: file://README.html
-          # Optional carbon copy recipients:
-          #cc: kyloren@example.com,leia@example.com
-          # Optional blind carbon copy recipients:
-          # bcc: r2d2@example.com,hansolo@example.com
-          # Optional recipient of the email response:
-          reply_to: 192215@gmail.com
-          # Optional Message ID this message is replying to:
-          # in_reply_to: <random-luke@example.com>
-          # Optional unsigned/invalid certificates allowance:
-          ignore_cert: true
-          # Optional converting Markdown to HTML (set content_type to text/html too):
-          convert_markdown: true
-          # Optional attachments:
-          # attachments: attachments.zip,git.diff,./dist/static/*.js
-          # Optional priority: 'high', 'normal' (default) or 'low'
-          priority: normal
+# on:
+#   push:
+#     branches: ['master']
+
+# env:
+#   REGISTRY: ghcr.io
+#   IMAGE_NAME: ${{ github.repository }}
+
+# jobs:
+# ############## Тестирование node
+#   runtest:
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [10.x, 12.x, 14.x, 15.x]
+
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - run: npm ci
+#       - run: npm run build --if-present
+#       - run: npm test
+
+# ### Sending email when testing successfull
+#       - name: Send mail
+#         if: ${{ success() }}
+#         uses: dawidd6/action-send-mail@v3
+#         with:
+#           # Required mail server address:
+#           server_address: smtp.gmail.com
+#           # Required mail server port:
+#           server_port: 465
+#           # Optional (recommended): mail server username:
+#           username: ${{secrets.MAIL_USERNAME}}
+#           # Optional (recommended) mail server password:
+#           password: ${{secrets.MAIL_PASSWORD}}
+#           # Required mail subject:
+#           subject: Github Actions job result
+#           # Required recipients' addresses:
+#           to: 192215@gmail.com
+#           # Required sender full name (address can be skipped):
+#           from: tigunov-it # <user@example.com>
+#           # Optional whether this connection use TLS (default is true if server_port is 465)
+#           secure: true
+#           # Optional plain body:
+#           body: Testing job of ${{github.repository}} completed successfully!
+#           # Optional HTML body read from file:
+#           #html_body: file://README.html
+#           # Optional carbon copy recipients:
+#           #cc: kyloren@example.com,leia@example.com
+#           # Optional blind carbon copy recipients:
+#           # bcc: r2d2@example.com,hansolo@example.com
+#           # Optional recipient of the email response:
+#           reply_to: 192215@gmail.com
+#           # Optional Message ID this message is replying to:
+#           # in_reply_to: <random-luke@example.com>
+#           # Optional unsigned/invalid certificates allowance:
+#           ignore_cert: true
+#           # Optional converting Markdown to HTML (set content_type to text/html too):
+#           convert_markdown: true
+#           # Optional attachments:
+#           # attachments: attachments.zip,git.diff,./dist/static/*.js
+#           # Optional priority: 'high', 'normal' (default) or 'low'
+#           priority: normal
+
+# ### Sending email when testing failed
+#       - name: Send mail
+#         if: ${{ failure() }}
+#         uses: dawidd6/action-send-mail@v3
+#         with:
+#           # Required mail server address:
+#           server_address: smtp.gmail.com
+#           # Required mail server port:
+#           server_port: 465
+#           # Optional (recommended): mail server username:
+#           username: ${{secrets.MAIL_USERNAME}}
+#           # Optional (recommended) mail server password:
+#           password: ${{secrets.MAIL_PASSWORD}}
+#           # Required mail subject:
+#           subject: Github Actions job result
+#           # Required recipients' addresses:
+#           to: 192215@gmail.com
+#           # Required sender full name (address can be skipped):
+#           from: tigunov-it # <user@example.com>
+#           # Optional whether this connection use TLS (default is true if server_port is 465)
+#           secure: true
+#           # Optional plain body:
+#           body: Testing job of ${{github.repository}} is failed!
+#           # Optional HTML body read from file:
+#           #html_body: file://README.html
+#           # Optional carbon copy recipients:
+#           #cc: kyloren@example.com,leia@example.com
+#           # Optional blind carbon copy recipients:
+#           # bcc: r2d2@example.com,hansolo@example.com
+#           # Optional recipient of the email response:
+#           reply_to: 192215@gmail.com
+#           # Optional Message ID this message is replying to:
+#           # in_reply_to: <random-luke@example.com>
+#           # Optional unsigned/invalid certificates allowance:
+#           ignore_cert: true
+#           # Optional converting Markdown to HTML (set content_type to text/html too):
+#           convert_markdown: true
+#           # Optional attachments:
+#           # attachments: attachments.zip,git.diff,./dist/static/*.js
+#           # Optional priority: 'high', 'normal' (default) or 'low'
+#           priority: normal
+
+# ### Sending email when testing failed
+#       - name: Send mail
+#         if: ${{ cancelled() }}
+#         uses: dawidd6/action-send-mail@v3
+#         with:
+#           # Required mail server address:
+#           server_address: smtp.gmail.com
+#           # Required mail server port:
+#           server_port: 465
+#           # Optional (recommended): mail server username:
+#           username: ${{secrets.MAIL_USERNAME}}
+#           # Optional (recommended) mail server password:
+#           password: ${{secrets.MAIL_PASSWORD}}
+#           # Required mail subject:
+#           subject: Github Actions job result
+#           # Required recipients' addresses:
+#           to: 192215@gmail.com
+#           # Required sender full name (address can be skipped):
+#           from: tigunov-it # <user@example.com>
+#           # Optional whether this connection use TLS (default is true if server_port is 465)
+#           secure: true
+#           # Optional plain body:
+#           body: Testing job of ${{github.repository}} is cancelled!
+#           # Optional HTML body read from file:
+#           #html_body: file://README.html
+#           # Optional carbon copy recipients:
+#           #cc: kyloren@example.com,leia@example.com
+#           # Optional blind carbon copy recipients:
+#           # bcc: r2d2@example.com,hansolo@example.com
+#           # Optional recipient of the email response:
+#           reply_to: 192215@gmail.com
+#           # Optional Message ID this message is replying to:
+#           # in_reply_to: <random-luke@example.com>
+#           # Optional unsigned/invalid certificates allowance:
+#           ignore_cert: true
+#           # Optional converting Markdown to HTML (set content_type to text/html too):
+#           convert_markdown: true
+#           # Optional attachments:
+#           # attachments: attachments.zip,git.diff,./dist/static/*.js
+#           # Optional priority: 'high', 'normal' (default) or 'low'
+#           priority: normal
 
 
 #   build-and-push-image:
