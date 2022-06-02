@@ -1,4 +1,4 @@
-![example workflow](https://github.com/tigunov-it/angular-react-starter-test/actions/workflows/Create-and-publish-a-Docker-image/badge.svg)
+<img src="https://github.com/tigunov-it/angular-react-starter-test/actions/workflows/Create-and-publish-a-Docker-image/badge.svg">
 
 # Angular 13 & React 18 Examples Starter
 
