@@ -15,7 +15,7 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latestasdas
     permissions:
       contents: read
       packages: write
@@ -45,6 +45,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+### Sending email when deploy successfull
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
