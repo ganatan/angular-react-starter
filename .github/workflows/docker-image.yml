@@ -16,8 +16,6 @@ env:
 jobs:
 
   build-and-push-image:
-    needs: 
-      - runtest
     runs-on: ubuntu-latest
     permissions:
       contents: read
