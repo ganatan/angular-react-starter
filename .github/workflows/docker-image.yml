@@ -15,7 +15,7 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: bubuntu-latest
     permissions:
       contents: read
       packages: write
