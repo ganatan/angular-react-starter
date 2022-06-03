@@ -1,4 +1,4 @@
-# Angular 13 & React 18 Examples Starter
+# Angular 14 & React 18 Examples Starter
 
 <table>
 <tr>
@@ -11,9 +11,9 @@
 it's part of a repo series designed 
 
 
-to create a **Web Application with Angular 13**
+to create a **Web Application with Angular 14**
 
-* Featuring [**Angular 13.3.11**](https://github.com/angular/angular/releases) & [**Angular CLI 13.3.7**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 14.0.0**](https://github.com/angular/angular/releases) & [**Angular CLI 14.0.0**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Angular Live demo**](#angular-live-demo), Test the repo with [**Quick start**](#angular-quick-start) and for more information Read the step by step [**Tutorial**](#angular-tutorial) or read the [**Getting started**](#angular-getting-started)
