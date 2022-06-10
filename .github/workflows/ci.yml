@@ -13,22 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
-          uses: actions/checkout@v2
-        - name: ls cd to dir
-          working-directory: angular/
-          run: ls -l               
-        - name: Setup-node
+          uses: actions/checkout@v2      
+        - name: Setup-node     
           uses: actions/setup-node@v2
           with:
-            node-version: 14.x         
-        # - name: npm init
-        #   run: npm init               
-        # - name: Install
-        #   run: npm ci
-        # - name: Run Test
-        #   run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        # - name: List
-        #   run: ls -l
+            node-version: 14.x  
+            working-directory: angular/   
+        - name: npm init
+          working-directory: angular/
+          run: npm init               
+        - name: Install
+          working-directory: angular/
+          run: npm ci
+        - name: Run Test
+          working-directory: angular/
+          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+        - name: List
+          run: ls -l
         
   build:
     runs-on: ubuntu-latest
