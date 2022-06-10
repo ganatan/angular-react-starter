@@ -11,22 +11,20 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: angular/
     steps:
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
           uses: actions/setup-node@v2
           with:
-            node-version: 14.x  
-            working-directory: angular/                
+            node-version: 14.x                  
         - name: Install
-          working-directory: angular/
           run: npm ci
         - name: Run Test
-          working-directory: angular/
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        - name: List
-          run: ls -l
         
   build:
     runs-on: ubuntu-latest
