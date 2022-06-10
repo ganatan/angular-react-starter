@@ -1,0 +1,35 @@
+# This is a test workflow github actions
+
+name: ANGULAR-ACTIONS
+
+on:
+  push:
+    branches: [ "master" ]
+    
+  workflow_dispatch:
+  
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run test in that repo
+        run: echo Hello, world!  
+        
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build angular app
+        run: echo Hello, world!
+        
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Push docker image to git
+        run: echo Hello, world!
