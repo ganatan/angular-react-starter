@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+
+  angular-starter:
+    image: djsasha777/angularreactstarter:1
+    container_name: angular
+    ports:
+      - 8080:8080
+    networks:
+      - angular_net
+
+networks:
+  angular_net:
+    driver: bridge
