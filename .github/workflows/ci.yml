@@ -41,8 +41,8 @@ jobs:
         - name: Install
           run: npm ci
         - name: Run build
-          run: ng build
-                  
+          run: npm run build
+
   push:
     runs-on: ubuntu-latest
     steps:
