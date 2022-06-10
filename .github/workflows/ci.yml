@@ -14,12 +14,9 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v2
-        - name: List
-          run: ls -l
-        - name: cd to dir
-          run: cd angular/
-        - name: ls dir
-          run: ls -l                   
+        - name: ls cd to dir
+          working-directory: angular/
+          run: ls -l               
         - name: Setup-node
           uses: actions/setup-node@v2
           with:
