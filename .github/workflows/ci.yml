@@ -18,10 +18,7 @@ jobs:
           uses: actions/setup-node@v2
           with:
             node-version: 14.x  
-            working-directory: angular/   
-        - name: npm init
-          working-directory: angular/
-          run: npm init               
+            working-directory: angular/                
         - name: Install
           working-directory: angular/
           run: npm ci
