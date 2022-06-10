@@ -28,12 +28,21 @@ jobs:
         
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: angular/
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Build angular app
-        run: echo Hello, world!
-        
+        - name: Checkout
+          uses: actions/checkout@v2      
+        - name: Setup-node     
+          uses: actions/setup-node@v2
+          with:
+            node-version: 14.x                  
+        - name: Install
+          run: npm ci
+        - name: Run build
+          run: ng build
+                  
   push:
     runs-on: ubuntu-latest
     steps:
