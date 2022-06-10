@@ -19,7 +19,7 @@ jobs:
           with:
             node-version: 14.x
         - name: cd to dir
-          run: cd angular
+          run: cd angular/
         - name: ls dir
           run: ls -l          
         # - name: npm init
