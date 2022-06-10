@@ -15,8 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Run test in that repo
-        run: echo Hello, world!  
+      - name: Use Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: npm ci 
         
   build:
     runs-on: ubuntu-latest
