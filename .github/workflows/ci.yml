@@ -20,14 +20,16 @@ jobs:
             node-version: 14.x
         - name: cd to dir
           run: cd angular
-        - name: npm init
-          run: npm init               
-        - name: Install
-          run: npm ci
-        - name: Run Test
-          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        - name: List
-          run: ls -l
+        - name: ls dir
+          run: ls -l          
+        # - name: npm init
+        #   run: npm init               
+        # - name: Install
+        #   run: npm ci
+        # - name: Run Test
+        #   run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+        # - name: List
+        #   run: ls -l
         
   build:
     runs-on: ubuntu-latest
