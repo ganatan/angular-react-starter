@@ -1,0 +1,41 @@
+name: CI-BondarB
+
+on: [pull_request]
+
+env:
+  IMAGE_NAME: docker-test-Bondar
+
+jobs:
+ ng-test:
+    runs-on: alpine-latest
+    
+    steps:
+    - name: test
+      run: ng test --single-run
+      
+ ng-build:
+    runs-on: alpine-latest
+    needs: [ng-test]
+    
+    steps:
+    - name: build
+      run: ng build
+      
+ create-docker:
+    runs-on: alpine-latest
+    needs: [ng-build]
+    
+    steps:
+    - name: docker-create
+      run:  docker build . --file Dockerfile --tag $IMAGE_NAME
+      
+    - name: Push docker-image
+      run: |
+        IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME \\
+        docker tag $IMAGE_NAME
+        docker push $IMAGE_ID:$VERSION   
+            
+      
+      
+      
+  
