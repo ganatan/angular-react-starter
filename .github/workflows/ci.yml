@@ -25,9 +25,12 @@ jobs:
           run: npm ci
         - name: Run Test
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        
+        - name: notifi
+          run: echo "notifi to email"
+
   build:
     runs-on: ubuntu-latest
+    needs: [test]
     defaults:
       run:
         working-directory: angular/
@@ -45,8 +48,21 @@ jobs:
 
   push:
     runs-on: ubuntu-latest
+    needs : [build]
     steps:
-      - uses: actions/checkout@v3
+      - name: Login to github registry
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_REGISTRY_URL: docker.pkg.github.com
 
-      - name: Push docker image to git
-        run: echo Hello, world!
+      # - name : build docker image
+      #   uses : actions-hub/docker/cli@master
+      #   with :
+      #     args : build -t docker.pkg.github.com/${{ github.repository }}/angulardevops:0.1 .
+
+      # - name: Push to github registry
+      #   uses: actions-hub/docker@master
+      #   with:
+      #     args: push docker.pkg.github.com/${{ github.repository }}/angulardevops:0.1
