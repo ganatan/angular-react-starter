@@ -49,6 +49,9 @@ jobs:
   push:
     runs-on: ubuntu-latest
     needs : [build]
+    # defaults:
+    #   run:
+    #     working-directory: angular/
     steps:
       - name: Login to github registry
         uses: docker/login-action@v2
@@ -57,12 +60,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name : build docker image
-      #   uses : actions-hub/docker/cli@master
-      #   with :
-      #     args : build -t docker.pkg.github.com/${{ github.repository }}/angulardevops:0.1 .
+      - name : build docker image and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: user/app:1
 
-      # - name: Push to github registry
-      #   uses: actions-hub/docker@master
-      #   with:
-      #     args: push docker.pkg.github.com/${{ github.repository }}/angulardevops:0.1
