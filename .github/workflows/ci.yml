@@ -46,26 +46,59 @@ jobs:
   #       - name: Run build
   #         run: npm run build
 
-  push:
-    runs-on: ubuntu-latest
+  # push:
+  #   runs-on: ubuntu-latest
     # needs : [build]
     # defaults:
     #   run:
     #     working-directory: angular/
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v2
+    #   - name: Login to github registry
+    #     uses: docker/login-action@v2
+    #     with:
+    #       registry: ghcr.io
+    #       username: ${{ github.actor }}
+    #       password: ${{ secrets.GITHUB_TOKEN }}
+
+    #   - name : build docker image and push
+    #     uses: docker/build-push-action@v3
+    #     with:
+    #       context: .
+    #       push: true
+    #       tags: djsasha777/angulartest:1
+
+  build:
+    runs-on: ubuntu-latest
+    # needs: [test]
+    # defaults:
+    #   run:
+    #     working-directory: angular/
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Login to github registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name : build docker image and push
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: djsasha777/angulartest:1
-
+        - name: Checkout
+          uses: actions/checkout@v2  
+        - name: Setup-node     
+          uses: actions/setup-node@v2
+          with:
+            node-version: 14.x        
+            working-directory: angular/          
+        - name: Install
+          working-directory: angular/
+          run: npm ci
+        - name: Run build
+          working-directory: angular/
+          run: npm run build
+        - name: Login to github registry
+          uses: docker/login-action@v2
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+        - name : build docker image and push
+          uses: docker/build-push-action@v3
+          with:
+            context: .
+            file: ./Dockerfile
+            push: true
+            tags: djsasha777/angulartest:1
