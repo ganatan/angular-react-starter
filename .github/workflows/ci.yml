@@ -56,13 +56,13 @@ jobs:
           with:
             registry: ghcr.io
             username: ${{ github.actor }}
-            password: ${{ secrets.githubtoken }}
+            password: ${{ secrets.GITHUB_TOKEN }}
         - name : build docker image and push
           uses: docker/build-push-action@v3
           with:
             context: .
             file: ./Dockerfile
             push: true
-            tags: djsasha777/angulartest:1
-            # secrets: |
-            #   GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
+            tags: user/angulartest:1
+            secrets: |
+              GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
