@@ -89,6 +89,9 @@ jobs:
         - name: Run build
           working-directory: angular/
           run: npm run build
+        - name: list of my build
+          working-directory: angular/
+          run: ls         
         - name: Login to github registry
           uses: docker/login-action@v2
           with:
@@ -102,3 +105,6 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: djsasha777/angulartest:1
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
