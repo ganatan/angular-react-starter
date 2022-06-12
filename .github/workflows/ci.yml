@@ -48,30 +48,30 @@ jobs:
         - name: Run build
           working-directory: angular/
           run: npm run build       
-        # - name: Login to github registry
-        #   uses: docker/login-action@v2
-        #   with:
-        #     registry: ghcr.io
-        #     username: ${{ github.actor }}
-        #     password: ${{ secrets.GITHUB_TOKEN }}
-        # - name : build docker image and push
-        #   uses: docker/build-push-action@v3
-        #   with:
-        #     context: .
-        #     file: ./Dockerfile
-        #     push: true
-        #     tags: user/angulartest:1
-        #     secrets: |
-        #       GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
-        - name: Login to DockerHub
+        - name: Login to github registry
           uses: docker/login-action@v2
           with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-        -
-          name: Build and push
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+        - name : build docker image and push
           uses: docker/build-push-action@v3
           with:
             context: .
+            file: ./Dockerfile
             push: true
-            tags: djsasha777/ang:1
+            tags: |
+              ghcr.io/${{ github.repository }}/ang-image:${{ github.sha }}
+              ghcr.io/${{ github.repository }}/ang-image:${{ github.event.release.tag_name }}
+        # - name: Login to DockerHub
+        #   uses: docker/login-action@v2
+        #   with:
+        #     username: ${{ secrets.DOCKER_USERNAME }}
+        #     password: ${{ secrets.DOCKER_PASSWORD }}
+        # -
+        #   name: Build and push
+        #   uses: docker/build-push-action@v3
+        #   with:
+        #     context: .
+        #     push: true
+        #     tags: djsasha777/ang:1
