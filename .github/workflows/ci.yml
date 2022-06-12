@@ -30,6 +30,9 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     needs: [test]
     steps:
         - name: Checkout
