@@ -9,24 +9,24 @@ on:
   
 jobs:
 
-  test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: angular/
-    steps:
-        - name: Checkout
-          uses: actions/checkout@v2      
-        - name: Setup-node     
-          uses: actions/setup-node@v2
-          with:
-            node-version: 14.x                  
-        - name: Install
-          run: npm ci
-        - name: Run Test
-          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        - name: notifi
-          run: echo "notifi to email"
+  # test:
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: angular/
+  #   steps:
+  #       - name: Checkout
+  #         uses: actions/checkout@v2      
+  #       - name: Setup-node     
+  #         uses: actions/setup-node@v2
+  #         with:
+  #           node-version: 14.x                  
+  #       - name: Install
+  #         run: npm ci
+  #       - name: Run Test
+  #         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+  #       - name: notifi
+  #         run: echo "notifi to email"
 
   build:
     runs-on: ubuntu-latest
@@ -61,8 +61,7 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: |
-              ghcr.io/${{ github.repository }}/ang-image:${{ github.sha }}
-              ghcr.io/${{ github.repository }}/ang-image:${{ github.event.release.tag_name }}
+              ghcr.io/${{ github.repository }}/ang-image:1
         # - name: Login to DockerHub
         #   uses: docker/login-action@v2
         #   with:
