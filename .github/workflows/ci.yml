@@ -67,5 +67,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: user/app:1
+          tags: djsasha777/angulartest:1
 
