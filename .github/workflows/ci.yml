@@ -47,22 +47,31 @@ jobs:
           run: npm ci
         - name: Run build
           working-directory: angular/
-          run: npm run build
-        - name: list of my build
-          working-directory: angular/
-          run: ls         
-        - name: Login to github registry
+          run: npm run build       
+        # - name: Login to github registry
+        #   uses: docker/login-action@v2
+        #   with:
+        #     registry: ghcr.io
+        #     username: ${{ github.actor }}
+        #     password: ${{ secrets.GITHUB_TOKEN }}
+        # - name : build docker image and push
+        #   uses: docker/build-push-action@v3
+        #   with:
+        #     context: .
+        #     file: ./Dockerfile
+        #     push: true
+        #     tags: user/angulartest:1
+        #     secrets: |
+        #       GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        - name: Login to DockerHub
           uses: docker/login-action@v2
           with:
-            registry: ghcr.io
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
-        - name : build docker image and push
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+        -
+          name: Build and push
           uses: docker/build-push-action@v3
           with:
             context: .
-            file: ./Dockerfile
             push: true
-            tags: user/angulartest:1
-            secrets: |
-              GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+            tags: djsasha777/ang:1
