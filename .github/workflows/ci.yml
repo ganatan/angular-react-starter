@@ -1,11 +1,18 @@
 name: CI-BondarB
 
-on: [pull_request]
-
 env:
   IMAGE_NAME: docker-test-Bondar
 
+on: [pull_request]
+
 jobs:
+
+ chekout:
+    runs-on: alpine-latest
+    
+    steps:
+    - uses: actions/chekout@v2
+
  ng-test:
     runs-on: alpine-latest
     
