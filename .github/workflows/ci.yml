@@ -143,7 +143,7 @@ jobs:
         #   run: echo "$STARTTIME-$ENDTIME"
         - name: My time
           run: |
-            ENDTIME=date +%s 
+            ENDTIME=$(date +%s)
             echo "ENDTIME=${{ env.ENDTIME }}"
             echo "STARTTIME=${{ env.STARTTIME }}" 
             interval=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
