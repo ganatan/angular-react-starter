@@ -1,9 +1,9 @@
 
 name: ANGULAR-ACTIONS
 env:
-  STARTTIME: $(date +%M%s)
-  ENDTIME: $(date +%M%s)
-  DURACTION: $(date +%M%s)
+  STARTTIME: $(date +%s)
+  ENDTIME: $(date +%s)
+  DURACTION: $(date +%s)
 on:
   push:
     branches: [ "master" ]
@@ -24,7 +24,7 @@ jobs:
         #     STARTTIME: ${{ steps.start-time.outputs.time }}
         #   run: echo "$STARTTIME"
         - name: time test
-          run: echo "STARTTIME=$(date +%M%s)" >> $GITHUB_ENV
+          run: echo "STARTTIME=$(date +%s)" >> $GITHUB_ENV
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -46,7 +46,7 @@ jobs:
         #     ENDTIME: ${{ steps.end-time.outputs.time }}
         #   run: echo "starttime is $STARTTIME , endtime is $ENDTIME" 
         - name: Echo current date
-          run: echo $START        
+          run: echo $STARTTIME       
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
@@ -142,9 +142,11 @@ jobs:
         #     ENDTIME: ${{ steps.end-time.outputs.time }}
         #   run: echo "$STARTTIME-$ENDTIME"
         - name: time test
-          run: echo "ENDTIME=$(date +%M%s)" >> $GITHUB_ENV
+          run: echo "ENDTIME=$(date +%s)" >> $GITHUB_ENV
         - name: Echo current date
-          run: echo "DURACTION=${{ env.ENDTIME }}-${{ env.STARTTIME }}" >> $GITHUB_ENV
+          run: | 
+            interval=$(( $env.ENDTIME - $env.STARTTIME ))
+            echo "interval = $interval"s
         - name: test duraction
           run: echo "${{ env.DURACTION }}"      
         - name: Send notification
