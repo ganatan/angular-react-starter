@@ -34,8 +34,6 @@ jobs:
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless 
         - name: My time
           run: |
-            ENDTIME=$(date +%s) 
-            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
             echo "endtime is: ${{ env.ENDTIME }} seconds"
             echo "starttime is: ${{ env.STARTTIME }} seconds"
             echo "duraction time = $DURACTION seconds"     
@@ -138,3 +136,6 @@ jobs:
   #           body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time $DURACTION seconds
   #           to: djsasha777@mail.ru
   #           from: Alex xxx
+
+  #            ENDTIME=$(date +%s) 
+  #          DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
