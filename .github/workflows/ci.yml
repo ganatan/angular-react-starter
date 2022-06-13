@@ -123,7 +123,7 @@ jobs:
         - name: My time
           run: |
             ENDTIME=$(date +%s) 
-            DURACTION=$(( ${{ env.ENDTIME }}-${{ test.env.STARTTIME }} ))
+            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
             echo "endtime is: ${{ env.ENDTIME }} seconds"
             echo "starttime is: ${{ env.STARTTIME }} seconds"
             echo "duraction time = $DURACTION seconds"      
