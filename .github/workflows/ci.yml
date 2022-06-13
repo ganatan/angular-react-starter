@@ -23,7 +23,7 @@ jobs:
             format: 'YYYY-MM-DD-HH-mm-ss'
         - name: Usage
           run: |
-            STARTTIME: "${{ steps.time.outputs.time }}"
+            STARTTIME="${{ steps.time.outputs.time }}"
             echo ${{ STARTTIME }}
         - name: Checkout
           uses: actions/checkout@v2      
@@ -46,7 +46,7 @@ jobs:
             format: 'YYYY-MM-DD-HH-mm-ss'
         - name: Usage
           run: |
-            STARTTIME: "${{ steps.time.outputs.time }}"
+            ENDTIME="${{ steps.time.outputs.time }}"
             echo ${{ env.ENDTIME }}  
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
