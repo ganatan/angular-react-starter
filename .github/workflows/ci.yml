@@ -34,6 +34,13 @@ jobs:
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
+        - name: My time
+          run: |
+            ENDTIME=$(date +%s) 
+            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
+            echo "endtime is: ${{ env.ENDTIME }} seconds"
+            echo "starttime is: ${{ env.STARTTIME }} seconds"
+            echo "duraction time = $DURACTION seconds"
           with:
             server_address: smtp.gmail.com
             server_port: 465
@@ -111,22 +118,15 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    needs: [test]
-    # needs: [build]
+    # needs: [test]
+    needs: [build]
     env:
       ENDTIME: $(date +%s)
     steps:  
         - name: Checkout
           uses: actions/checkout@v2  
         - name: Setup-node     
-          run: echo "deploy will be here"
-        - name: My time
-          run: |
-            ENDTIME=$(date +%s) 
-            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
-            echo "endtime is: ${{ env.ENDTIME }} seconds"
-            echo "starttime is: ${{ env.STARTTIME }} seconds"
-            echo "duraction time = $DURACTION seconds"      
+          run: echo "deploy will be here"      
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
