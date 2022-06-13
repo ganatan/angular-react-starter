@@ -30,17 +30,17 @@ jobs:
           run: npm ci
         - name: Run Test
           working-directory: angular/
-          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless      
-        - name: Send notification
-          uses: dawidd6/action-send-mail@v2
-          if: job.status.failure
+          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless 
         - name: My time
           run: |
             ENDTIME=$(date +%s) 
             DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
             echo "endtime is: ${{ env.ENDTIME }} seconds"
             echo "starttime is: ${{ env.STARTTIME }} seconds"
-            echo "duraction time = $DURACTION seconds"
+            echo "duraction time = $DURACTION seconds"     
+        - name: Send notification
+          uses: dawidd6/action-send-mail@v2
+          if: job.status.failure
           with:
             server_address: smtp.gmail.com
             server_port: 465
