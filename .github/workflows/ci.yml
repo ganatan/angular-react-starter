@@ -139,8 +139,10 @@ jobs:
         #   env:
         #     ENDTIME: ${{ steps.end-time.outputs.time }}
         #   run: echo "$STARTTIME-$ENDTIME"
+        - name: time test
+          run: echo "ENDTIME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
         - name: Echo current date
-          run: echo ${{ env.STARTTIME }}
+          run: echo "${{ env.ENDTIME }} - ${{ env.STARTTIME }}"
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
