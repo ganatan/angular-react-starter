@@ -125,7 +125,7 @@ jobs:
         - name: Use current time
           env:
             ENDTIME: "${{ steps.end-time.outputs.time }}"
-          run: echo $ENDTIME
+          run: echo $STARTTIME-$ENDTIME
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
@@ -134,6 +134,6 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }}
-            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time "${{ env.STARTTIME }}-${{ env.ENDTIME }}"
+            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time ${{ env.STARTTIME }}-${{ env.ENDTIME }}
             to: djsasha777@mail.ru
             from: Alex xxx
