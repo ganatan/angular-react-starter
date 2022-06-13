@@ -107,21 +107,17 @@ jobs:
       contents: read
     # needs: [build]
     steps:
-        - name: Get current time of deploy
-          uses: gerred/actions/current-time@master
-          id: start-time 
+        - name: Get current time of deploy 
           run: |
-             echo "action_start=steps.start-time.outputs.time" >> $GITHUB_ENV   
+             echo "STARTTIME::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV   
         - name: Checkout
           uses: actions/checkout@v2  
         - name: Setup-node     
           run: echo "deploy will be here"
         - name: Get current time of deploy
-          uses: gerred/actions/current-time@master
-          id: end-time 
           run: |
-             echo "action_ends=steps.end-time.outputs.time" >> $GITHUB_ENV
-             echo "${{ env.action_starts }}-${{ env.action_ends }}"
+             echo "ENDTIME::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+             echo "${{ env.STARTTIME }}-${{ env.ENDTIME }}"
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
@@ -130,6 +126,6 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }}
-            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time "${{ env.action_starts }}-${{ env.action_ends }}"
+            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time "${{ env.STARTTIME }}-${{ env.ENDTIME }}"
             to: djsasha777@mail.ru
             from: Alex xxx
