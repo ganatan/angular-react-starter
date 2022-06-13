@@ -1,8 +1,9 @@
 
 name: ANGULAR-ACTIONS
 env:
-  STARTTIME: $(date +%H%M)
-  ENDTIME: $(date +%H%M)
+  STARTTIME: $(date +%M%s)
+  ENDTIME: $(date +%M%s)
+  DURACTION: $(date +%M%s)
 on:
   push:
     branches: [ "master" ]
@@ -23,7 +24,7 @@ jobs:
         #     STARTTIME: ${{ steps.start-time.outputs.time }}
         #   run: echo "$STARTTIME"
         - name: time test
-          run: echo "STARTTIME=$(date +%H%M)" >> $GITHUB_ENV
+          run: echo "STARTTIME=$(date +%M%s)" >> $GITHUB_ENV
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -141,9 +142,11 @@ jobs:
         #     ENDTIME: ${{ steps.end-time.outputs.time }}
         #   run: echo "$STARTTIME-$ENDTIME"
         - name: time test
-          run: echo "ENDTIME=$(date +%H%M)" >> $GITHUB_ENV
+          run: echo "ENDTIME=$(date +%M%s)" >> $GITHUB_ENV
         - name: Echo current date
-          run: echo $env.ENDTIME-$env.STARTTIME
+          run: echo "DURACTION=${{ env.ENDTIME }}-${{ env.STARTTIME }}" >> $GITHUB_ENV
+        - name: test duraction
+          run: echo "${{ env.DURACTION }}"      
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
