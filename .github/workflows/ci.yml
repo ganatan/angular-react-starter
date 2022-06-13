@@ -130,6 +130,7 @@ jobs:
 ##timetest
   time:
       runs-on: ubuntu-latest
+      needs: [deploy]
       steps:
       - uses: actions/checkout@v3
       - uses: ./
