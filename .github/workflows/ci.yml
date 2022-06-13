@@ -146,8 +146,8 @@ jobs:
             ENDTIME=$(date +%s)
             echo "ENDTIME=${{ env.ENDTIME }}"
             echo "STARTTIME=${{ env.STARTTIME }}" 
-            interval=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
-            echo "interval = $interval"s      
+            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
+            echo "duraction time = ${{ env.DURACTION }} seconds"      
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
