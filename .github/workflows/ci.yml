@@ -9,103 +9,103 @@ on:
   
 jobs:
 
-  test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: angular/
-    steps:
-        - name: Checkout
-          uses: actions/checkout@v2      
-        - name: Setup-node     
-          uses: actions/setup-node@v2
-          with:
-            node-version: 14.x                  
-        - name: Install
-          run: npm ci
-        - name: Run Test
-          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        - name: Send notification
-          uses: dawidd6/action-send-mail@v2
-          if: job.status.failure
-          with:
-            server_address: smtp.gmail.com
-            server_port: 465
-            username: ${{ secrets.EMAIL_USERNAME }}
-            password: ${{ secrets.EMAIL_PASSWORD }}
-            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-            to: djsasha777@mail.ru
-            from: Alex xxx
+#   test:
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: angular/
+#     steps:
+#         - name: Checkout
+#           uses: actions/checkout@v2      
+#         - name: Setup-node     
+#           uses: actions/setup-node@v2
+#           with:
+#             node-version: 14.x                  
+#         - name: Install
+#           run: npm ci
+#         - name: Run Test
+#           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+#         - name: Send notification
+#           uses: dawidd6/action-send-mail@v2
+#           if: job.status.failure
+#           with:
+#             server_address: smtp.gmail.com
+#             server_port: 465
+#             username: ${{ secrets.EMAIL_USERNAME }}
+#             password: ${{ secrets.EMAIL_PASSWORD }}
+#             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+#             body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+#             to: djsasha777@mail.ru
+#             from: Alex xxx
             
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    needs: [test]
-    steps:
-        - name: Get current time of build
-          uses: gerred/actions/current-time@master
-          id: current-time
-        - name: Checkout
-          uses: actions/checkout@v2  
-        - name: Setup-node     
-          uses: actions/setup-node@v2
-          with:
-            node-version: 14.x        
-            working-directory: angular/          
-        - name: Install
-          working-directory: angular/
-          run: npm ci
-        - name: Run build
-          working-directory: angular/
-          run: npm run build
-# # If you want to push to github registry       
-        - name: Login to github registry
-          uses: docker/login-action@v2
-          with:
-            registry: ghcr.io
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
-        - name : build docker image and push
-          uses: docker/build-push-action@v3
-          with:
-            context: .
-            file: ./Dockerfile
-            push: true
-            tags: |
-              ghcr.io/${{ github.repository }}/testtaskangular:001
-# # If you want to push to dokerhub              
-        # - name: Login to DockerHub
-        #   uses: docker/login-action@v2
-        #   with:
-        #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-        #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        # - name: Build and push
-        #   uses: docker/build-push-action@v3
-        #   with:
-        #     context: .
-        #     push: true
-        #     tags: djsasha777/ang:1
+#   build:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+#       packages: write
+#     needs: [test]
+#     steps:
+#         - name: Get current time of build
+#           uses: gerred/actions/current-time@master
+#           id: current-time
+#         - name: Checkout
+#           uses: actions/checkout@v2  
+#         - name: Setup-node     
+#           uses: actions/setup-node@v2
+#           with:
+#             node-version: 14.x        
+#             working-directory: angular/          
+#         - name: Install
+#           working-directory: angular/
+#           run: npm ci
+#         - name: Run build
+#           working-directory: angular/
+#           run: npm run build
+# # # If you want to push to github registry       
+#         - name: Login to github registry
+#           uses: docker/login-action@v2
+#           with:
+#             registry: ghcr.io
+#             username: ${{ github.actor }}
+#             password: ${{ secrets.GITHUB_TOKEN }}
+#         - name : build docker image and push
+#           uses: docker/build-push-action@v3
+#           with:
+#             context: .
+#             file: ./Dockerfile
+#             push: true
+#             tags: |
+#               ghcr.io/${{ github.repository }}/testtaskangular:001
+# # # If you want to push to dokerhub              
+#         # - name: Login to DockerHub
+#         #   uses: docker/login-action@v2
+#         #   with:
+#         #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+#         #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
+#         # - name: Build and push
+#         #   uses: docker/build-push-action@v3
+#         #   with:
+#         #     context: .
+#         #     push: true
+#         #     tags: djsasha777/ang:1
 
-        - name: Send notification
-          uses: dawidd6/action-send-mail@v2
-          with:
-            server_address: smtp.gmail.com
-            server_port: 465
-            username: ${{ secrets.EMAIL_USERNAME }}
-            password: ${{ secrets.EMAIL_PASSWORD }}
-            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} with time ${{ steps.current-time.outputs.time }} 
-            to: djsasha777@mail.ru
-            from: Alex xxx
+#         - name: Send notification
+#           uses: dawidd6/action-send-mail@v2
+#           with:
+#             server_address: smtp.gmail.com
+#             server_port: 465
+#             username: ${{ secrets.EMAIL_USERNAME }}
+#             password: ${{ secrets.EMAIL_PASSWORD }}
+#             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+#             body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} with time ${{ steps.current-time.outputs.time }} 
+#             to: djsasha777@mail.ru
+#             from: Alex xxx
         
   deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    needs: [build]
+    # needs: [build]
     steps:
         - name: Get current time of deploy
           uses: gerred/actions/current-time@master
@@ -121,7 +121,7 @@ jobs:
             server_port: 465
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
-            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }} with time ${{ steps.current-time.outputs.time }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }} with time ${{ steps.current-time.outputs.time }} execution ${{ job.time }}
             body: DEPLOY job of ${{github.repository}} completed successfully! 
             to: djsasha777@mail.ru
             from: Alex xxx
