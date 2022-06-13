@@ -13,13 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - name: Get current time
-          uses: gerred/actions/current-time@master
-          id: start-time
-        - name: Use current time
-          env:
-            STARTTIME: ${{ steps.start-time.outputs.time }}
-          run: echo "$STARTTIME"
+        # - name: Get current time
+        #   uses: gerred/actions/current-time@master
+        #   id: start-time
+        # - name: Use current time
+        #   env:
+        #     STARTTIME: ${{ steps.start-time.outputs.time }}
+        #   run: echo "$STARTTIME"
+        - name: time test
+          run: echo "START::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -33,13 +35,15 @@ jobs:
         - name: Run Test
           working-directory: angular/
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-        - name: Get current time
-          uses: gerred/actions/current-time@master
-          id: end-time
-        - name: Use current time
-          env:
-            ENDTIME: ${{ steps.end-time.outputs.time }}
-          run: echo "starttime is $STARTTIME , endtime is $ENDTIME" 
+        # - name: Get current time
+        #   uses: gerred/actions/current-time@master
+        #   id: end-time
+        # - name: Use current time
+        #   env:
+        #     ENDTIME: ${{ steps.end-time.outputs.time }}
+        #   run: echo "starttime is $STARTTIME , endtime is $ENDTIME" 
+        - name: Echo current date
+          run: echo $START        
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
@@ -116,31 +120,33 @@ jobs:
 #             to: djsasha777@mail.ru
 #             from: Alex xxx
         
-#   deploy:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: read
-#     needs: [build]
-#     steps:  
-#         - name: Checkout
-#           uses: actions/checkout@v2  
-#         - name: Setup-node     
-#           run: echo "deploy will be here"
-#         - name: Get current time
-#           uses: gerred/actions/current-time@master
-#           id: end-time
-#         - name: Use current time
-#           env:
-#             ENDTIME: ${{ steps.end-time.outputs.time }}
-#           run: echo "$STARTTIME-$ENDTIME"
-#         - name: Send notification
-#           uses: dawidd6/action-send-mail@v2
-#           with:
-#             server_address: smtp.gmail.com
-#             server_port: 465
-#             username: ${{ secrets.EMAIL_USERNAME }}
-#             password: ${{ secrets.EMAIL_PASSWORD }}
-#             subject: ${{ github.job }} job of ${{ github.repository }}
-#             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time ${{ env.STARTTIME }}-${{ env.ENDTIME }}
-#             to: djsasha777@mail.ru
-#             from: Alex xxx
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    # needs: [build]
+    steps:  
+        - name: Checkout
+          uses: actions/checkout@v2  
+        - name: Setup-node     
+          run: echo "deploy will be here"
+        # - name: Get current time
+        #   uses: gerred/actions/current-time@master
+        #   id: end-time
+        # - name: Use current time
+        #   env:
+        #     ENDTIME: ${{ steps.end-time.outputs.time }}
+        #   run: echo "$STARTTIME-$ENDTIME"
+        - name: Echo current date
+          run: echo $START
+        - name: Send notification
+          uses: dawidd6/action-send-mail@v2
+          with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            username: ${{ secrets.EMAIL_USERNAME }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: ${{ github.job }} job of ${{ github.repository }}
+            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time 
+            to: djsasha777@mail.ru
+            from: Alex xxx
