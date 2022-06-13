@@ -47,6 +47,7 @@ jobs:
         - name: Usage
           run: |
             ENDTIME="${{ steps.time.outputs.time }}"
+            echo ${{ env.STARTTIME }}
             echo ${{ env.ENDTIME }}
             DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
             echo "duraction is $DURACTION  sec"
