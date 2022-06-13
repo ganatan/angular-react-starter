@@ -18,8 +18,8 @@ jobs:
           id: start-time
         - name: Use current time
           env:
-            STARTTIME: "${{ steps.start-time.outputs.time }}"
-          run: echo $STARTTIME
+            STARTTIME: ${{ steps.start-time.outputs.time }}
+          run: echo "$STARTTIME"
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -124,8 +124,8 @@ jobs:
           id: end-time
         - name: Use current time
           env:
-            ENDTIME: "${{ steps.end-time.outputs.time }}"
-          run: echo $STARTTIME-$ENDTIME
+            ENDTIME: ${{ steps.end-time.outputs.time }}
+          run: echo "$STARTTIME-$ENDTIME"
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
