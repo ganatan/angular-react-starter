@@ -19,14 +19,13 @@ jobs:
           id: timestart
           uses: nanzm/get-time-action@v1.1
           with:
-            timeZone: 8
-            format: 'YYYY-MM-DD-HH-mm-ss'
+            format: 'mm-ss'
         - name: Usage
           env:
             TIME: "${{ steps.timestart.outputs.time }}"
           run: |
-            echo $TIME
-            STARTTIME=$TIME
+            STARTTIME="${{ steps.timestart.outputs.time }}"
+            echo ${{ env.STARTTIME }}
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -44,8 +43,7 @@ jobs:
           id: time
           uses: nanzm/get-time-action@v1.1
           with:
-            timeZone: 8
-            format: 'YYYY-MM-DD-HH-mm-ss'
+            format: 'mm-ss'
         - name: Usage
           run: |
             ENDTIME="${{ steps.time.outputs.time }}"
