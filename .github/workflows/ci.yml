@@ -3,7 +3,7 @@ name: ANGULAR-ACTIONS
 env:
   STARTTIME: $(date +%s)
   ENDTIME: $(date +%s)
-  DURACTION: $(date +%s)
+  # DURACTION: $(date +%s)
 on:
   push:
     branches: [ "master" ]
@@ -147,7 +147,7 @@ jobs:
             echo "ENDTIME=${{ env.ENDTIME }}"
             echo "STARTTIME=${{ env.STARTTIME }}" 
             DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
-            echo "duraction time = ${{ env.DURACTION }} seconds"      
+            echo "duraction time = $DURACTION seconds"      
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
