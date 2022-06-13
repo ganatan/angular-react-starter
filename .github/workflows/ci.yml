@@ -130,8 +130,8 @@ jobs:
     needs: [test]
     # needs: [build]
     steps:  
-        - name: Checkout
-          uses: actions/checkout@v2  
+        # - name: Checkout
+        #   uses: actions/checkout@v2  
         - name: Setup-node     
           run: echo "deploy will be here"
         # - name: Get current time
@@ -141,14 +141,13 @@ jobs:
         #   env:
         #     ENDTIME: ${{ steps.end-time.outputs.time }}
         #   run: echo "$STARTTIME-$ENDTIME"
-        - name: time test
-          run: echo "ENDTIME=$(date +%s)" >> $GITHUB_ENV
-        - name: Echo current date
-          run: | 
+        - name: My time
+          run: |
+            env.ENDTIME=date +%s 
+            echo "ENDTIME=${{ env.ENDTIME }}"
+            echo "STARTTIME=${{ env.STARTTIME }}" 
             interval=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
-            echo "interval = $interval"s
-        - name: test duraction
-          run: echo "${{ env.DURACTION }}"      
+            echo "interval = $interval"s      
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
