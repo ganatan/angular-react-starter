@@ -35,6 +35,18 @@ jobs:
         - name: Run Test
           working-directory: angular/
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless 
+        - name: Get Time of end
+          id: time
+          uses: nanzm/get-time-action@v1.1
+          with:
+            format: 'mm-ss'
+        - name: Usage time of end
+          run: |
+            echo "ENDTIME=${{ steps.timestart.outputs.time }}" >> ${GITHUB_ENV}
+            echo "The start time is: ${{ env.STARTTIME }}"
+            echo "The end time is:${{ env.ENDTIME }}"
+            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
+            echo "duraction is $DURACTION  sec"           
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
@@ -111,39 +123,26 @@ jobs:
 #             to: djsasha777@mail.ru
 #             from: Alex xxx
         
-  deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    # needs: [build]
-    needs: [test]
-    env:
-      ENDTIME: $(date +%s)
-    steps:  
-        - name: Checkout
-          uses: actions/checkout@v2  
-        - name: Setup-node     
-          run: echo "deploy will be here"
-        - name: Get Time of end
-          id: time
-          uses: nanzm/get-time-action@v1.1
-          with:
-            format: 'mm-ss'
-        - name: Usage time of end
-          run: |
-            echo "ENDTIME=${{ steps.timestart.outputs.time }}" >> ${GITHUB_ENV}
-            echo "The start time is: ${{ env.STARTTIME }}"
-            echo "The end time is:${{ env.ENDTIME }}"
-            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
-            echo "duraction is $DURACTION  sec"      
-        - name: Send notification
-          uses: dawidd6/action-send-mail@v2
-          with:
-            server_address: smtp.gmail.com
-            server_port: 465
-            username: ${{ secrets.EMAIL_USERNAME }}
-            password: ${{ secrets.EMAIL_PASSWORD }}
-            subject: ${{ github.job }} job of ${{ github.repository }}
-            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time $DURACTION seconds
-            to: djsasha777@mail.ru
-            from: Alex xxx
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #   needs: [build]
+  #   env:
+  #     ENDTIME: $(date +%s)
+  #   steps:  
+  #       - name: Checkout
+  #         uses: actions/checkout@v2  
+  #       - name: Setup-node     
+  #         run: echo "deploy will be here"     
+  #       - name: Send notification
+  #         uses: dawidd6/action-send-mail@v2
+  #         with:
+  #           server_address: smtp.gmail.com
+  #           server_port: 465
+  #           username: ${{ secrets.EMAIL_USERNAME }}
+  #           password: ${{ secrets.EMAIL_PASSWORD }}
+  #           subject: ${{ github.job }} job of ${{ github.repository }}
+  #           body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time $DURACTION seconds
+  #           to: djsasha777@mail.ru
+  #           from: Alex xxx
