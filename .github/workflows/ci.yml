@@ -47,7 +47,9 @@ jobs:
         - name: Usage
           run: |
             ENDTIME="${{ steps.time.outputs.time }}"
-            echo ${{ env.ENDTIME }}  
+            echo ${{ env.ENDTIME }}
+            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
+            echo "duraction is $DURACTION  sec"
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
