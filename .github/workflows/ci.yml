@@ -1,6 +1,8 @@
 
 name: ANGULAR-ACTIONS
-
+env:
+  STARTTIME: $(date +%s)
+  NDTIME: $(date +%s)
 on:
   push:
     branches: [ "master" ]
@@ -11,14 +13,18 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    env:
-      STARTTIME: $(date +%s)
-      ENDTIME: $(date +%s)
+
     steps:
-        - name: time test start
+        - name: Get Time
+          id: time
+          uses: nanzm/get-time-action@v1.1
+          with:
+            timeZone: 8
+            format: 'YYYY-MM-DD-HH-mm-ss'
+        - name: Usage
           run: |
-            STARTTIME=$(date +%s)
-            echo "starttime is: ${{ env.STARTTIME }} seconds"
+            STARTTIME: "${{ steps.time.outputs.time }}"
+            echo ${{ STARTTIME }}
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -32,11 +38,16 @@ jobs:
         - name: Run Test
           working-directory: angular/
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless 
-        - name: My time
+        - name: Get Time
+          id: time
+          uses: nanzm/get-time-action@v1.1
+          with:
+            timeZone: 8
+            format: 'YYYY-MM-DD-HH-mm-ss'
+        - name: Usage
           run: |
-            echo "endtime is: ${{ env.ENDTIME }} seconds"
-            echo "starttime is: ${{ env.STARTTIME }} seconds"
-            echo "duraction time = $DURACTION seconds"     
+            STARTTIME: "${{ steps.time.outputs.time }}"
+            echo ${{ env.ENDTIME }}  
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
