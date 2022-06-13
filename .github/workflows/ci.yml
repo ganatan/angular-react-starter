@@ -39,7 +39,7 @@ jobs:
         - name: Use current time
           env:
             ENDTIME: ${{ steps.end-time.outputs.time }}
-          run: echo "$STARTTIME-$ENDTIME"          
+          run: echo "$ENDTIME - $STARTTIME"          
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           if: job.status.failure
