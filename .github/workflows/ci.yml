@@ -4,7 +4,11 @@ name: ANGULAR-ACTIONS
 on:
   push:
     branches: [ "master" ]
-    
+# adds
+  workflow_run:
+    types: [ "completed" ]
+    workflows: [ "units-test" ]   
+# adds 
   workflow_dispatch:
   
 jobs:
@@ -125,3 +129,12 @@ jobs:
             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time $DURACTION seconds
             to: djsasha777@mail.ru
             from: Alex xxx
+            
+  workflow_duration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Workflow run duration action
+        uses: channyein87/workflow-duration-action@v1
+        id: duration
+      - name: Get the output of duration
+        run: echo "The units-test workflow is ${{ steps.duration.outputs.duration }} seconds long."
