@@ -17,7 +17,7 @@ jobs:
           id: timestart
           uses: nanzm/get-time-action@v1.1
           with:
-            format: 'mm-ss'
+            format: 'ss'
         - name: Usage time start
           run: |
             echo "STARTTIME=${{ steps.timestart.outputs.time }}" >> ${GITHUB_ENV}
@@ -39,7 +39,7 @@ jobs:
           id: time
           uses: nanzm/get-time-action@v1.1
           with:
-            format: 'mm-ss'
+            format: 'ss'
         - name: Usage time of end
           run: |
             echo "ENDTIME=${{ steps.timestart.outputs.time }}" >> ${GITHUB_ENV}
