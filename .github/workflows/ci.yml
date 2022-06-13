@@ -4,11 +4,7 @@ name: ANGULAR-ACTIONS
 on:
   push:
     branches: [ "master" ]
-##time test    
-  workflow_run:
-    types: [ "completed" ]
-    workflows: [ "units-test" ]
-##time test
+
   workflow_dispatch:
   
 jobs:
@@ -127,18 +123,3 @@ jobs:
             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} 
             to: djsasha777@mail.ru
             from: Alex xxx
-##timetest
-  time:
-      runs-on: ubuntu-latest
-      needs: [deploy]
-      steps:
-      - uses: actions/checkout@v3
-      - uses: ./
-        id: duration
-      - name: output
-        run: |
-          echo "The duration is ${{ steps.duration.outputs.duration }} long."
-          echo "seconds: ${{ steps.duration.outputs.seconds }}"
-          echo "milliseconds: ${{ steps.duration.outputs.milliseconds }}"
-          echo "minutes: ${{ steps.duration.outputs.minutes }}"
-          echo "hours: ${{ steps.duration.outputs.hours }}"
