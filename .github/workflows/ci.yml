@@ -11,9 +11,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: angular/
+    
     steps:
         - name: Get current time
           uses: gerred/actions/current-time@master
@@ -27,10 +25,13 @@ jobs:
         - name: Setup-node     
           uses: actions/setup-node@v2
           with:
+            working-directory: angular/
             node-version: 14.x                  
         - name: Install
+          working-directory: angular/
           run: npm ci
         - name: Run Test
+          working-directory: angular/
           run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
