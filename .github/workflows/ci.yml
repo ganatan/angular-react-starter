@@ -12,53 +12,37 @@ on:
   
 jobs:
 
-  # test:
-  #   runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #       # - name: Get current time
-  #       #   uses: gerred/actions/current-time@master
-  #       #   id: start-time
-  #       # - name: Use current time
-  #       #   env:
-  #       #     STARTTIME: ${{ steps.start-time.outputs.time }}
-  #       #   run: echo "$STARTTIME"
-  #       - name: time test
-  #         run: echo "STARTTIME=$(date +%s)" >> $GITHUB_ENV
-  #       - name: Checkout
-  #         uses: actions/checkout@v2      
-  #       - name: Setup-node     
-  #         uses: actions/setup-node@v2
-  #         with:
-  #           working-directory: angular/
-  #           node-version: 14.x                  
-  #       - name: Install
-  #         working-directory: angular/
-  #         run: npm ci
-  #       - name: Run Test
-  #         working-directory: angular/
-  #         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
-  #       # - name: Get current time
-  #       #   uses: gerred/actions/current-time@master
-  #       #   id: end-time
-  #       # - name: Use current time
-  #       #   env:
-  #       #     ENDTIME: ${{ steps.end-time.outputs.time }}
-  #       #   run: echo "starttime is $STARTTIME , endtime is $ENDTIME" 
-  #       - name: Echo current date
-  #         run: echo $STARTTIME       
-  #       - name: Send notification
-  #         uses: dawidd6/action-send-mail@v2
-  #         if: job.status.failure
-  #         with:
-  #           server_address: smtp.gmail.com
-  #           server_port: 465
-  #           username: ${{ secrets.EMAIL_USERNAME }}
-  #           password: ${{ secrets.EMAIL_PASSWORD }}
-  #           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-  #           body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-  #           to: djsasha777@mail.ru
-  #           from: Alex xxx
+    steps:
+        - name: time test start
+          run: STARTTIME=$(date +%s)
+        - name: Checkout
+          uses: actions/checkout@v2      
+        - name: Setup-node     
+          uses: actions/setup-node@v2
+          with:
+            working-directory: angular/
+            node-version: 14.x                  
+        - name: Install
+          working-directory: angular/
+          run: npm ci
+        - name: Run Test
+          working-directory: angular/
+          run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless      
+        - name: Send notification
+          uses: dawidd6/action-send-mail@v2
+          if: job.status.failure
+          with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            username: ${{ secrets.EMAIL_USERNAME }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+            body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+            to: djsasha777@mail.ru
+            from: Alex xxx
             
 #   build:
 #     runs-on: ubuntu-latest
@@ -127,25 +111,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    # needs: [test]
+    needs: [test]
     # needs: [build]
     steps:  
-        # - name: Checkout
-        #   uses: actions/checkout@v2  
+        - name: Checkout
+          uses: actions/checkout@v2  
         - name: Setup-node     
           run: echo "deploy will be here"
-        # - name: Get current time
-        #   uses: gerred/actions/current-time@master
-        #   id: end-time
-        # - name: Use current time
-        #   env:
-        #     ENDTIME: ${{ steps.end-time.outputs.time }}
-        #   run: echo "$STARTTIME-$ENDTIME"
         - name: My time
           run: |
-            ENDTIME=$(date +%s)
-            echo "ENDTIME=${{ env.ENDTIME }}"
-            echo "STARTTIME=${{ env.STARTTIME }}" 
+            ENDTIME=$(date +%s) 
             DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
             echo "duraction time = $DURACTION seconds"      
         - name: Send notification
@@ -156,6 +131,6 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }}
-            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time 
+            body: DEPLOY job of ${{github.repository}} has ${{ job.status }} with time $DURACTION seconds
             to: djsasha777@mail.ru
             from: Alex xxx
