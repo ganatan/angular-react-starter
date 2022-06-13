@@ -1,7 +1,6 @@
 
 name: ANGULAR-ACTIONS
-env:
-  STARTTIME: $(date +%s)
+
 on:
   push:
     branches: [ "master" ]
@@ -12,7 +11,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
+    env:
+      STARTTIME: $(date +%s)
+      ENDTIME: $(date +%s)
     steps:
         - name: time test start
           run: |
