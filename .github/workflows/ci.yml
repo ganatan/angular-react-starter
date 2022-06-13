@@ -145,7 +145,7 @@ jobs:
           run: echo "ENDTIME=$(date +%s)" >> $GITHUB_ENV
         - name: Echo current date
           run: | 
-            interval=$(( $env.ENDTIME - $env.STARTTIME ))
+            interval=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
             echo "interval = $interval"s
         - name: test duraction
           run: echo "${{ env.DURACTION }}"      
