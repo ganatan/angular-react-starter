@@ -1,6 +1,8 @@
 
 name: ANGULAR-ACTIONS
-
+env:
+  STARTTIME: $(date +%Y%m%d%H%M)
+  ENDTIME: $(date +%Y%m%d%H%M)
 on:
   push:
     branches: [ "master" ]
