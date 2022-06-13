@@ -17,7 +17,9 @@ jobs:
 
     steps:
         - name: time test start
-          run: STARTTIME=$(date +%s)
+          run: |
+            STARTTIME=$(date +%s)
+            echo "starttime is: ${{ env.STARTTIME }} seconds"
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -122,6 +124,8 @@ jobs:
           run: |
             ENDTIME=$(date +%s) 
             DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
+            echo "endtime is: ${{ env.ENDTIME }} seconds"
+            echo "starttime is: ${{ env.STARTTIME }} seconds"
             echo "duraction time = $DURACTION seconds"      
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
