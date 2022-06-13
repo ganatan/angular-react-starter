@@ -22,9 +22,11 @@ jobs:
             timeZone: 8
             format: 'YYYY-MM-DD-HH-mm-ss'
         - name: Usage
+          env:
+            TIME: "${{ steps.timestart.outputs.time }}"
           run: |
-            STARTTIME="${{ steps.timestart.outputs.ti }}"
-            echo ${{ STARTTIME }}
+            echo $TIME
+            STARTTIME=$TIME
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
