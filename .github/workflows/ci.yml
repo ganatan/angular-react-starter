@@ -1,8 +1,8 @@
 
 name: ANGULAR-ACTIONS
 env:
-  STARTTIME: $(date +%s)
-  NDTIME: $(date +%s)
+   STARTTIME: $(date +%s)
+   ENDTIME: $(date +%s)
 on:
   push:
     branches: [ "master" ]
@@ -16,14 +16,14 @@ jobs:
 
     steps:
         - name: Get Time
-          id: time
+          id: timestart
           uses: nanzm/get-time-action@v1.1
           with:
             timeZone: 8
             format: 'YYYY-MM-DD-HH-mm-ss'
         - name: Usage
           run: |
-            STARTTIME="${{ steps.time.outputs.time }}"
+            STARTTIME="${{ steps.timestart.outputs.ti }}"
             echo ${{ STARTTIME }}
         - name: Checkout
           uses: actions/checkout@v2      
