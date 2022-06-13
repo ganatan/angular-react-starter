@@ -1,9 +1,6 @@
 
 name: ANGULAR-ACTIONS
-env:
-  STARTTIME: $(date +%s)
-  ENDTIME: $(date +%s)
-  # DURACTION: $(date +%s)
+
 on:
   push:
     branches: [ "master" ]
@@ -14,7 +11,8 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
+    env:
+      STARTTIME: $(date +%s)
     steps:
         - name: time test start
           run: |
@@ -115,6 +113,8 @@ jobs:
       contents: read
     needs: [test]
     # needs: [build]
+    env:
+      ENDTIME: $(date +%s)
     steps:  
         - name: Checkout
           uses: actions/checkout@v2  
@@ -123,7 +123,7 @@ jobs:
         - name: My time
           run: |
             ENDTIME=$(date +%s) 
-            DURACTION=$(( ${{ env.ENDTIME }}-${{ env.STARTTIME }} ))
+            DURACTION=$(( ${{ env.ENDTIME }}-${{ test.env.STARTTIME }} ))
             echo "endtime is: ${{ env.ENDTIME }} seconds"
             echo "starttime is: ${{ env.STARTTIME }} seconds"
             echo "duraction time = $DURACTION seconds"      
