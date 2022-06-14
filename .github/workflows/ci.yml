@@ -1,14 +1,15 @@
 
 name: ANGULAR-ACTIONS
-env:
-  STARTTIME: $(date - %s)
-  ENDTIME: $(date - %s)
+
 on:
   push:
     branches: [ "master" ]
 
   workflow_dispatch:
-  
+
+  workflow_run:
+    types: [ "completed" ]
+    workflows: [ "ANGULAR-ACTIONS" ]  
 jobs:
 
   test:
@@ -132,11 +133,7 @@ jobs:
     steps:
         - name: Test workflow duration
           uses: channyein87/workflow-duration-action@v1
-          id: test
-          with:
-            repository: ${{ github.repository }}
-            workflow: ${{ github.workflow }}
-            github_token: ${{ github.token }}            
+          id: test            
         - name: Get the output of duration
           run: |
             echo "The test workflow is ${{ steps.test.outputs.duration }} long."
