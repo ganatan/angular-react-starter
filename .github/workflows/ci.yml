@@ -1,6 +1,8 @@
 
 name: ANGULAR-ACTIONS
-
+env:
+  STARTTIME: $(date - %s)
+  ENDTIME: $(date - %s)
 on:
   push:
     branches: [ "master" ]
@@ -123,3 +125,17 @@ jobs:
             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} 
             to: djsasha777@mail.ru
             from: Alex xxx
+# time duration test            
+        - name: Workflow Duration Action
+          # You may pin to the exact commit or the version.
+          # uses: channyein87/workflow-duration-action@3b0b1e762f6257c9ff8fd9d401bd8f48e5a3330e
+          uses: channyein87/workflow-duration-action@v1.16
+          with:
+            # repository name with owner
+            repository: ${{ github.event.workflow_run.head_repository.full_name }}
+            # run id of the workflow
+            run_id: ${{ github.event.workflow_run.id }}
+            # workflow yaml file
+            workflow: ${{ github.workflow }}
+            # github token
+            github_token: ${{ github.token }}
