@@ -132,7 +132,7 @@ jobs:
         - name: get end current time
           run: $ENDTINE=$(date +'%S')
         - name: calc time
-          run: $DURATIONTIME=$ENDTIME-${{ jobs.test.steps.startstep.outputs.STARTTIME }}
+          run: $DURATIONTIME=$ENDTIME-${{ needs.test.steps.startstep.outputs.STARTTIME }}
         - name: print
           run: echo $DURATIONTIME
 
