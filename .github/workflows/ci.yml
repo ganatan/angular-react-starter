@@ -130,11 +130,10 @@ jobs:
             from: Alex xxx
     #bonus step in progress/////
         - name: get end current time
-          run: $ENDTINE=$(date +'%S')
+          run: echo "ENDTIME::$(date +'%S')" >> $GITHUB_ENV
         - name: calc time
-          run: $DURATIONTIME=$ENDTIME-${{ needs.test.steps.startstep.outputs.STARTTIME }}
-        - name: print
-          run: echo $DURATIONTIME
+          run: echo " ${{ env.ENDTIME }}-${{ needs.test.steps.startstep.outputs.STARTTIME }}
+
 
     #bonus step in progress\\\\\\
 
