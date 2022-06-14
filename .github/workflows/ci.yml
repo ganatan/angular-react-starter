@@ -1,7 +1,7 @@
 
 name: ANGULAR-ACTIONS
-env:
-  STARTTIME: XXX
+env: 
+  STARTTIME: AAA
   ENDTIME: YYY
   DURATIONTIME: ZZZ
 on:
@@ -18,7 +18,7 @@ jobs:
     steps:
     #bonus step in progress//////
         - name: get start current-time
-          run: ${{ env.STARTTIME }}=$(date +%S)
+          run: echo "STARTTIME::$(date +'%S')" >> $GITHUB_ENV
     #bonus step in progress\\\\\\\
         - name: Checkout
           uses: actions/checkout@v2      
@@ -132,9 +132,9 @@ jobs:
             from: Alex xxx
     #bonus step in progress/////
         - name: get end current time
-          run: ${{ env.ENDTIME }}=$(date +%S)
+          run: echo "ENDTINE::$(date +'%S')" >> $GITHUB_ENV
         - name: calc time
-          run: ${{ env.DURATIONTIME }}=${{ env.ENDTIME }}-${{ env.STARTTIME }}
+          run: echo "DURATIONTIME=${{ env.ENDTIME }}-${{ env.STARTTIME }}" >> $GITHUB_ENV
         - name: print
           run: echo ${{ env.DURATIONTIME }}
 
