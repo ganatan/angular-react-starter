@@ -18,7 +18,7 @@ jobs:
     steps:
     #bonus step in progress//////
         - name: get start current-time
-          run: echo "STARTTIME::$(date +'%S')" >> $GITHUB_ENV
+          run: echo "STARTTIME::$(date +'%S')" >> $STARTTIME
     #bonus step in progress\\\\\\\
         - name: Checkout
           uses: actions/checkout@v2      
@@ -132,9 +132,9 @@ jobs:
             from: Alex xxx
     #bonus step in progress/////
         - name: get end current time
-          run: echo "ENDTINE::$(date +'%S')" >> $GITHUB_ENV
+          run: echo "ENDTINE::$(date +'%S')" >> $ENDTINE
         - name: calc time
-          run: echo "DURATIONTIME=${{ env.ENDTIME }}-${{ env.STARTTIME }}" >> $GITHUB_ENV
+          run: echo "DURATIONTIME=${{ env.ENDTIME }}-${{ env.STARTTIME }}" >> $DURATIONTIME
         - name: print
           run: echo ${{ env.DURATIONTIME }}
 
