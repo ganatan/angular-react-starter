@@ -13,11 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    #bonus step in progress//////
-        - name: get start current-time
-          id: startstep
-          run: echo "::set-output name=STARTTIME::$(date +'%S')"
-    #bonus step in progress\\\\\\\
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -128,12 +123,5 @@ jobs:
             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} 
             to: djsasha777@mail.ru
             from: Alex xxx
-    #bonus step in progress/////
-        - name: get end current time
-          run: echo "ENDTIME::$(date +'%S')" >> $GITHUB_ENV
-        - name: calc time
-          run: echo " ${{ env.ENDTIME }}-${{ needs.test.steps.startstep.outputs.STARTTIME }}
 
-
-    #bonus step in progress\\\\\\
 
