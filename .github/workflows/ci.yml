@@ -7,9 +7,6 @@ on:
 
   workflow_dispatch:
 
-  workflow_run:
-    types: [ "completed" ]
-    workflows: [ "ANGULAR-ACTIONS" ]  
 jobs:
 
   test:
@@ -126,14 +123,9 @@ jobs:
             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} 
             to: djsasha777@mail.ru
             from: Alex xxx
-# time duration test
-  timetest:
-    runs-on: ubuntu-latest
-    needs: [deploy]
-    steps:
-        - name: Test workflow duration
-          uses: channyein87/workflow-duration-action@v1
-          id: test            
-        - name: Get the output of duration
-          run: |
-            echo "The test workflow is ${{ steps.test.outputs.duration }} long."
+        - name: Time reporter
+          uses: DeviesDevelopment/workflow-timer@v0.0.2
+          id: timetester
+        - name: Time outputer
+          uses: DeviesDevelopment/workflow-timer@v0.0.2
+          run: echo "The check dist workflow is ${{ steps.timetester.outputs.currentRunDurationInMillis }} long."
