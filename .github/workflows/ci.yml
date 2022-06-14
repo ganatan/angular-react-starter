@@ -1,7 +1,6 @@
 
 name: ANGULAR-ACTIONS
-env: 
-  STARTTIME: AAA
+
 on:
   push:
     branches: [ "master" ]
@@ -16,7 +15,8 @@ jobs:
     steps:
     #bonus step in progress//////
         - name: get start current-time
-          run: echo "STARTTIME::$(date +'%S')" >> $STARTTIME
+          id: startstep
+          run: echo "::set-output name=STARTTIME::$(date +'%S')"
     #bonus step in progress\\\\\\\
         - name: Checkout
           uses: actions/checkout@v2      
@@ -132,7 +132,7 @@ jobs:
         - name: get end current time
           run: $ENDTINE=$(date +'%S')
         - name: calc time
-          run: $DURATIONTIME=$ENDTIME-${{ env.STARTTIME }}"
+          run: $DURATIONTIME=$ENDTIME-${{ jobs.test.steps.startstep.outputs.STARTTIME }}
         - name: print
           run: echo $DURATIONTIME
 
