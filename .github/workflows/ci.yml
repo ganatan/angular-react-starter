@@ -18,7 +18,7 @@ jobs:
     steps:
     #bonus step in progress//////
         - name: get start current-time
-          run: STARTTIME=$(date +%S)
+          run: ${{ env.STARTTIME }}=$(date +%S)
     #bonus step in progress\\\\\\\
         - name: Checkout
           uses: actions/checkout@v2      
@@ -132,9 +132,9 @@ jobs:
             from: Alex xxx
     #bonus step in progress/////
         - name: get end current time
-          run: ENDTIME=$(date +%S)
+          run: ${{ env.ENDTIME }}=$(date +%S)
         - name: calc time
-          run: DURATIONTIME=${{ env.ENDTIME }}-${{ env.STARTTIME }}
+          run: ${{ env.DURATIONTIME }}=${{ env.ENDTIME }}-${{ env.STARTTIME }}
         - name: print
           run: echo ${{ env.DURATIONTIME }}
 
