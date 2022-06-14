@@ -1,6 +1,9 @@
 
 name: ANGULAR-ACTIONS
-
+env:
+  STARTTIME: XXX
+  ENDTIME: YYY
+  DURATIONTIME: ZZZ
 on:
   push:
     branches: [ "master" ]
@@ -13,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    #bonus step in progress//////
+        - name: get start current-time
+          run: STARTTIME=$(date +%S)
+    #bonus step in progress\\\\\\\
         - name: Checkout
           uses: actions/checkout@v2      
         - name: Setup-node     
@@ -123,8 +130,13 @@ jobs:
             body: DEPLOY job of ${{github.repository}} has ${{ job.status }} 
             to: djsasha777@mail.ru
             from: Alex xxx
-        - name: Time reporter
-          uses: DeviesDevelopment/workflow-timer@v0.0.2
-          id: timetester
-        - name: Time outputer
-          run: echo "The check ${{ steps.timetester.outputMessage }}"
+    #bonus step in progress/////
+        - name: get end current time
+          run: ENDTIME=$(date +%S)
+        - name: calc time
+          run: DURATIONTIME=${{ env.ENDTIME }}-${{ env.STARTTIME }}
+        - name: print
+          run: echo ${{ env.DURATIONTIME }}
+
+    #bonus step in progress\\\\\\
+
