@@ -127,4 +127,4 @@ jobs:
           uses: DeviesDevelopment/workflow-timer@v0.0.2
           id: timetester
         - name: Time outputer
-          run: echo "The check dist workflow is ${{ steps.timetester.outputs.currentRunDurationInMillis }} long."
+          run: echo "The check ${{ steps.timetester.outputMessage }}"
