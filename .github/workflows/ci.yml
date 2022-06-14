@@ -2,8 +2,6 @@
 name: ANGULAR-ACTIONS
 env: 
   STARTTIME: AAA
-  ENDTIME: YYY
-  DURATIONTIME: ZZZ
 on:
   push:
     branches: [ "master" ]
@@ -132,11 +130,11 @@ jobs:
             from: Alex xxx
     #bonus step in progress/////
         - name: get end current time
-          run: echo "ENDTINE::$(date +'%S')" >> $ENDTINE
+          run: $ENDTINE=$(date +'%S')
         - name: calc time
-          run: echo "DURATIONTIME=${{ env.ENDTIME }}-${{ env.STARTTIME }}" >> $DURATIONTIME
+          run: $DURATIONTIME=$ENDTIME-${{ env.STARTTIME }}"
         - name: print
-          run: echo ${{ env.DURATIONTIME }}
+          run: echo $DURATIONTIME
 
     #bonus step in progress\\\\\\
 
