@@ -85,7 +85,7 @@ jobs:
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
             body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} 
-            to: ${{ github.sender.email }}
+            to: ${{ secrets.EMAILOFUSER }}
             from: ${{ secrets.EMAIL_USERNAME }}   
         
 
