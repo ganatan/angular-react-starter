@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   angular-starter:
-    image: ghcr.io/djsasha777/angular-react-starter/testtaskangular:001
+    image: ghcr.io/djsasha777/angular-react-starter/testtaskangular:002
     container_name: angular
     ports:
       - 8080:8080
