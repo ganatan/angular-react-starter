@@ -61,8 +61,7 @@ jobs:
           run: npm ci
         - name: Run build
           working-directory: angular/
-          run: npm run build
-# # If you want to push to github registry       
+          run: npm run build     
         - name: Login to github registry
           uses: docker/login-action@v2
           with:
@@ -77,19 +76,6 @@ jobs:
             push: true
             tags: |
               ghcr.io/${{ github.repository }}/testtaskangular:001
-# # If you want to push to dokerhub              
-        # - name: Login to DockerHub
-        #   uses: docker/login-action@v2
-        #   with:
-        #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-        #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        # - name: Build and push
-        #   uses: docker/build-push-action@v3
-        #   with:
-        #     context: .
-        #     push: true
-        #     tags: djsasha777/ang:1
-
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
