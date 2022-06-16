@@ -37,7 +37,7 @@ jobs:
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
             body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
             to: djsasha777@mail.ru
-            from: Alex xxx
+            from: ${{ secrets.EMAIL_USERNAME }}
             
   build:
     runs-on: ubuntu-latest
@@ -84,9 +84,11 @@ jobs:
             username: ${{ secrets.EMAIL_USERNAME }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} with time ${{ steps.current-time.outputs.time }} 
+            body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} 
             to: djsasha777@mail.ru
-            from: Alex xxx
+            from: ${{ secrets.EMAIL_USERNAME }}
+        - name: print mail       
+          run: echo "${{ github.actor }}@users.noreply.github.com"     
         
 
 
