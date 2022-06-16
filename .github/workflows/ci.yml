@@ -85,10 +85,8 @@ jobs:
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
             body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} 
-            to: djsasha777@mail.ru
-            from: ${{ secrets.EMAIL_USERNAME }}
-        - name: print mail       
-          run: echo "${{ github.event.pusher.email }}"   
+            to: ${{ github.event.pusher.email }}
+            from: ${{ secrets.EMAIL_USERNAME }}   
         
 
 
