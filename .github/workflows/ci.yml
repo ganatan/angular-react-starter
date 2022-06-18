@@ -81,7 +81,7 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: |
-              ghcr.io/${{ github.repository }}/${{ github.workflow }}:$BUILD_NUMBER
+              ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ BUILD_NUMBER }}
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
