@@ -36,7 +36,7 @@ jobs:
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
             body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-            to: djsasha777@mail.ru
+            to: ${{ secrets.EMAILOFUSER }}
             from: ${{ secrets.EMAIL_USERNAME }}
             
   build:
@@ -68,6 +68,12 @@ jobs:
             registry: ghcr.io
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
+        - name: Generate build number
+          uses: einaregilsson/build-number@v3
+          with:
+            token: ${{secrets.github_token}}
+        - name: Print new build number
+          run: echo "Build number is $BUILD_NUMBER" 
         - name : build docker image and push
           uses: docker/build-push-action@v3
           with:
@@ -75,7 +81,7 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: |
-              ghcr.io/${{ github.repository }}/testtaskangular:002
+              ghcr.io/${{ github.repository }}/${{ github.workflow }}:$BUILD_NUMBER
         - name: Send notification
           uses: dawidd6/action-send-mail@v2
           with:
