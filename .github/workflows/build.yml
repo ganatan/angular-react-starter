@@ -1,9 +1,13 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - 'master'
+ pull_request:
+   branches:
+     - '*'
+ 
+ push:
+   branches:
+     - 'master'
 
 jobs:
   build:
@@ -12,7 +16,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18.05.0
+          node-version: 16.13.x
           cache: npm
       
       - name: Installing dependencies
