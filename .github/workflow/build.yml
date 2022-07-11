@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.05.0
+          cache: npm
+      
+      - name: Installing dependencies
+        run: npm install
+
+      - name: test
+        run: npm run test
+
+      - name: build app
+        run: npm run build
