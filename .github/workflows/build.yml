@@ -65,3 +65,6 @@ jobs:
 #             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
 #             to: awameg@yandex.ru
 #             from: GitHub-Action-Notify
+
+        - name: Time reporter
+          uses: DeviesDevelopment/workflow-timer@v0.0.2
