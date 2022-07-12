@@ -13,6 +13,7 @@ jobs:
           with:
             node-version: 16.13.x
             cache: npm
+            cache-dependency-path: angular/package-lock.json
 
 # name: Build
 
