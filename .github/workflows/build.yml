@@ -14,16 +14,19 @@ jobs:
             node-version: 16.13.x
 #             cache: 'npm'
             cache-dependency-path: angular/package-lock.json
-        
+
+# Installing dependencies
         - name: Installing dependencies
           run: cd ${{ github.workspace }}/angular && npm install
-          
+# Run tests          
 #         - name: test
 #           run: cd ${{ github.workspace }}/angular && npm run test
 
+# Build app
         - name: build app
           run: cd ${{ github.workspace }}/angular && npm run build
-          
+
+# Build docker image
         - name: docker image build
           run: docker build -t ghcr.io/awameg/nginx-angular:latest -t ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8} .
         
@@ -32,3 +35,30 @@ jobs:
           
         - name: Publish docker image
           run: docker push ghcr.io/awameg/nginx-angular:latest && docker push ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
+
+# Notifications
+        - name: Send mail always
+          if: always()
+          uses: dawidd6/action-send-mail@v2
+          with:
+            server_address: smtp.yandex.ru
+            server_port: 465
+            username: ${{ secrets.EMAIL_NOTIFY }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+            to: awameg@yandex.ru
+            from: GitHub-Action-Notify
+            
+        - name: Send mail failure
+          if: failure()
+          uses: dawidd6/action-send-mail@v2
+          with:
+            server_address: smtp.yandex.ru
+            server_port: 465
+            username: ${{ secrets.EMAIL_NOTIFY }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has FAILED!!!
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
+            to: awameg@yandex.ru
+            from: GitHub-Action-Notify
