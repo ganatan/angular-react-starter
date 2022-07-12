@@ -25,7 +25,7 @@ jobs:
           run: cd ${{ github.workspace }}/angular && npm run build
           
         - name: docker image build
-          run: docker build -t ghcr.io/awameg/nginx-angular:latest -t ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
+          run: docker build -t ghcr.io/awameg/nginx-angular:latest -t ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8} .
         
         - name: docker login
           run: docker login ghcr.io -u $GITHUB_ACTOR -p ${{secrets.GITHUB_TOKEN}}
