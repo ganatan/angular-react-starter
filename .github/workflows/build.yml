@@ -17,6 +17,12 @@ jobs:
         
         - name: Installing dependencies
           run: cd ${{ github.workspace }}/angular && npm install
+          
+        - name: test
+          run: npm run test
+
+#         - name: build app
+#           run: npm run build
 
 # name: Build
 
