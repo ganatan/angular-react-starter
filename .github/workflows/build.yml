@@ -13,6 +13,9 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
+      - name: chdir
+        run: cd ./angular
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
