@@ -2,7 +2,7 @@ version: "3.2"
 services:
 
   nginx:
-    image: nginx:angular
+    image: ghcr.io/awameg/nginx-angular:latest
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
