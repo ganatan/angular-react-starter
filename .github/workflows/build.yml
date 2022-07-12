@@ -16,7 +16,7 @@ jobs:
             cache-dependency-path: angular/package-lock.json
         
         - name: Installing dependencies
-          run: npm install
+          run: cd ${{ github.workspace }}/angular && npm install
 
 # name: Build
 
