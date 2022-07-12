@@ -11,7 +11,6 @@ jobs:
     steps:
         - name: Check out repository code
           uses: actions/checkout@v3
-        - run: cd ${{ github.workspace }}/angular && ls ./
         
         - name: Setup node
           uses: actions/setup-node@v3
@@ -20,52 +19,51 @@ jobs:
 #             cache: 'npm'
             cache-dependency-path: angular/package-lock.json
 
-# # Installing dependencies
-#         - name: Installing dependencies
-#           run: cd ${{ github.workspace }}/angular && npm install
-# # Run tests          
-# #         - name: test
-# #           run: cd ${{ github.workspace }}/angular && npm run test
+# Installing dependencies
+        - name: Installing dependencies
+          run: cd ${{ github.workspace }}/angular && npm install
 
-# # Build app
-#         - name: build app
-#           run: cd ${{ github.workspace }}/angular && npm run build
+# Run tests          
+#         - name: test
+#           run: cd ${{ github.workspace }}/angular && npm run test
 
-# # Build docker image
-#         - name: docker image build
-#           run: docker build -t ghcr.io/awameg/nginx-angular:latest -t ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8} .
+# Build app
+        - name: build app
+          run: cd ${{ github.workspace }}/angular && npm run build
+
+# Build docker image
+        - name: docker image build
+          run: docker build -t ghcr.io/awameg/nginx-angular:latest -t ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8} .
         
-#         - name: docker login
-#           run: docker login ghcr.io -u $GITHUB_ACTOR -p ${{secrets.GITHUB_TOKEN}}
+        - name: docker login
+          run: docker login ghcr.io -u $GITHUB_ACTOR -p ${{secrets.GITHUB_TOKEN}}
           
-#         - name: Publish docker image
-#           run: docker push ghcr.io/awameg/nginx-angular:latest && docker push ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
-        - name: Time reporter
-          uses: DeviesDevelopment/workflow-timer@v0.0.2
+        - name: Publish docker image
+          run: docker push ghcr.io/awameg/nginx-angular:latest && docker push ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
 
-# # Notifications
-#         - name: Send mail success
-#           if: success()
-#           uses: dawidd6/action-send-mail@v2
-#           with:
-#             server_address: smtp.yandex.ru
-#             server_port: 465
-#             username: ${{ secrets.EMAIL_NOTIFY }}
-#             password: ${{ secrets.EMAIL_PASSWORD }}
-#             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-#             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-#             to: awameg@yandex.ru
-#             from: GitHub-Action-Notify
+# Notifications
+        - name: Send mail success
+          if: success()
+          uses: dawidd6/action-send-mail@v2
+          with:
+            server_address: smtp.yandex.ru
+            server_port: 465
+            username: ${{ secrets.EMAIL_NOTIFY }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+            to: awameg@yandex.ru
+            from: GitHub-Action-Notify
             
-#         - name: Send mail failure
-#           if: failure()
-#           uses: dawidd6/action-send-mail@v2
-#           with:
-#             server_address: smtp.yandex.ru
-#             server_port: 465
-#             username: ${{ secrets.EMAIL_NOTIFY }}
-#             password: ${{ secrets.EMAIL_PASSWORD }}
-#             subject: ${{ github.job }} job of ${{ github.repository }} has FAILED!!!
-#             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
-#             to: awameg@yandex.ru
-#             from: GitHub-Action-Notify
+        - name: Send mail failure
+          if: failure()
+          uses: dawidd6/action-send-mail@v2
+          with:
+            server_address: smtp.yandex.ru
+            server_port: 465
+            username: ${{ secrets.EMAIL_NOTIFY }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: ${{ github.job }} job of ${{ github.repository }} has FAILED!!!
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
+            to: awameg@yandex.ru
+            from: GitHub-Action-Notify
