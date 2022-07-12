@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     steps:
       - name: Setup node
         uses: actions/setup-node@v3
@@ -20,10 +20,11 @@ jobs:
           cache: npm
       
       - name: Installing dependencies
-        run: cd ./angular && npm install
+        run: pwd
+#         run: cd ./angular && npm install
 
-      - name: test
-        run: npm run test
+#       - name: test
+#         run: npm run test
 
-      - name: build app
-        run: npm run build
+#       - name: build app
+#         run: npm run build
