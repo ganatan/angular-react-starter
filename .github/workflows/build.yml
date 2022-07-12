@@ -18,41 +18,8 @@ jobs:
         - name: Installing dependencies
           run: cd ${{ github.workspace }}/angular && npm install
           
-        - name: test
-          run: cd ${{ github.workspace }}/angular && npm run test
+#         - name: test
+#           run: cd ${{ github.workspace }}/angular && npm run test
 
-#         - name: build app
-#           run: npm run build
-
-# name: Build
-
-# on:
-#  pull_request:
-#    branches:
-#      - '*'
- 
-#  push:
-#    branches:
-#      - 'master'
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-18.04
-#     steps:
-
-#       - name: Setup node
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: 16.13.x
-#           cache: npm
-#       - run: ls -la
-        
-      
-#       - name: Installing dependencies
-#         run: cd ./angular && npm install
-
-#       - name: test
-#         run: npm run test
-
-#       - name: build app
-#         run: npm run build
+        - name: build app
+          run: cd ${{ github.workspace }}/angular && npm run build
