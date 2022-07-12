@@ -1,30 +1,47 @@
-name: Build
-
-on:
- pull_request:
-   branches:
-     - '*'
- 
- push:
-   branches:
-     - 'master'
-
+name: GitHub Actions Demo
+on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-18.04
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
     steps:
-      - name: chdir
-        run: ls -la
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+# name: Build
+
+# on:
+#  pull_request:
+#    branches:
+#      - '*'
+ 
+#  push:
+#    branches:
+#      - 'master'
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-18.04
+#     steps:
 
 #       - name: Setup node
 #         uses: actions/setup-node@v3
 #         with:
 #           node-version: 16.13.x
 #           cache: npm
+#       - run: ls -la
+        
       
 #       - name: Installing dependencies
-#         run: pwd
-# #         run: cd ./angular && npm install
+#         run: cd ./angular && npm install
 
 #       - name: test
 #         run: npm run test
