@@ -14,17 +14,17 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: chdir
-        run: cd ./angular
+        run: ls -la
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.13.x
-          cache: npm
+#       - name: Setup node
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 16.13.x
+#           cache: npm
       
-      - name: Installing dependencies
-        run: pwd
-#         run: cd ./angular && npm install
+#       - name: Installing dependencies
+#         run: pwd
+# #         run: cd ./angular && npm install
 
 #       - name: test
 #         run: npm run test
