@@ -7,6 +7,12 @@ jobs:
         - name: Check out repository code
           uses: actions/checkout@v3
         - run: cd ${{ github.workspace }}/angular && ls ./
+        
+        - name: Setup node
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16.13.x
+            cache: npm
 
 # name: Build
 
