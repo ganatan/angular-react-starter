@@ -15,8 +15,6 @@ jobs:
         - name: Setup node
           uses: actions/setup-node@v3
           with:
-#             node-version: ${{ steps.package-version.outputs.current-version}}
-#             cache: 'npm'
             cache-dependency-path: angular/package-lock.json
 
 # Installing dependencies
@@ -46,6 +44,11 @@ jobs:
         - name: Publish docker image
           run: docker push ghcr.io/awameg/nginx-angular:latest && docker push ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
 
+# Get execution time for notification
+        - name: get time
+          id: get-time
+          run: echo "::set-output name=execution-time::`gh run list --workflow build.yml | head -n 1 | awk -F'\t' '{print $8}'`"      
+
 # Notifications
         - name: Send mail success
           if: success()
@@ -56,8 +59,8 @@ jobs:
             username: ${{ secrets.EMAIL_NOTIFY }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-            to: awameg@yandex.ru
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Execution time ${{steps.get-time.outputs.execution-time}}
+            to: ${{ github.actor }}@yandex.ru
             from: GitHub-Action-Notify
             
         - name: Send mail failure
@@ -70,5 +73,5 @@ jobs:
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has FAILED!!!
             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
-            to: awameg@yandex.ru
+            to: ${{ github.actor }}@yandex.ru
             from: GitHub-Action-Notify
