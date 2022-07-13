@@ -1,18 +1,168 @@
-name: Docker Image CI
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@m1sse 
+v-inter
+/
+angular-react-starter
+Public
+forked from ganatan/angular-react-starter
+Code
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+angular-react-starter/.github/workflows/ci.yml
+@v-inter
+v-inter Update ci.yml
+Latest commit 459219e 6 days ago
+ History
+ 1 contributor
+125 lines (105 sloc)  3.69 KB
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+name: CI
+
+on: push 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }} ${{ github.sha }}
 
 jobs:
-
-  build:
-
+  ### Test
+  test:
     runs-on: ubuntu-latest
 
+    outputs:
+      output_time: ${{ steps.time_start.outputs.JOB_START_TIME }}
+
+    defaults:
+      run:
+        working-directory: ./angular
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - uses: actions/checkout@v3
+
+      - name: Get time start workflow
+        run: echo "::set-output name=JOB_START_TIME::$(date +%s)"
+        id: time_start
+      - run: echo "${{ github.actor }}"
+      - run: echo "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Use Node.js
+#        if: ${{ github.ref }} == 'develop'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm install
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test -- --watch=false --browsers=ChromeHeadless
+
+      ### Sending email when test is failed
+      - uses: actions/checkout@v3
+      - name: Send mail
+        if: ${{ failure() }}
+        run: echo " send email"
+#        uses: ./.github/actions/send-email
+#        with:
+#          username: ${{secrets.MAIL_USERNAME}} 
+#          password: ${{secrets.MAIL_PASSWORD}} 
+#          to: ${{secrets.MAIL_ADDRESS}} # Required recipients' addresses:
+#          body: Testing of ${{github.repository}} is failed! 
+#          reply_to: ${{secrets.MAIL_USERNAME}}
+
+  ### build
+  build-and-push-image:
+    needs: ['test']
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./angular
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+#        if: ${{ github.ref }} == 'develop'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build --prod
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+#          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{secrets.DOKERHUB_USERNAME}}
+#          password: ${{secrets.DOKERHUB_ACCESS_KEY}}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Create message body failure
+        if: ${{ failure() }}
+        run: echo "message_body=Build job of ${{github.repository}} is failed!" >> $GITHUB_ENV
+
+      - name: Get time end workflow
+        run: echo "::set-output name=JOB_END_TIME::$(date +%s)"
+        id: time_end
+
+      - name: Get execution time
+        run: |
+          let time_delta=${{ steps.time_end.outputs.JOB_END_TIME }}-${{ needs.test.outputs.output_time }}
+          echo "::set-output name=JOB_EXECUTION_TIME::$(echo $time_delta)"
+        id: execution_time
+
+      - name: Create message body success
+        if: ${{ success() }}
+        run: echo "message_body=Build job of ${{github.repository}} is success! Duration was ${{ steps.execution_time.outputs.JOB_EXECUTION_TIME }} seconds" >> $GITHUB_ENV
+
+      ### Sending email when deploy successfully of failure
+      - uses: actions/checkout@v3
+      - name: Send mail
+        uses: ./.github/actions/send-email
+        with:
+          username: ${{secrets.MAIL_USERNAME}} 
+          password: ${{secrets.MAIL_PASSWORD}} 
+          to: ${{secrets.MAIL_ADDRESS}} 
+          body: ${{env.message_body}} 
+          reply_to: ${{secrets.MAIL_USERNAME}} 
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+You have no unread notifications
