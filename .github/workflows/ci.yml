@@ -37,16 +37,6 @@ jobs:
 
       ### Sending email when test is failed
       - uses: actions/checkout@v3
-      - name: Send mail
-        if: ${{ failure() }}
-        run: echo " send email"
-#        uses: ./.github/actions/send-email
-#        with:
-#          username: ${{secrets.MAIL_USERNAME}} 
-#          password: ${{secrets.MAIL_PASSWORD}} 
-#          to: ${{secrets.MAIL_ADDRESS}} # Required recipients' addresses:
-#          body: Testing of ${{github.repository}} is failed! 
-#          reply_to: ${{secrets.MAIL_USERNAME}}
 
   ### build
   build-and-push-image:
