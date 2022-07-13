@@ -47,7 +47,7 @@ jobs:
 # Get execution time for notification
         - name: get time
           id: get-time
-          run: echo "::set-output name=execution-time::`gh run list --workflow build.yml | head -n 1 | awk -F'\t' '{print $8}'`"      
+          run: echo "::set-output name=execution-time::$(gh run list --workflow build.yml | head -n 1 | awk -F'\t' '{print $8}')"     
 
 # Notifications
         - name: Send mail success
