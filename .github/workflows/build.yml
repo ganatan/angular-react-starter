@@ -26,7 +26,11 @@ jobs:
 # Run tests          
 #         - name: test
 #           run: cd ${{ github.workspace }}/angular && npm run test
-
+          
+#         - name: Pass or fail
+#           run: |
+#             if [[ ${{ steps.test.outputs }} == 0 ]]; then exit 0; else exit 1; fi
+            
 # Build app
         - name: build app
           run: cd ${{ github.workspace }}/angular && npm run build
