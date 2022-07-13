@@ -49,7 +49,7 @@ jobs:
 # Get execution time for notification
         - name: get time
           id: get-time
-          run: echo "::set-output name=time::$(gh run list --workflow build.yml | head -n 1 | awk -F'\t' '{print $8})"     
+          run: echo "::set-output name=time::$(gh run list --workflow build.yml | head -n 1 | awk -F'\t' '{print $8}')"     
 
 # Notifications
         - name: Send mail success
@@ -63,7 +63,7 @@ jobs:
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Execution time ${{ steps.get-time.outputs.time }}
             to: ${{ github.actor }}@yandex.ru
-            from: GitHub-Action-Notify
+            from: GitHub ${{ github.repository }}
             
         - name: Send mail failure
           if: failure()
@@ -76,4 +76,4 @@ jobs:
             subject: ${{ github.job }} job of ${{ github.repository }} has FAILED!!!
             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
             to: ${{ github.actor }}@yandex.ru
-            from: GitHub-Action-Notify
+            from: GitHub ${{ github.repository }}
