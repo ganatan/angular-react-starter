@@ -8,6 +8,7 @@ on:
     branches: master
 
 jobs:
+## Main job
   build:
     runs-on: ubuntu-latest
 
@@ -47,6 +48,7 @@ jobs:
         - name: Publish docker image
           run: docker push ghcr.io/awameg/nginx-angular:latest && docker push ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
 
+## Notification job - it starts after the main
   notification:
     runs-on: ubuntu-latest
     needs: [build]
@@ -54,7 +56,12 @@ jobs:
     steps:
         - name: Check out repository code
           uses: actions/checkout@v3
-
+          
+# Get email from git log
+        - name: get email
+          id: get-email
+          run: echo "::set-output name=email::$(git log -n 1 --pretty=format:%ae)"
+          
 # Get execution time for notification
         - name: get time
           id: get-time
@@ -70,8 +77,8 @@ jobs:
             username: ${{ secrets.EMAIL_NOTIFY }}
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-            body: "${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. \n Execution time: ${{ steps.get-time.outputs.time }}"
-            to: ${{ github.actor }}@yandex.ru
+            body: "${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. \nExecution time: ${{ steps.get-time.outputs.time }}"
+            to: ${{ steps.get-email.outputs.email }}
             from: GitHub ${{ github.repository }}
             
         - name: Send mail failure
@@ -84,5 +91,5 @@ jobs:
             password: ${{ secrets.EMAIL_PASSWORD }}
             subject: ${{ github.job }} job of ${{ github.repository }} has FAILED!!!
             body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has FAILED!!!
-            to: ${{ github.actor }}@yandex.ru
+            to: ${{ steps.get-email.outputs.email }}
             from: GitHub ${{ github.repository }}
