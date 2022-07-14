@@ -26,9 +26,11 @@ jobs:
           run: cd ${{ github.workspace }}/angular && npm install
 
 # Run tests          
-#         - name: test
-#           id: test
-#           run: cd ${{ github.workspace }}/angular && npm run test
+        - name: test
+          id: test
+          uses: GabrielBB/xvfb-action@v1
+          with:
+            run: cd ${{ github.workspace }}/angular && npm run test
           
 #         - name: Pass or fail
 #           run: |
