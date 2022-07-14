@@ -1,4 +1,6 @@
 name: Build
+env:
+  GH_TOKEN: ${{ secrets.token }}
 on:
   push:
     branches: master
@@ -7,13 +9,12 @@ on:
 
 jobs:
   build:
-    env:
-      GH_TOKEN: ${{ secrets.token }}
     runs-on: ubuntu-latest
+
     steps:
         - name: Check out repository code
           uses: actions/checkout@v3
-        
+# Setup environment
         - name: Setup node
           uses: actions/setup-node@v3
           with:
@@ -46,10 +47,18 @@ jobs:
         - name: Publish docker image
           run: docker push ghcr.io/awameg/nginx-angular:latest && docker push ghcr.io/awameg/nginx-angular:${GITHUB_SHA::8}
 
+  notification:
+    runs-on: ubuntu-latest
+    needs: [build]
+    
+    steps:
+        - name: Check out repository code
+          uses: actions/checkout@v3
+
 # Get execution time for notification
         - name: get time
           id: get-time
-          run: echo "::set-output name=time::$(gh run list --workflow build.yml | head -n 1)"     
+          run: echo "::set-output name=time::$(gh run list --workflow build.yml | head -n 1 | awk -F'\t' '{print $8}')"     
 
 # Notifications
         - name: Send mail success
