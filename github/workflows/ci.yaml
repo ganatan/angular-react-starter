@@ -1,0 +1,32 @@
+name: Test Task CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+	runs-on: ubuntu-latest
+	defaults:
+	  run:
+		working-directory: angular
+
+	steps:
+	- name: Copy repos
+	- uses: actions/checkout@v3
+	
+	- name: Use Node.js 18.0.0
+	  uses: actions/setup-node@v3
+	  with:
+		node-version: 18.0.0
+		cache: 'npm'
+	
+	- name: Runnning npm ci
+	- run: npm ci
+	
+	- name: Running tests
+	- run: npm test
+	- run: npm lint
+	
+	- name: Building app
+	- run: npm build

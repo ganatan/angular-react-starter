@@ -1,0 +1,6 @@
+version: '2.6.1'
+services:
+	angular:
+		image: angular:1.0
+		ports:
+			- 8080:80
