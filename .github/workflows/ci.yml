@@ -14,9 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
+#    strategy:
+#      matrix:
+#        node-version: [12.x, 14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -25,8 +25,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '12.x'
-    - name: Install dependencies
-      run: yarn
+    - name: build the app
+      run: ng build
       
-    - name: build and test the app
-      run: yarn build --verbose
+    
+
