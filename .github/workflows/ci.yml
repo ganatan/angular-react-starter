@@ -29,5 +29,8 @@ jobs:
       
     - name: build the app
       run: npm run build
+      
+    - name: show files
+      run: ls -lah 
     
 
