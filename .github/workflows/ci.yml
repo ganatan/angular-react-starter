@@ -23,6 +23,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: remind about test
+      run: echo "####### DONT FORGET ABOUT TEST ########"
 
  #   - name: start test
   #    run: npm run test -- --browsers=ChromeHeadless --no-watch 
