@@ -8,19 +8,12 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN cd /tmp && ls -lah
 RUN mkdir -p /tmp/client_body \
 
-	&& ls -lah \
+	&& ls -lah /tmp \
+	&& ls -lah /var/run \
+	&& ls -lah /var/lib \
+	&& ls -lah /var/log/nginx \
+	&& ls -lah /usr/share/nginx
 	
-	&& chown -R nginx:nginx /var/run \
-	&& chown -R nginx:nginx /var/lib \
-	&& chown -R nginx:nginx /var/log/nginx \
-	&& chown -R nginx:nginx /etc/nginx/nginx.conf \
-	&& chown -R nginx:nginx /usr/share/nginx/html \
-	&& chown -R nginx:nginx /tmp/client_body \
-	&& chown -R nginx:nginx /tmp/fastcgi_temp \
-	&& chown -R nginx:nginx /tmp/proxy_temp \
-	&& chown -R nginx:nginx /tmp/scgi_temp \
-	&& chown -R nginx:nginx /tmp/uwsgi_temp
- 
 USER nginx
 
 EXPOSE 8080
