@@ -24,13 +24,13 @@ jobs:
       run: npm ci
 
 
-    - name: start test
-      run: npm run test -- --browsers=ChromeHeadless --no-watch 
+ #   - name: start test
+  #    run: npm run test -- --browsers=ChromeHeadless --no-watch 
       
     - name: build the app
       run: npm run build
       
-    - name: show files
-      run: ls -lah 
+    - name: show assets files 
+      run: cd ./dist/angular-starter && ls -lah 
     
 
