@@ -8,7 +8,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN cd /tmp && ls -lah
 RUN mkdir -p /tmp/client_body \
 
-	&& ls -lah
+	&& ls -lah \
 	
 	&& chown -R nginx:nginx /var/run \
 	&& chown -R nginx:nginx /var/lib \
