@@ -21,12 +21,12 @@ jobs:
         node-version: '18.x'
 
     - name: Install dependencies
-     run: npm ci
+      run: npm ci
 
     - name: remind about test
       run: echo "#######  DONT FORGET ABOUT the APP !!!!!!! "
 
- #   - name: start test
+#   - name: start test
 #      run: npm run test -- --browsers=ChromeHeadless --no-watch 
       
     - name: build the app
