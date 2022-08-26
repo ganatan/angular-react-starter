@@ -3,10 +3,13 @@ FROM alpine:3.16.2
 RUN apk add -U nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
+#COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
 
-RUN ls -lh /tmp
+RUN cd /tmp && ls -lah
 RUN mkdir -p /tmp/client_body \
+
+	&& ls -lah
+	
 	&& chown -R nginx:nginx /var/run \
 	&& chown -R nginx:nginx /var/lib \
 	&& chown -R nginx:nginx /var/log/nginx \
