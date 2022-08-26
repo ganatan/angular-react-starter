@@ -5,7 +5,9 @@ RUN apk add -U nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
 
-RUN chown -R nginx:nginx /var/run \
+RUN ls -lh /tmp
+RUN mkdir -p /tmp/client_body \
+	&& chown -R nginx:nginx /var/run \
 	&& chown -R nginx:nginx /var/lib \
 	&& chown -R nginx:nginx /var/log/nginx \
 	&& chown -R nginx:nginx /etc/nginx/nginx.conf \
