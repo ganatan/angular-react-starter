@@ -1,0 +1,7 @@
+
+services:
+  nginx:
+    image: ghcr.io/mihakremen/angular-react-starter:latest
+    container_name: nginx
+    ports:
+      - "8080:8080"
