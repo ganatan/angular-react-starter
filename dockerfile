@@ -3,7 +3,7 @@ FROM alpine:3.16.2
 RUN apk add -U nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
-#COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
+COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
 
 RUN cd /tmp && ls -lah
 RUN mkdir -p /tmp/client_body \
