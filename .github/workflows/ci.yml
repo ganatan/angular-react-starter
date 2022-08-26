@@ -15,32 +15,32 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
- #   - name: Use Node.js
- #     uses: actions/setup-node@v3
- #     with:
- #       node-version: '18.x'
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
 
-  #  - name: Install dependencies
-  #   run: npm ci
+    - name: Install dependencies
+     run: npm ci
 
     - name: remind about test
       run: echo "#######  DONT FORGET ABOUT the APP !!!!!!! "
 
  #   - name: start test
-  #    run: npm run test -- --browsers=ChromeHeadless --no-watch 
+#      run: npm run test -- --browsers=ChromeHeadless --no-watch 
       
- #   - name: build the app
- #     run: npm run build
+    - name: build the app
+      run: npm run build
       
- #   - name: show assets files 
-  #    run: cd ./dist/angular-starter && ls -lah 
+    - name: show assets files 
+      run: cd ./dist/angular-starter && pwd && ls -lah 
     
     - name: Log in to the ghcr
       uses: docker/login-action@v2.0.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.PACKAGE_TOKEN }}
+        password: ${{ secrets.STRONG_PACKAGE_TOKEN }}
             
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
@@ -48,5 +48,5 @@ jobs:
         context: .
         push: true
         tags: angular:latest
-        labels: label here   
+        labels: label here  
             
