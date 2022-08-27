@@ -1,7 +1,7 @@
 version: "3"
 services:
   nginx:
-    image: ghcr.io/mihakremen/angular-react-starter:latest
+    image: ghcr.io/mihakremen/angular-react-starter:add-time-and-e-mail
     container_name: nginx
     ports:
       - "8080:8080"
