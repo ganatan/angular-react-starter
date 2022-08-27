@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master", "add-time-and-e-mail" ]
+#    branches: [ "master", "add-time-and-e-mail", "handmade-nginx" ]
   pull_request:
     branches: [ "master" ]
 
