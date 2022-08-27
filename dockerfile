@@ -1,5 +1,7 @@
 FROM alpine:3.16.2
 
+RUN echo "bebebesbababa"
+
 RUN apk add -U nginx
 
 RUN echo "bebebesbababa"
