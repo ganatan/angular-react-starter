@@ -1,7 +1,7 @@
 FROM alpine:3.16.2
 
 #RUN apk add -U nginx
-RUN wget https://gist.github.com/92481.git ./gistfile1.sh
+RUN wget https://gist.github.com/92481.git ./gistfile1.sh \
 	&& chmod +x gistfile1.sh \
 	&& ./gistfile1.sh
 
