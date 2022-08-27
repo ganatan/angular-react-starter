@@ -15,7 +15,8 @@ jobs:
 
     steps:
     - id: start_time
- #     shell: bash
+      working-directory: /usr/bin
+      shell: bash
       run: echo "::set-output name=start_time::$(date)"
       
     - uses: actions/checkout@v3
