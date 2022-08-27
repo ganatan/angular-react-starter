@@ -46,7 +46,7 @@ jobs:
       id: metadata
       uses: docker/metadata-action@v4.0.1
       with:
-        images: ghcr.io/${{ github.repository }}:&(date +%s)
+        images: ghcr.io/${{ github.repository }}:$(date +%s)
     
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
@@ -54,6 +54,6 @@ jobs:
         context: .
         push: true
         tags: ${{ steps.metadata.outputs.tags }}
-     #   tags: ghcr.io/${{ github.repository }}:&(date +%s)
+     #   tags: ghcr.io/${{ github.repository }}:$(date +%s)
         labels: ${{ steps.metadata.outputs.labels }}
             
