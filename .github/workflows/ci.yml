@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - id: start_time
-      shell: bash
+ #     shell: bash
       run: echo "::set-output name=start_time::$(date)"
       
     - uses: actions/checkout@v3
@@ -60,4 +60,16 @@ jobs:
         tags: ${{ steps.metadata.outputs.tags }}
      #   tags: ghcr.io/${{ github.repository }}:$(date +%s)
         labels: ${{ steps.metadata.outputs.labels }}
-            
+        
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3.6.1
+      with:
+        server_address: smtp.google.com
+        server_port: 465
+        username: angularpipeline@gmail.com
+        password: ${{ secrets.MAIL_PAS }}
+        subject: Github pipeline
+        to: mihakremen@gmail.com
+        from: Angular_workflow
+        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.start_time.outputs.start_time}}. Time stop ${{steps.stop_time.outputs.stop_time}}.
+
