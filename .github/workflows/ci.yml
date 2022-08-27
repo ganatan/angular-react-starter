@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "setup-assets" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "setup-assets" ]
+    branches: [ "master" ]
 
 jobs:
   build:
