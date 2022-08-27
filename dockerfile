@@ -16,5 +16,5 @@ USER nginx
 
 EXPOSE 8080
 
-CMD ["nginx -c /tmp/nginx/nginx.conf"] 
+CMD ["nginx", "-c", "/tmp/nginx/nginx.conf"] 
 
