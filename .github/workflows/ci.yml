@@ -14,6 +14,10 @@ jobs:
         working-directory: ./angular
 
     steps:
+    - id: start_time
+      shell: bash
+      run: echo "::set-output name=start_time::$(date)"
+      
     - uses: actions/checkout@v3
     - name: Use Node.js
       uses: actions/setup-node@v3
@@ -46,7 +50,7 @@ jobs:
       id: metadata
       uses: docker/metadata-action@v4.0.1
       with:
-        images: ghcr.io/${{ github.repository }}-$(date +%s)
+        images: ghcr.io/${{ github.repository }}
     
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
