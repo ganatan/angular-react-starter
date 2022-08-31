@@ -71,16 +71,16 @@ jobs:
       uses: devellany/send-mail@v1.0.2
       with:
         host: smtp.google.com
-        port: 465
-        account: angularpipeline@gmail.com
-        password: ${{ secrets.MAIL_PAS }}
-        sender: Angular-starter git workflow
-        from: angularpipeline@gmail.com
-        to: mihakremen@gmail.com
-        subject: Github pipeline
-        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. Time stop ${{steps.time_finish.outputs.time_finish}}.
-#        body: > 
-#          ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }}
-#          has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. 
-#          Time stop ${{steps.time_finish.outputs.time_finish}}.
+            port: 465
+            account: angularpipeline@gmail.com
+            password: ${{ secrets.MAIL_PAS }}
+            sender: Angular-starter_git_workflow
+            from: angularpipeline@gmail.com
+            to: mihakremen@gmail.com
+            subject: Github pipeline.
+            body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. Time stop ${{steps.time_finish.outputs.time_finish}}.
+    #        body: > 
+    #          ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }}
+    #          has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. 
+    #          Time stop ${{steps.time_finish.outputs.time_finish}}.
 
