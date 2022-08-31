@@ -68,17 +68,16 @@ jobs:
       run: echo "::set-output name=time_finish::$(date)"
         
     - name: Send mail
-      uses: devellany/send-mail@v1.0.2
+      uses: dawidd6/action-send-mail@v3.6.1
       with:
-        host: smtp.google.com
-        port: 465
-        account: angularpipeline@gmail.com
+        server_address: smtp.google.com
+        server_port: 465
+        username: angularpipeline@gmail.com
         password: ${{ secrets.MAIL_PAS }}
-        sender: Angular-starter_git_workflow
-        from: angularpipeline@gmail.com
+        subject: ${{ github.job }} job
         to: mihakremen@gmail.com
-        subject: Github pipeline.
-        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. Time stop ${{steps.time_finish.outputs.time_finish}}.
+        from: github angular workflow
+        body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. Time stop ${{steps.time_finish.outputs.time_finish}}.
     #        body: > 
     #          ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }}
     #          has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. 
