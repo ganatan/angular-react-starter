@@ -78,8 +78,9 @@ jobs:
         from: angularpipeline@gmail.com
         to: mihakremen@gmail.com
         subject: Github pipeline
-        body: > 
-          ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }}
-          has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. 
-          Time stop ${{steps.time_finish.outputs.time_finish}}.
+        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. Time stop ${{steps.time_finish.outputs.time_finish}}.
+#        body: > 
+#          ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }}
+#          has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. 
+#          Time stop ${{steps.time_finish.outputs.time_finish}}.
 
