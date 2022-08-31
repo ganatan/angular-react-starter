@@ -63,6 +63,7 @@ jobs:
         labels: ${{ steps.metadata.outputs.labels }}
         
     - id: time_finish
+        working-directory: /usr/bin
         shell: bash
         run: echo "::set-output name=time_finish::$(date)"
         
