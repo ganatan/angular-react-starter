@@ -65,7 +65,12 @@ jobs:
     - id: time_finish
       working-directory: /usr/bin
       shell: bash
-      run: echo "::set-output name=time_finish::$(date)"
+      run: echo "::set-output name=time_finish::$(date +%s)"
+      
+    - id: time_delay
+      working-directory: /usr/bin
+      shell: bash
+      run: echo "::set-output name=time_finish::$(date +%s)"
         
     - name: Send mail
       uses: dawidd6/action-send-mail@v3.6.1
