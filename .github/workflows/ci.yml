@@ -1,23 +1,23 @@
-name: Node.js CI
+name: Angular starter CI
 
 on:
   push:
-    branches: [ "master", "add-time-and-e-mail" ]
+#    branches: [ "master", "add-time-and-e-mail", "handmade-nginx" ]
   pull_request:
     branches: [ "master" ]
 
 jobs:
-  build:
+  testing_and_building_angular_app:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./angular
 
     steps:
-    - id: start_time
+    - id: time_starts
       working-directory: /usr/bin
       shell: bash
-      run: echo "::set-output name=start_time::$(date)"
+      run: echo "::set-output name=time_starts::$(date)"
       
     - uses: actions/checkout@v3
     - name: Use Node.js
@@ -62,15 +62,29 @@ jobs:
      #   tags: ghcr.io/${{ github.repository }}:$(date +%s)
         labels: ${{ steps.metadata.outputs.labels }}
         
+    - id: time_finish
+      working-directory: /usr/bin
+      shell: bash
+      run: echo "::set-output name=time_finish::$(date +%s)"
+      
+    - id: time_delay
+      working-directory: /usr/bin
+      shell: bash
+      run: echo "::set-output name=time_finish::$(date +%s)"
+        
     - name: Send mail
       uses: dawidd6/action-send-mail@v3.6.1
       with:
-        server_address: smtp.google.com
+        server_address: smtp.mail.ru
         server_port: 465
-        username: angularpipeline@gmail.com
+        username: angularpipeline@mail.ru
         password: ${{ secrets.MAIL_PAS }}
-        subject: Github pipeline
+        subject: ${{ github.job }} job
         to: mihakremen@gmail.com
-        from: angularpipeline@gmail.com
-        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.start_time.outputs.start_time}}. Time stop ${{steps.stop_time.outputs.stop_time}}.
+        from: github angular workflow
+        body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. Time stop ${{steps.time_finish.outputs.time_finish}}.
+    #        body: > 
+    #          ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }}
+    #          has ${{ job.status }}. Time start ${{steps.time_starts.outputs.time_starts}}. 
+    #          Time stop ${{steps.time_finish.outputs.time_finish}}.
 

@@ -24,5 +24,5 @@ USER nginx
 
 EXPOSE 8080
 
-CMD ["nginx", "-c", "/etc/nginx/nginx.conf"] 
+CMD ["nginx", "-c", "/etc/nginx/nginx.conf", "-p", "8080:8080"] 
 
