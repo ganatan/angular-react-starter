@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  testing and building angular app:
+  testing_and_building_angular_app:
     runs-on: ubuntu-latest
     defaults:
       run:
