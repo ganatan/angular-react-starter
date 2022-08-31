@@ -63,9 +63,9 @@ jobs:
         labels: ${{ steps.metadata.outputs.labels }}
         
     - id: time_finish
-        working-directory: /usr/bin
-        shell: bash
-        run: echo "::set-output name=time_finish::$(date)"
+      working-directory: /usr/bin
+      shell: bash
+      run: echo "::set-output name=time_finish::$(date)"
         
     - name: Send mail
       uses: devellany/send-mail@v1.0.2
