@@ -5,7 +5,6 @@ RUN apk add -U nginx
 
 
 COPY nginx.conf /etc/nginx/nginx.conf
-
 COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
 
 RUN mkdir -p /tmp/client_body \
@@ -17,9 +16,8 @@ RUN mkdir -p /tmp/client_body \
 	&& chown -R nginx:nginx /var/run \
 	&& chown -R nginx:nginx /var/lib \
 	&& chown -R nginx:nginx /usr/share/nginx/html
-	
 USER nginx
 
 EXPOSE 8080
 
-CMD ["nginx", "-c", "/etc/nginx/nginx.conf"] 
+CMD ["nginx", "-c", "/etc/nginx/nginx.conf"]
