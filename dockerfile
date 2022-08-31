@@ -6,8 +6,11 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
 
-RUN touch /var/run/nginx.pid && \
-	chown -R nginx:nginx /var/run && \
+RUN mkdir -p /var/log/nginx \
+	/var/cache/nginx && \
+	touch /var/run/nginx.pid
+
+RUN chown -R nginx:nginx /var/run && \
 	chown -R nginx:nginx /var/cache/nginx && \
 	chown -R nginx:nginx /var/log/nginx && \
 	chown -R nginx:nginx /etc/nginx/nginx.conf && \
