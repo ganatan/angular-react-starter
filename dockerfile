@@ -10,7 +10,7 @@ RUN chown -R nginx:nginx /etc/nginx/nginx.conf \
 && chown -R nginx:nginx /usr/sbin \
 && chown -R nginx:nginx /var/run \
 && chown -R nginx:nginx /var/lib \
-&& chown -R nginx:nginx /usr/share/nginx 
+&& chown -R nginx:nginx /usr/share/nginx
 
 USER nginx
 
