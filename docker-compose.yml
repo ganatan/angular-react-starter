@@ -2,7 +2,7 @@ version: "2"
 #pull: ghcr.io/mihakremen/angular-react-starter:handmade-nginx
 services:
   nginx:
-    image: ghcr.io/mihakremen/angular-react-starter:master
+    image: ghcr.io/mihakremen/angular-react-starter:nginx-raspi
     container_name: nginx
     ports:
       - "8080:8080"
