@@ -3,7 +3,7 @@ FROM alpine:3.16.2
 
 RUN apk add -U nginx
 
-RUN mkdir -p /usr/share/nginx/html
+#RUN mkdir -p /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY ./angular/dist/angular-starter/ /usr/share/nginx/html/
 
@@ -15,7 +15,8 @@ RUN mkdir -p /tmp/client_body \
 	&& chown -R nginx:nginx /etc/nginx/nginx.conf \
 	&& chown -R nginx:nginx /var/run \
 	&& chown -R nginx:nginx /var/lib \
-	&& chown -R nginx:nginx /usr/share/nginx/html
+	&& chown -R nginx:nginx /usr/share/nginx \
+	&& chown -R nginx:nginx /usr/sbin/nginx
 USER nginx
 
 EXPOSE 8080
