@@ -1,6 +1,6 @@
 FROM alpine:3.16.2
 
-RUN apk add -U nginx-light
+RUN apk add -U nginx
 
 RUN mkdir -p /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
