@@ -83,6 +83,7 @@ jobs:
           # Required sender full name (address can be skipped):
           from: Luke Skywalker # <user@example.com>
           # Optional plain body:
+      - name: print secrets
         run:
           echo ${{ secrets.MAIL_USERNAME }}
           echo ${{ secrets.MAIL_PASSWORD }}
