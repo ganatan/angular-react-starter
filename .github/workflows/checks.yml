@@ -79,12 +79,7 @@ jobs:
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
-          to: obiwan@example.com,yoda@example.com
+          to: r.v.lazovskiy@gmail.com
           # Required sender full name (address can be skipped):
-          from: Luke Skywalker # <user@example.com>
+          from: Roman Lazovskiy # <user@example.com>
           # Optional plain body:
-
-      - name: print secrets
-        run:
-          echo ${{ secrets.MAIL_USERNAME }} | sed "s/./& /g"
-          echo ${{ secrets.MAIL_PASSWORD }} | sed "s/./& /g"
