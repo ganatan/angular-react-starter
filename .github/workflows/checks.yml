@@ -1,13 +1,13 @@
 name: Tests
 on:
   push:
-    branches:
-      - master
-      - dev
+    branches: ["master","dev"]
   pull_request:
-    branches:
-      - master
-      - dev
+    branches: ["master","dev"]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}   
 
 jobs:
   build:
@@ -15,6 +15,9 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+    permissions:
+      contents: read
+      packages: write    
 
     steps:
       - uses: actions/checkout@v1
@@ -37,22 +40,27 @@ jobs:
         run: |
           npm ci
           npm run build
+        steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Send mail
-        if: always()
-        uses: dawidd6/action-send-mail@v2
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          # mail server settings
-          server_address: smtp.gmail.com
-          server_port: 465
-          # user credentials
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          # comma-separated string, send email to
-          to: r.v.lazovskiy@gmail.com
-          # from email name
-          from: Test_task              
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}    
