@@ -21,6 +21,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - uses: dawidd6/action-send-mail@v3
 
       - name: Cache node modules
         uses: actions/cache@v1
@@ -63,3 +64,21 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Send mail   
+        if: always()
+        with:
+          # mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+          # user credentials
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: r.v.lazovskiy@gmail.com
+          # from email name
+          from: Test_Task
