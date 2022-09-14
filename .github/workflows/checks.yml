@@ -65,6 +65,8 @@ jobs:
 
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
+        env:
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
         with:
           # Required mail server address if not connection_url:
           server_address: smtp.gmail.com
