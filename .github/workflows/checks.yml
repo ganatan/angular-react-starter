@@ -73,9 +73,9 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional (recommended): mail server username:
-          username: 'testtasksmtp'
+          username: testtasksmtp
           # Optional (recommended) mail server password:
-          password: '228228228'
+          password: 228228228
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
