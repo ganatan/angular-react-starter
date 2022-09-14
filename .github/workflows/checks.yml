@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-     permissions:
+    permissions:
       contents: read
       packages: write    
 
