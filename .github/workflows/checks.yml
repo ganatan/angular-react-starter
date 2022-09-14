@@ -66,10 +66,6 @@ jobs:
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
-          # Format:
-          #  * smtp://user:password@server:port
-          #  * smtp+starttls://user:password@server:port
-          connection_url: ${{secrets.MAIL_CONNECTION}}
           # Required mail server address if not connection_url:
           server_address: smtp.gmail.com
           # Server port, default 25:
