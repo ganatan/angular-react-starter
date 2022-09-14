@@ -21,8 +21,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: dawidd6/action-send-mail@v3
-
       - name: Cache node modules
         uses: actions/cache@v1
         with:
@@ -65,7 +63,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Send mail   
+      - name: Send mail  
+        uses: dawidd6/action-send-mail@v3 
         if: always()
         with:
           # mail server settings
