@@ -66,8 +66,6 @@ jobs:
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
-          mail_password: ${{ secrets.MAIL_PASSWORD }}
-          mail_username: ${{ secrets.MAIL_USERNAME }}
           # Required mail server address if not connection_url:
           server_address: smtp.gmail.com
           # Server port, default 25:
@@ -75,9 +73,9 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional (recommended): mail server username:
-          username: mail_username
+          username: ${{ secrets.MAIL_USERNAME }}
           # Optional (recommended) mail server password:
-          password: mail_password
+          password: ${{ secrets.MAIL_PASSWORD }}
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
