@@ -73,7 +73,7 @@ jobs:
           # Optional (recommended): mail server username:
           username: r.v.lazovskiy
           # Optional (recommended) mail server password:
-          password: ${{ secrets.MAIL_PASSWORD }}
+          password: llcfadloqdbdcnhq
           # Required mail subject:
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # Required recipients' addresses:
