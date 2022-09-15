@@ -83,6 +83,12 @@ jobs:
           # Optional plain body:
           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} with this id ${{github.run_id}} 
 
-      - name: Measure total run time
-        run:
-          curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/RomanLazovskiy/Test_task/actions/runs/${{github.run_id}}/timing
+      # - name: Measure total run time
+      #   run:
+      #     curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/RomanLazovskiy/Test_task/actions/runs/${{github.run_id}}/timing
+
+      - name: curl
+        uses: wei/curl@master
+        with:
+          args: https://api.github.com/repos/RomanLazovskiy/Test_task/actions/runs/${{github.run_id}}/timing
+            
