@@ -73,12 +73,12 @@ jobs:
           # Optional (recommended): mail server username:
           username: r.v.lazovskiy
           # Optional (recommended) mail server password:
-          password: llcfadloqdbdcnhq
+          password: ${{ secrets.MAIL_PASSWORD }}
           # Required mail subject:
-          subject: Github Actions job result
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # Required recipients' addresses:
           to: r.v.lazovskiy@gmail.com
           # Required sender full name (address can be skipped):
           from: Roman Lazovskiy # <user@example.com>
           # Optional plain body:
-          body: Build job of ${{github.repository}} completed successfully!
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
