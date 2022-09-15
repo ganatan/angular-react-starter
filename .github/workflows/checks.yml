@@ -94,5 +94,5 @@ jobs:
         - name: curl
           uses: wei/curl@master
           with:
-            args: https://api.github.com/repos/RomanLazovskiy/Test_task/actions/runs/${{github.run_id}}/timing
+            args: https://api.github.com/repos/RomanLazovskiy/Test_task/actions/runs/${{github.run_id}}/jobs
               
