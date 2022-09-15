@@ -62,26 +62,23 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-  notification:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Send mail
-            uses: dawidd6/action-send-mail@v3
-            with:
-              # Required mail server address if not connection_url:
-              server_address: smtp.gmail.com
-              # Server port, default 25:
-              server_port: 587
-              # Optional (recommended): mail server username:
-              username: r.v.lazovskiy
-              # Optional (recommended) mail server password:
-              password: llcfadloqdbdcnhq
-              # Required mail subject:
-              subject: ${{ github.action }} job of ${{ github.repository }} has ${{ job.status }}
-              # Required recipients' addresses:
-              to: r.v.lazovskiy@gmail.com
-              # Required sender full name (address can be skipped):
-              from: Roman Lazovskiy # <user@example.com>
-              # Optional plain body:
-              body: ${{ github.action }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Required mail server address if not connection_url:
+          server_address: smtp.gmail.com
+          # Server port, default 25:
+          server_port: 587
+          # Optional (recommended): mail server username:
+          username: r.v.lazovskiy
+          # Optional (recommended) mail server password:
+          password: llcfadloqdbdcnhq
+          # Required mail subject:
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # Required recipients' addresses:
+          to: r.v.lazovskiy@gmail.com
+          # Required sender full name (address can be skipped):
+          from: Roman Lazovskiy # <user@example.com>
+          # Optional plain body:
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
