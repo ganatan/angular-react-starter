@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: npm ci and npm run build
-        working-directory: ./angular
+        working-directory: ./angular/angular
         run: |
           npm ci
           npm run build
