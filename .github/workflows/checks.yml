@@ -62,7 +62,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -81,4 +81,4 @@ jobs:
           # Required sender full name (address can be skipped):
           from: Roman Lazovskiy # <user@example.com>
           # Optional plain body:
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }} with this id ${{github.run_id}} 
