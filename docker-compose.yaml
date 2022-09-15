@@ -1,0 +1,9 @@
+services:
+  angular-nginx-alpine:
+    image: ghcr.io/romanlazovskiy/test_task:dev
+    container_name: 'angular-nginx-alpine'
+    restart: always
+    environment:
+      - TZ=Asia/Yekaterinburg
+    ports: 
+      - "8080:80"

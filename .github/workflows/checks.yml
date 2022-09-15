@@ -91,7 +91,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - name: curl
+        - name: Get api
           uses: wei/curl@master
           with:
             args: https://api.github.com/repos/RomanLazovskiy/Test_task/actions/runs/${{github.run_id}}/jobs
