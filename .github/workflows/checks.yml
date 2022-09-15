@@ -69,13 +69,11 @@ jobs:
           # Required mail server address if not connection_url:
           server_address: smtp.gmail.com
           # Server port, default 25:
-          server_port: 465
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
+          server_port: 587
           # Optional (recommended): mail server username:
-          username: testtasksmtp
+          username: ${{secrets.MAIL_USERNAME}}
           # Optional (recommended) mail server password:
-          password: 228228228
+          password: ${{secrets.MAIL_PASSWORD}}
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
@@ -83,3 +81,4 @@ jobs:
           # Required sender full name (address can be skipped):
           from: Roman Lazovskiy # <user@example.com>
           # Optional plain body:
+          body: Build job of ${{github.repository}} completed successfully!
