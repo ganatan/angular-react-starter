@@ -63,6 +63,12 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+name: Notification
+on:
+  push:
+    branches: ["master","dev"]
+  pull_request:
+    branches: ["master","dev"]
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
