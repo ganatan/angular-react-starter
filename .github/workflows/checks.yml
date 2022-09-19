@@ -71,9 +71,9 @@ jobs:
           # Server port, default 25:
           server_port: 587
           # Optional (recommended): mail server username:
-          username: r.v.lazovskiy
+          username: your_login
           # Optional (recommended) mail server password:
-          password: llcfadloqdbdcnhq
+          password: your_passwd
           # Required mail subject:
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # Required recipients' addresses:
