@@ -14,11 +14,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
-    "serve": "node server",
     "eject": "react-scripts eject",
-    "lint": "eslint \"src/**/*.{js,jsx}\""
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "serve": "node server"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +40,8 @@
   },
   "devDependencies": {
     "eslint": "8.29.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.11"
   }
 }
