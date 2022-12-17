@@ -8,7 +8,10 @@ jobs:
   runtest: 
     runs-on: alpine
     
-    steps:    
+    steps:
+      - name: Git clone my repo
+        uses: actions/checkout@v1 
+      
       - name: starttest
         run: | 
           npm run test
