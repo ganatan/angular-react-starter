@@ -6,7 +6,7 @@ on:
       
 jobs:
   runtest: 
-    runs-on: alpine
+    runs-on: ubuntu-latest
     
     steps:
       - name: Git clone my repo
