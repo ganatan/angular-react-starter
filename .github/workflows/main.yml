@@ -1,0 +1,15 @@
+name: onetest
+on:
+  push:
+    branches:
+      -master
+      
+jobs:
+  runtest: 
+    runs-on: alpine
+    
+    steps:    
+      - name: starttest
+        run: | 
+          npm run test
+          npm run coverage
