@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Git clone my repo
         uses: actions/checkout@v1 
+        
+      - name: List cerretnt
+        run: ls -la
       
       - name: starttest
         run: | 
