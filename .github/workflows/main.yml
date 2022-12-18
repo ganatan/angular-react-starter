@@ -1,8 +1,5 @@
 name: onetest
-on:
-  push:
-    branches:
-      -master
+on: [push]
       
 jobs:
   runtest: 
