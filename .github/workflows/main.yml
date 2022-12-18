@@ -9,13 +9,18 @@ jobs:
       - name: Git clone my repo
         uses: actions/checkout@v1 
         
+      - name: Angular
+        run: |
+            cd angular-react-starter
+            cd angular 
+        
       - name: NPM install
         run: npm install
         
       - name: NPM start
         run: npm start
       
-      - name: STARTtest
+      - name: START test
         run: | 
           npm test
           npm coverage
