@@ -9,10 +9,13 @@ jobs:
       - name: Git clone my repo
         uses: actions/checkout@v1 
         
-      - name: List cerretnt
-        run: ls -la
+      - name: NPM install
+        run: npm install
+        
+      - name: NPM start
+        run: npm start
       
-      - name: starttest
+      - name: STARTtest
         run: | 
           npm test
           npm coverage
