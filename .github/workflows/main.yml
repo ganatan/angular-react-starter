@@ -6,7 +6,6 @@ jobs:
   one_test:
     runs-on: alpine-latest
 
-
     steps:
     - name: Git clone my repo
       uses: actions/checkout@v1
