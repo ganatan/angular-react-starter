@@ -16,7 +16,7 @@ jobs:
         cd angular-react-starter
         cd angular
         npm install
-        cd angular-react-starter
+        cd ..
         cd react
         npm install
 
