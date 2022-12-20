@@ -1,5 +1,5 @@
 name: onetest
-  on: [push]
+  on:[push]
 
 jobs:
   runtest:
