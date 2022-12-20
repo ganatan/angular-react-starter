@@ -3,7 +3,7 @@ on: [push]
       
 jobs:
   runtest: 
-    runs-on: alpine-latest
+    runs-on: alpine
     
     steps:
       - name: Git clone my repo
