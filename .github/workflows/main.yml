@@ -3,11 +3,19 @@ on: [push]
       
 jobs:
   runtest: 
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
     
     steps:
       - name: Git clone my repo
         uses: actions/checkout@v1 
+        
+      - name: Clone repo
+        run: |
+            git clone https://github.com/ganatan/angular-react-starter.git
+            cd angular-react-starter
+            cd angular 
+            npm install
+            npm start
         
       - name: Angular
         run: |
