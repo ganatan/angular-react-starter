@@ -26,3 +26,8 @@ jobs:
         cd angular
         npm test
         npm coverage
+        cd ..
+        cd react
+        npm test
+        npm coverage
+      
