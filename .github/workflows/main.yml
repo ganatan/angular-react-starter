@@ -16,18 +16,9 @@ jobs:
         cd angular-react-starter
         cd angular
         npm install
-  
-
-    - name: Angular
-      run: |
         cd angular-react-starter
-        cd angular
-
-    - name: NPM install
-      run: npm install
-
-    - name: NPM start
-      run: npm start
+        cd react
+        npm install
 
     - name: START test
       run: |
