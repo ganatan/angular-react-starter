@@ -22,8 +22,6 @@ jobs:
 
     - name: START test
       run: |
-        cd angular-react-starter
-        cd angular
         npm test
         npm coverage
       
