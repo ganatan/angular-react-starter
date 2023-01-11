@@ -22,7 +22,10 @@ jobs:
         npm install
   
     - name: build
-      run: npm run ng build
+      run: |
+        cd angular-react-starter
+        cd angular
+        npm run ng build
         
         
 
