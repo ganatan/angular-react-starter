@@ -20,7 +20,6 @@ jobs:
         cd angular-react-starter
         cd angular
         npm install
-        npm start
   
     - name: build
       run: npm run ng build
