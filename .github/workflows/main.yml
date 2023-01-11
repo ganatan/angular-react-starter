@@ -19,5 +19,5 @@ jobs:
 
     - name: START test
       run: |
-        npm run test
+        npm run coverage
       
