@@ -16,12 +16,8 @@ jobs:
         cd angular-react-starter
         cd angular
         npm install
-        cd ..
-        cd react
-        npm install
 
     - name: START test
       run: |
         npm test
-        npm coverage
       
