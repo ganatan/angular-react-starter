@@ -21,3 +21,10 @@ jobs:
         cd angular
         npm install
         npm start
+
+    - name: START react test
+      run: |
+        cd angular-react-starter
+        cd react
+        npm install
+        npm start
