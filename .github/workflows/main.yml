@@ -22,7 +22,7 @@ jobs:
         npm install
   
     - name: buil
-      run: npm build:ng
+      run: npm run build:ng
         
         
 
