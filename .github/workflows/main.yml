@@ -13,9 +13,7 @@ jobs:
     - name: Clone repo
       run: |
         git clone https://github.com/ganatan/angular-react-starter.git
-        
-    - name: build
-      run: npm build        
+             
         
     - name: START angular test
       run: |
@@ -23,6 +21,9 @@ jobs:
         cd angular
         npm install
         npm start
+        
+    - name: build
+      run: npm build   
         
         
 
