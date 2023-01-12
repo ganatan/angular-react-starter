@@ -9,7 +9,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "3.1.0"
+    "web-vitals": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,9 +39,9 @@
     ]
   },
   "devDependencies": {
-    "eslint": "8.30.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-react": "7.31.11"
+    "eslint": "8.31.0",
+    "eslint-plugin-import": "2.27.4",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.32.0"
   }
 }
