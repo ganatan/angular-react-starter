@@ -34,6 +34,7 @@ jobs:
     - name: make images
       run: |
         docker build -t test03 .
+        docker images
       
        
     
