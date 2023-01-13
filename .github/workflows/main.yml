@@ -27,8 +27,13 @@ jobs:
         cd angular
         npm run ng build
         
-    - name: build
+    - name: docker vers
       run: |
         docker --version
+        
+    - name: make images
+      run: |
+        docker build -t test01 .
+      
        
     
