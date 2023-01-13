@@ -33,7 +33,7 @@ jobs:
         
     - name: make images
       run: |
-        docker build -t test01 .
+        docker build -t test02 .
       
        
     
