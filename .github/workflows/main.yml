@@ -27,6 +27,11 @@ jobs:
         cd angular
         npm run ng build
         
+        
+    - name: make images
+      run: |
+        docker build -t ghcr.io .
+        
     
     - name: save images
       run: |
@@ -34,6 +39,4 @@ jobs:
         echo $CR_PAT | docker login ghcr.io -u darliiin --password-stdin
         
         
-    - name: make images
-      run: |
-        docker build -t ghcr.io .
+  
