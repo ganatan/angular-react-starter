@@ -27,16 +27,13 @@ jobs:
         cd angular
         npm run ng build
         
-    - name: docker vers
-      run: |
-        docker --version
-        
-    - name: make images
-      run: |
-        docker build -t test03 .
-        docker images
     
     - name: save images
       run: |
-        docker pull  fd383e7870f3
-        docker save -0 anular.tar fd383e7870f3
+        export CR_PAT=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
+        echo $CR_PAT | docker login ghcr.io -u darliiin --password-stdin
+        
+        
+    - name: make images
+      run: |
+        docker build -t ghcr.io .
