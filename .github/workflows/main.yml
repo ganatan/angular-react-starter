@@ -36,7 +36,7 @@ jobs:
     - name: save images
       run: |
         export CR_PAT=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
-        echo $CR_PAT | docker login ghcr.io -u darliiin --password-stdin
+        docker login ghcr.io -u $darliiin -p $CR_PAT
         
         
   
