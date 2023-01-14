@@ -35,6 +35,8 @@ jobs:
       run: |
         docker build -t test03 .
         docker images
-      
-       
     
+    - name: save images
+      run: |
+        docker pull test03
+        docker save -0 anular.tar test03
