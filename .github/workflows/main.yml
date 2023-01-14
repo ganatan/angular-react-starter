@@ -38,5 +38,5 @@ jobs:
     
     - name: save images
       run: |
-        docker pull test03
-        docker save -0 anular.tar test03
+        docker pull  fd383e7870f3
+        docker save -0 anular.tar fd383e7870f3
