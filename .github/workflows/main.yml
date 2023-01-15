@@ -26,6 +26,7 @@ jobs:
         cd angular-react-starter
         cd angular
         npm run ng build
+        ls
         
         
     - name: make images
