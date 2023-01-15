@@ -39,7 +39,7 @@ jobs:
         docker tag myang ghcr.io/darliiin/myang:latest
         docker images
         export CR_PAT=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
-        echo $CR_PAT | docker login ghcr.io -u darliiin -password-stdin
+        echo $CR_PAT | docker login ghcr.io -u darliiin --password-stdin
         docker push ghcr.io/darliiin/myang 
         
         
