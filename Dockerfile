@@ -1,5 +1,5 @@
 FROM node:12.7-alpine AS build
-WORKDIR angular-react-starter/angular
+WORKDIR /home/runner/work/angular-react-starter/angular-react-starter/angular-react-starter/angular
 RUN ls
 COPY dist ./
 RUN npm install
