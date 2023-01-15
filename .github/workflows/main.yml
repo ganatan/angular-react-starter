@@ -28,6 +28,8 @@ jobs:
         npm run ng build
         pwd
         ls
+        cd dist
+        ls
         
         
     - name: make images
