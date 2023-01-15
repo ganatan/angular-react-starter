@@ -30,16 +30,14 @@ jobs:
         
     - name: make images
       run: |
-        docker build -t ghcr.io .
+        docker build -t myang .
+        docker run myang
         
   
     - name: Login to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: "darliiin"
-        password: ${{ secrets.KEY }}
-        
+      run: |
+        docker tag myang ghcr.io/darliiin/myang:latest
+        docker images
         
         
   
