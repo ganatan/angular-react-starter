@@ -28,6 +28,7 @@ jobs:
         npm run ng build
         pwd
         ls
+        pwd
         cd dist
         ls
         
