@@ -38,6 +38,7 @@ jobs:
       run: |
         docker tag myang ghcr.io/darliiin/myang:latest
         docker images
+        docker push ghcr.io/darliiin/myang 
         
         
   
