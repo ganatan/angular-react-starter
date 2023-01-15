@@ -32,17 +32,13 @@ jobs:
       run: |
         docker build -t ghcr.io .
         
-    - name: export
-      run: 
-        export CR_PAT=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     
-        
   
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
         username: "darliiin"
-        password: ${{ secrets.REGISTRY_TOKEN }}
+        password: ${{ secrets.KEY }}
         
         
         
