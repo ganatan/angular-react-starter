@@ -31,6 +31,7 @@ jobs:
     - name: make images
       run: |
         docker build -t myang .
+        docker images
         docker run myang
         
   
