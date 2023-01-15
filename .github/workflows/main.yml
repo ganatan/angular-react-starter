@@ -31,6 +31,8 @@ jobs:
         pwd
         cd dist
         ls
+        cd angular-starter
+        ls
         
         
     - name: make images
