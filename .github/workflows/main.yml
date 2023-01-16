@@ -27,7 +27,7 @@ jobs:
         cd angular
         npm run ng build
         cd dist
-        pwd
+        
         
         
     - name: make images
