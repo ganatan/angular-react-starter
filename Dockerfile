@@ -1,5 +1,4 @@
 FROM node:12.7-alpine AS build
-WORKDIR 
 COPY . .
 RUN npm install
 COPY . .
