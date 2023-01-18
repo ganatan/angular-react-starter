@@ -26,25 +26,10 @@ jobs:
         cd angular-react-starter
         cd angular
         npm run ng build
-        cd dist
-        ls
-        pwd
-        
-        
+        cd dist     
         
     - name: make images
       run: |
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
         docker images
-        docker run myang
-        
-  
-    - name: Login to GitHub Container Registry
-      run: |
-        docker tag myang ghcr.io/darliiin/myang:latest
-        docker images
-        echo "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" | docker login ghcr.io -u darliiin --password-stdin
-        docker push ghcr.io/darliiin/myang 
-        
-        
-  
+        docker run myang  
