@@ -17,11 +17,12 @@ jobs:
         
     - name: START angular test
       run: |
-        ls
-        pwd
+       
         cd angular-react-starter
         cd angular
         npm install
+        ls
+        pwd
   
     - name: build
       run: |
