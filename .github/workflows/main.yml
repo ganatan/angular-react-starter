@@ -17,12 +17,9 @@ jobs:
         
     - name: START angular test
       run: |
-       
         cd angular-react-starter
         cd angular
         npm install
-        ls
-        pwd
   
     - name: build
       run: |
@@ -30,6 +27,8 @@ jobs:
         cd angular
         npm run ng build
         cd dist
+        ls
+        pwd
         
         
         
