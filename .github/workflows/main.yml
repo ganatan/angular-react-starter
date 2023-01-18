@@ -9,6 +9,11 @@ jobs:
     steps:
     - name: Git clone my repo
       uses: actions/checkout@v1
+      
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Clone repo
       run: |
