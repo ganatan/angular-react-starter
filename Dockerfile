@@ -1,4 +1,4 @@
-FROM nginx:1.17.1-alpine
+FROM nginx:1.17.1-alpine as dist
 COPY . .
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/sample-app /usr/share/nginx/html
+COPY --from=dist /usr/src/app/dist/ /usr/share/nginx/html
