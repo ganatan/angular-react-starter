@@ -11,7 +11,7 @@
 it's part of a repo series designed 
 
 
-to create a **Web Application with Angular 14**
+to create a **Web Application with Angular 15**
 
 * Featuring [**Angular 15.1.1**](https://github.com/angular/angular/releases) & [**Angular CLI 15.1.2**](https://github.com/angular/angular-cli/releases/)
 
@@ -36,7 +36,7 @@ Here is a working Angular live demo :  https://angular.ganatan.com
 <p align="center">
   <p align="center">
     <a href="https://angular.ganatan.com/">
-      <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular 14 Example 
+      <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular 15 Example 
       Application"/>
     </a>
   </p>
