@@ -32,8 +32,7 @@ jobs:
     - name: make images
       run: |
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
-        docker images
-        docker run myang  
+  
         
         
   build-and-push-image:
