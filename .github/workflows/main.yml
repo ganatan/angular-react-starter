@@ -10,13 +10,10 @@ jobs:
     - name: Git clone my repo
       uses: actions/checkout@v1
       
-      
-    - name: Create a Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      
+    - uses: actions/labeler@v2
+      with:
+       repo-token: ${{ secrets.GITHUB_TOKEN }}
+          
     - name: docker login
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
