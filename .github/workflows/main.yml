@@ -10,16 +10,6 @@ jobs:
     - name: Git clone my repo
       uses: actions/checkout@v1
       
-    - uses: actions/labeler@v2
-      with:
-       repo-token: ${{ secrets.GITHUB_TOKEN }}
-          
-    - name: docker login
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
     - name: Clone repo
       run: |
@@ -44,3 +34,27 @@ jobs:
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
         docker images
         docker run myang  
+        
+        
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: one_test 
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: docker.YOUR-HOSTNAME.com
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          push: true
+          tags: |
+            docker.YOUR-HOSTNAME.com/${{ github.repository }}/octo-image:${{ github.sha }}
+
