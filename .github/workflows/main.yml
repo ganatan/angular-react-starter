@@ -2,9 +2,16 @@ name: onetest
 
 on: [push]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   one_test:
     runs-on: ubuntu-latest
+    permissions:
+     contents: read
+     packages: write
 
     steps:
     - name: Git clone my repo
@@ -33,27 +40,12 @@ jobs:
       run: |
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
   
+    - name: Log in to the Container registry
+      uses: docker/login-action@d34903b3ba81e2021319800b6cef18673e75fa5d
+      with:
+       registry: ${{ env.REGISTRY }}
+       username: ${{ github.actor }}
+       password: ${{ secrets.GITHUB_TOKEN }}
+      
         
-        
-  build-and-push-image:
-    runs-on: ubuntu-latest
-    needs: one_test 
-    permissions: 
-      contents: read
-      packages: write 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Log in to GitHub Docker Registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-        with:
-          registry: docker.YOUR-HOSTNAME.com
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          push: true
-          tags: |
-            docker.YOUR-HOSTNAME.com/${{ github.repository }}/octo-image:${{ github.sha }}
-
+     
