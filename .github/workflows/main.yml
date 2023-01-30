@@ -27,6 +27,7 @@ jobs:
         cd angular
         npm install
         npm start
+        npm stop
   
     - name: Build
       run: |
