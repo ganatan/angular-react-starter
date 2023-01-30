@@ -13,9 +13,15 @@ jobs:
      contents: read
      packages: write
 
+    
     steps:
     - name: Git clone my repo
       uses: actions/checkout@v3
+      
+      
+    - name: oneeee
+      run: |
+        ls
       
 
     - name: Clone repo
@@ -40,7 +46,17 @@ jobs:
       run: |
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
       
-
+    - name: twooo
+      run: |
+        ls
+    
+    - name: Git clone my repo2
+      uses: actions/checkout@v3
+      
+    - name: threeee
+      run: |
+        ls
+      
     - name: Log in to the Container registry
       uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
       with:
