@@ -13,32 +13,29 @@ jobs:
      contents: read
      packages: write
 
-    
     steps:
     - name: Git clone my repo
       uses: actions/checkout@v3
-      
-      
 
     - name: Clone repo
       run: |
-        git clone https://github.com/ganatan/angular-react-starter.git
-             
+        git clone https://github.com/ganatan/angular-react-starter.git  
         
     - name: START angular test
       run: |
         cd angular-react-starter
         cd angular
         npm install
+        npm start
   
-    - name: build
+    - name: Build
       run: |
         cd angular-react-starter
         cd angular
         npm run ng build
         cd dist     
         
-    - name: make images
+    - name: Make images
       run: |
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
     
