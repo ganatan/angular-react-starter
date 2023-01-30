@@ -39,10 +39,6 @@ jobs:
     - name: make images
       run: |
         docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
-        
-        
-    - name: Git clone my repo2
-      uses: actions/checkout@v1
       
 
     - name: Log in to the Container registry
