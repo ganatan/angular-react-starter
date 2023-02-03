@@ -26,8 +26,8 @@ jobs:
         cd angular-react-starter
         cd angular
         npm install
-        npm run coverage
         npm start
+        npm run coverage
         
         
   
