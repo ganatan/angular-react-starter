@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+  myang:
+    image: ghcr.io/darliiin/angular-react-starter:master
+    ports:
+      - "8080:80"
