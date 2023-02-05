@@ -5,7 +5,4 @@ COPY /angular-react-starter/angular/dist/angular-starter/ /usr/share/nginx/html
 RUN chown -R nginx:nginx /app && chmod -R 755 /app && \ 
         chown -R nginx:nginx /var/cache/nginx && \ 
         chown -R nginx:nginx /var/log/nginx && \ 
-
-RUN touch /var/run/nginx.pid && \ 
-        chown -R nginx:nginx /var/run/nginx.pid
 USER nginx
