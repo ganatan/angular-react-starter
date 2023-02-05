@@ -1,5 +1,6 @@
 FROM nginx:1.17.1-alpine AS build
 COPY . .
+RUN mkdir looool
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY /angular-react-starter/angular/dist/angular-starter/ /usr/share/nginx/html
 RUN chown nginx:nginx /var/cache/nginx && \
@@ -8,3 +9,4 @@ RUN chown nginx:nginx /var/cache/nginx && \
 RUN touch /var/run/nginx.pid && \
         chown -R nginx:nginx /var/run/nginx.pid
 USER nginx
+
