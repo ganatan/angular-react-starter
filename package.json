@@ -1,0 +1,11 @@
+{
+  "name": "angular-react-starter",
+  "version": "1.0.0",
+  "description": "<table>\r <tr>\r <td>\r   <a href=\"https://www.ganatan.com/en\">\r     <img src=\"./img/ganatan-about-github.png\" align=\"right\"\r     alt=\"Ganatan Angular Example Demo\" width=\"140\" height=\"140\">\r   </a>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
