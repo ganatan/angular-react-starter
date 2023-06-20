@@ -8,7 +8,8 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed 
+it's part of a repo series designed
+
 
 to create a **Web Application with Angular 16**
 
