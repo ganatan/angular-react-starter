@@ -39,9 +39,9 @@
     ]
   },
   "devDependencies": {
-    "eslint": "8.45.0",
-    "eslint-plugin-import": "2.27.5",
+    "eslint": "8.46.0",
+    "eslint-plugin-import": "2.28.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-react": "7.33.0"
+    "eslint-plugin-react": "7.33.1"
   }
 }
