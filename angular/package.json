@@ -23,7 +23,7 @@
     "@angular/router": "16.2.5",
     "rxjs": "7.8.1",
     "tslib": "2.6.2",
-    "zone.js": "0.13.3"
+    "zone.js": "0.14.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "16.2.2",
@@ -35,8 +35,8 @@
     "@angular/cli": "16.2.2",
     "@angular/compiler-cli": "16.2.5",
     "@types/jasmine": "4.3.6",
-    "@typescript-eslint/eslint-plugin": "6.7.0",
-    "@typescript-eslint/parser": "6.7.0",
+    "@typescript-eslint/eslint-plugin": "6.7.2",
+    "@typescript-eslint/parser": "6.7.2",
     "eslint": "8.49.0",
     "jasmine-core": "5.1.1",
     "karma": "6.4.2",
