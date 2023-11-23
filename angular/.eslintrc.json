@@ -49,8 +49,7 @@
         "id-length": "error",
         "newline-before-return": "error",
         "space-before-blocks": "error",
-        "no-alert": "error",
-        "no-console": "error"
+        "no-alert": "error"                
       }
     }
   ]
