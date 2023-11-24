@@ -10,7 +10,7 @@
 
 it's part of a repo series designed
 
-to create a **Web Application with Angular 16**
+to create a **Web Application with Angular 17**
 
 * Featuring [**Angular 17.0.4**](https://github.com/angular/angular/releases) & [**Angular CLI 17.0.3**](https://github.com/angular/angular-cli/releases/)
 
