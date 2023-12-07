@@ -5,7 +5,7 @@ const routes = require('./app/routes/routes');
 
 app.use('/', routes);
 
-const port = 5003;
+const port = 5000;
 app.listen(port, function listenPort() {
   console.log('- PostgreSQL - Express - API RestFul CRUD');
   console.log(`- Listening on port ${port} !`);
