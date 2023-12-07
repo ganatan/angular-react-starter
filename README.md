@@ -25,6 +25,12 @@ to create a **Web Application with React 18**
 * Featuring [**React 18.2.0**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
 
 
+to create a **Node Application with Express 4**
+
+
+* Featuring [**Express 4.18.2**](https://github.com/expressjs/express/releases)
+
+
 </td>
 </tr>
 </table>
@@ -92,6 +98,31 @@ npm start
 
 in your browser go to [http://localhost:3000](http://localhost:3000) 
 
+
+# [Node Quick start](#node-quick-start)
+
+```bash
+# choose a repo
+# download the example or clone the repo from github
+git clone https://github.com/ganatan/angular-react-starter.git
+
+# download the example or clone the repo from gitlab
+git clone https://gitlab.com/ganatan/angular-react-starter.git
+
+# change directory
+cd angular-react-starter
+cd node
+
+# install the repo with npm
+npm install
+
+# start the server
+npm start
+
+
+```
+
+in your browser go to [http://localhost:3000](http://localhost:5003) 
 
 
 # [Angular Tutorial](#angular-quick-start)
