@@ -14,8 +14,8 @@ describe('Test API CRUD /', function () {
     let data = {
       environment: 'undefined',
       applicationName: 'node-starter-test',
-      url: 'http://localhost:5003',
-      port: 5003,
+      url: 'http://localhost:5002',
+      port: 5002,
     };
     expect(text).toEqual(data);
 
@@ -25,8 +25,8 @@ describe('Test API CRUD /', function () {
     data = {
       environment: 'production',
       applicationName: 'node-starter-test',
-      url: 'http://localhost:5003',
-      port: 5003,
+      url: 'http://localhost:5002',
+      port: 5002,
     };
     expect(text).toEqual(data);
   });

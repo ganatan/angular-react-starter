@@ -180,6 +180,28 @@ Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-sta
 * `npm run coverage`
 
 
+# [Node Getting started](#node-getting-started)
+
+
+## Installation
+* `npm install` (installing dependencies)
+* `npm outdated` (verifying dependencies)
+
+## Development
+* `npm run start`
+* in your browser go to [http://localhost:5000](http://localhost:5000) 
+
+## Production 
+* `npm run build`
+
+## Linter
+* `npm run lint`
+
+## Tests
+* `npm run test`
+* `npm run coverage`
+
+
 
 # [Author](#author)
 * Author  : danny
