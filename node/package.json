@@ -1,7 +1,7 @@
 {
-  "name": "starter-node",
+  "name": "node-starter",
   "version": "1.0.0",
-  "description": "Starter Node",
+  "description": "Node Starter",
   "main": "app.js",
   "scripts": {
     "start": "babel-watch --watch app src/app.js",
