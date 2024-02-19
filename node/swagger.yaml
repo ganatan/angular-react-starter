@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: Node Backend Title
+  version: 1.1.1
+  description: Node Backend Documentation
+servers:
+  - url: http://localhost:5000
+paths:
+  /:
+    get:
+      summary: index Summary
+      description: Index Description
+      responses:
+        "200":
+          description: responses Index Description
+  /countries:
+    get:
+      summary: Countries Summary
+      description: Countries Description
+      responses:
+        "200":
+          description: responses Countries Description
+  /continents:
+    get:
+      summary: Continents Summary
+      description: Continents Description
+      responses:
+        "200":
+          description: responses Continents Description
