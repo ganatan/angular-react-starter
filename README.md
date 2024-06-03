@@ -28,7 +28,7 @@ to create a **Web Application with React 18**
 to create a **Node Application with Express 4**
 
 
-* Featuring [**Express 4.18.2**](https://github.com/expressjs/express/releases)
+* Featuring [**Express 4.19.2**](https://github.com/expressjs/express/releases)
 
 
 </td>
