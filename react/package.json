@@ -1,15 +1,15 @@
 {
   "name": "react-starter",
-  "version": "18.2.0",
+  "version": "18.3.1",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "6.4.2",
-    "@testing-library/react": "15.0.2",
+    "@testing-library/jest-dom": "6.4.5",
+    "@testing-library/react": "15.0.7",
     "@testing-library/user-event": "14.5.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "3.5.2"
+    "web-vitals": "4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
