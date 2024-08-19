@@ -3,13 +3,13 @@
   "version": "18.3.1",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "6.4.6",
+    "@testing-library/jest-dom": "6.4.8",
     "@testing-library/react": "16.0.0",
     "@testing-library/user-event": "14.5.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "4.2.1"
+    "web-vitals": "4.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "eslint": "8.57.0",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-react": "7.34.2"
+    "eslint-plugin-jsx-a11y": "6.9.0",
+    "eslint-plugin-react": "7.35.0"
   }
 }
