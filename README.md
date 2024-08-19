@@ -18,7 +18,6 @@ to create a **Web Application with Angular 18**
 * See the [**Angular Live demo**](#angular-live-demo), Test the repo with [**Quick start**](#angular-quick-start) and for more information Read the step by step [**Tutorial**](#angular-tutorial) or read the [**Getting started**](#angular-getting-started)
 
 
-
 to create a **Web Application with React 18**
 
 
