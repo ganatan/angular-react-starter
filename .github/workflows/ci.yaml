@@ -1,0 +1,68 @@
+name: Angular Actions pipeline
+on:
+  push:
+    branches:
+      - dev
+      - 'feature/*'
+  pull_request:
+    branches:
+      - main
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 120
+          install-chromedriver: true
+          install-dependencies: true
+    
+      - name: Run Angular tests
+        run: |
+          cd angular
+          npm install
+          npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI -- --no-sandbox
+      - name: Run Node tests
+        run: |
+          cd ../node
+          npm install
+          npm test
+
+      - name: Run React tests
+        run: |
+          cd ../react
+          npm install
+          npm test
+
+  build-angular:
+    runs-on: ubuntu-latest
+    needs: run-tests  # Ensures tests run before building
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build Angular app
+        run: |
+          cd angular
+          npm install
+          ng build
+
+      - name: Build React app
+        run: |
+          cd ../react
+          npm install
+          npm run build
