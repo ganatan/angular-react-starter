@@ -26,13 +26,15 @@ jobs:
           npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI
       - name: Run Node tests
         run: |
-          cd ../node
+          cd ..
+          cd node
           npm install
           npm test
 
       - name: Run React tests
         run: |
-          cd ../react
+          cd ..
+          cd react
           npm install
           npm test
 
