@@ -30,7 +30,7 @@ jobs:
         run: |
           cd angular
           npm install
-          npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI -- --no-sandbox
+          npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI
       - name: Run Node tests
         run: |
           cd ../node
