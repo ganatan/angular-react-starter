@@ -7,7 +7,7 @@
     "start": "ng serve --port 4200",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --browsers=ChromeHeadless --progress=false --watch=false",
     "coverage": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
     "serve": "node server.js"
