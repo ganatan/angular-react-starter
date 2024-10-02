@@ -42,8 +42,8 @@ jobs:
           cd $GITHUB_WORKSPACE/react
           npm install
           npm test
-      - name: Simulate a failure # Test that the failure email is sent 
-        run: exit 1  # This will cause the job to fail
+      #- name: Simulate a failure # Test that the failure email is sent 
+      #  run: exit 1  # This will cause the job to fail
 
       - name: Send mail
         if: failure()
@@ -137,7 +137,19 @@ jobs:
       - name: Build Docker image
         run: |
           cd angular && docker build -t angular-starter .
-
+      
+      - name: Log in to GitHub Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag Docker image
+        run: |
+          docker tag angular-starter ghcr.io/${{ github.repository }}:latest
+      - name: Push Docker image
+        run: |
+          docker tag angular-starter ghcr.io/${{ github.repository }}:${{ github.ref_name }}
       - name: End Timer and Calculate Duration
         id: end_timer
         run: |
