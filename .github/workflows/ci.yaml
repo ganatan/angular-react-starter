@@ -134,8 +134,8 @@ jobs:
     needs:
       - run-tests 
       - build-angular 
-      - docker  # This ensures it only runs if all previous jobs succeed.
-    if: success()  # Send email only if all jobs are successful.
+      - docker  
+    if: success()  
     steps:
       - name: Send mail on success with runtimes
         uses: dawidd6/action-send-mail@v3
@@ -154,7 +154,7 @@ jobs:
             Build Angular Duration : ${{ needs.build-angular.outputs.duration }}
             Docker Build Duration : ${{ needs.docker.outputs.duration }}
 
-            Total Runtime : ${{ needs.run-tests.outputs.duration | plus(needs.build-angular.outputs.duration) | plus(needs.docker.outputs.duration) }} seconds.
+            Total Runtime : ${{ needs.run-tests.outputs.duration + needs.build-angular.outputs.duration + needs.docker.outputs.duration }} seconds.
 
             Thank you!
           
