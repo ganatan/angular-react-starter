@@ -118,19 +118,15 @@ jobs:
         id: start_timer
         run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
 
-      - name: Download build artifact and Build Docker image
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: angular-build
+          path: angular/dist  # Is this the right path?
+
+      - name: Build Docker image
         run: |
-          # Create a directory for the artifact download
-          mkdir -p angular/dist
-          
-          # Download the artifact into the correct directory
-          cd angular && \
-          echo "Downloading artifact..." && \
-          actions/download-artifact@v4 --name angular-build --path ./dist && \
-          
-          # Build the Docker image after downloading the artifact
-          echo "Building Docker image..." && \
-          docker build -t angular-starter .
+          cd angular && docker build -t angular-starter .
 
       - name: End Timer and Calculate Duration
         id: end_timer
