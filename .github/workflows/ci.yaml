@@ -117,12 +117,14 @@ jobs:
       - name: Start Timer
         id: start_timer
         run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
-
+      - name: List directory contents.
+        run: ls -la
+        
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: angular-build
-          path: angular/dist  # Is this the right path?
+          path: angular/dist/angular-starter  # Is this the right path?
 
       - name: Build Docker image
         run: |
