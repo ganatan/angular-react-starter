@@ -137,6 +137,20 @@ jobs:
       - docker  
     if: success()  
     steps:
+      - name: Calculate Total Runtime
+        id: calculate_runtime
+        run: |
+          # Get the durations from job outputs
+          RUN_TESTS_DURATION=${{ needs.run-tests.outputs.duration }}
+          BUILD_ANGULAR_DURATION=${{ needs.build-angular.outputs.duration }}
+          DOCKER_DURATION=${{ needs.docker.outputs.duration }}
+
+          # Sum the durations
+          TOTAL_RUNTIME=$((RUN_TESTS_DURATION + BUILD_ANGULAR_DURATION + DOCKER_DURATION))
+
+          # Set the total runtime as an output variable
+          echo "total_runtime=${TOTAL_RUNTIME}" >> $GITHUB_ENV
+
       - name: Send mail on success with runtimes
         uses: dawidd6/action-send-mail@v3
         with:
@@ -154,9 +168,10 @@ jobs:
             Build Angular Duration : ${{ needs.build-angular.outputs.duration }}
             Docker Build Duration : ${{ needs.docker.outputs.duration }}
 
-            Total Runtime : ${{ needs.run-tests.outputs.duration + needs.build-angular.outputs.duration + needs.docker.outputs.duration }} seconds.
+            Total Runtime : ${{ env.total_runtime }} seconds.
 
             Thank you!
           
           to: ${{ secrets.PERSONAL_EMAIL_USERNAME }}
           from: "${{ secrets.EMAIL_USERNAME }}"
+
