@@ -10,6 +10,8 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{steps.end_timer.outputs.duration}}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -65,6 +67,8 @@ jobs:
   build-angular:
     runs-on: ubuntu-latest
     needs: run-tests
+    outputs:
+      output1: ${{steps.end_timer.outputs.duration}}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -104,6 +108,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     needs: build-angular
+    outputs:
+      output1: ${{steps.end_timer.outputs.duration}}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -165,9 +171,9 @@ jobs:
 
             Job Runtimes (in seconds):
             --------------------------
-            Run Tests Duration : ${{ needs.run-tests.outputs.duration }}
-            Build Angular Duration : ${{ needs.build-angular.outputs.duration }}
-            Docker Build Duration : ${{ needs.docker.outputs.duration }}
+            Run Tests Duration : ${{ needs.run-tests.outputs.output1 }}
+            Build Angular Duration : ${{ needs.build-angular.outputs.output1 }}
+            Docker Build Duration : ${{ needs.docker.outputs.output1 }}
 
             Total Runtime : ${{ env.total_runtime }} seconds.
 
