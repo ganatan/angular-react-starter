@@ -11,7 +11,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{steps.end_timer.outputs.duration}}
+      output1: ${{ steps.end_timer.outputs.duration }}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -60,15 +60,17 @@ jobs:
         id: end_timer
         run: |
           end_time=$(date +%s)
-          duration=$((end_time - start_time))
-          echo "duration=${duration}" >> $GITHUB_ENV
+          duration=$((end_time - $(echo $start_time)))
           echo "duration=${duration}" >> $GITHUB_OUTPUT
+
+      - name: Output end timer variable
+        run: echo "Duration ${{ steps.end_timer.outputs.duration }}"
 
   build-angular:
     runs-on: ubuntu-latest
     needs: run-tests
     outputs:
-      output1: ${{steps.end_timer.outputs.duration}}
+      output1: ${{ steps.end_timer.outputs.duration }}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -101,15 +103,17 @@ jobs:
         id: end_timer
         run: |
           end_time=$(date +%s)
-          duration=$((end_time - start_time))
-          echo "duration=${duration}" >> $GITHUB_ENV
+          duration=$((end_time - $(echo $start_time)))
           echo "duration=${duration}" >> $GITHUB_OUTPUT
+
+      - name: Output end timer variable
+        run: echo "Duration ${{ steps.end_timer.outputs.duration }}"
 
   docker:
     runs-on: ubuntu-latest
     needs: build-angular
     outputs:
-      output1: ${{steps.end_timer.outputs.duration}}
+      output1: ${{ steps.end_timer.outputs.duration }}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -118,14 +122,14 @@ jobs:
         id: start_timer
         run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
 
-      - name: List directory contents.
+      - name: List directory contents
         run: ls -la
         
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: angular-build
-          path: angular/dist/angular-starter  # Ensure this path is correct
+          path: angular/dist/angular-starter
 
       - name: Build Docker image
         run: |
@@ -135,9 +139,11 @@ jobs:
         id: end_timer
         run: |
           end_time=$(date +%s)
-          duration=$((end_time - start_time))
-          echo "duration=${duration}" >> $GITHUB_ENV
+          duration=$((end_time - $(echo $start_time)))
           echo "duration=${duration}" >> $GITHUB_OUTPUT
+
+      - name: Output end timer variable
+        run: echo "Duration ${{ steps.end_timer.outputs.duration }}"
 
   notify:
     runs-on: ubuntu-latest
@@ -150,9 +156,9 @@ jobs:
       - name: Calculate Total Runtime
         id: calculate_runtime
         run: |
-          RUN_TESTS_DURATION=${{ steps.run-tests.outputs.duration }}
-          BUILD_ANGULAR_DURATION=${{ steps.build-angular.outputs.duration }}
-          DOCKER_DURATION=${{ steps.docker.outputs.duration }}
+          RUN_TESTS_DURATION=${{ needs.run-tests.outputs.output1 }}
+          BUILD_ANGULAR_DURATION=${{ needs.build-angular.outputs.output1 }}
+          DOCKER_DURATION=${{ needs.docker.outputs.output1 }}
 
           TOTAL_RUNTIME=$((RUN_TESTS_DURATION + BUILD_ANGULAR_DURATION + DOCKER_DURATION))
 
