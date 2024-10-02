@@ -25,4 +25,5 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "CI Pipeline Failure"
           body: "The CI pipeline has failed."
-          to: ${{ secrets.EMAIL_TO }}
+          to: kristinalysenko3003@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
