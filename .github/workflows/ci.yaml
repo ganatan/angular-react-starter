@@ -116,11 +116,18 @@ jobs:
       - name: Start Timer
         id: start_timer
         run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
+      
+      - name: Navigate to the project folder
+        run: cd angular
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: angular-build
           path: ./dist
+          
+      - name: List files before docker build
+        run: ls -la
+
       - name: Build Docker image
         run: |
           docker build -t angular-starter .
