@@ -87,13 +87,13 @@ jobs:
           npm install
           npm run build --prod
       - name: List contents of dist directory
-        run: ls -R ./dist/
+        run: pwd && ls -l
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: angular-build
-          path: ./dist/angular-starter/**
+          path: /home/runner/work/angular-react-starter/angular-react-starter/angular/dist/angular-starter
       # - name: Build React app
       #   run: |
       #     cd $GITHUB_WORKSPACE/react
