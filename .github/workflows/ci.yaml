@@ -53,8 +53,8 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          subject: ${{ github.job }} ${{ job.status }}
+          body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has status ${{ job.status }}.
           to: ${{ secrets.PERSONAL_EMAIL_USERNAME }}
           from: ${{ secrets.EMAIL_USERNAME }}
 
