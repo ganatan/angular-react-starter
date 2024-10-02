@@ -28,7 +28,7 @@ jobs:
           cd angular
           npm install
           npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI
-          
+
       - name: Run Node tests
         run: |
           cd $GITHUB_WORKSPACE/node
@@ -40,24 +40,7 @@ jobs:
           cd $GITHUB_WORKSPACE/react
           npm install
           npm test
-      - name: Send mail
-        if: failure()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          # mail server settings
-          server_address: ${{ secrets.EMAIL_SERVER }}
-          server_port: 465
-          # user credentials
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          # comma-separated string, send email to
-          to: ${{ secrets.PERSONAL_EMAIL_USERNAME }}
-          # from email name
-          from: ${{ secrets.EMAIL_USERNAME }}
+
       - name: End Timer and Calculate Duration
         id: end_timer
         run: |
@@ -65,6 +48,7 @@ jobs:
           duration=$((end_time - start_time))
           echo "duration=${duration}" >> $GITHUB_ENV
           echo "::set-output name=duration::${duration}"
+
   build-angular:
     runs-on: ubuntu-latest
     needs: run-tests
@@ -86,19 +70,6 @@ jobs:
           cd angular
           npm install
           npm run build --prod
-      - name: List contents of dist directory
-        run: pwd && ls -l
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: angular-build
-          path: /home/runner/work/angular-react-starter/angular-react-starter/angular/dist/angular-starter
-      # - name: Build React app
-      #   run: |
-      #     cd $GITHUB_WORKSPACE/react
-      #     npm install
-      #     npm run build --prod
 
       - name: End Timer and Calculate Duration
         id: end_timer
@@ -107,6 +78,7 @@ jobs:
           duration=$((end_time - start_time))
           echo "duration=${duration}" >> $GITHUB_ENV
           echo "::set-output name=duration::${duration}"
+
   docker:
     runs-on: ubuntu-latest
     needs: build-angular
@@ -117,14 +89,11 @@ jobs:
       - name: Start Timer
         id: start_timer
         run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
-      - name: List directory contents.
-        run: ls -la
-        
+
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: angular-build
-          path: angular/dist/angular-starter  # Is this the right path?
 
       - name: Build Docker image
         run: |
@@ -149,18 +118,18 @@ jobs:
       - name: Calculate Total Runtime
         id: calculate_runtime
         run: |
-          # Get the durations from job outputs
+          # Get the durations from job outputs.
           RUN_TESTS_DURATION=${{ needs.run-tests.outputs.duration }}
           BUILD_ANGULAR_DURATION=${{ needs.build-angular.outputs.duration }}
           DOCKER_DURATION=${{ needs.docker.outputs.duration }}
 
-          # Sum the durations
+          # Sum the durations.
           TOTAL_RUNTIME=$((RUN_TESTS_DURATION + BUILD_ANGULAR_DURATION + DOCKER_DURATION))
 
-          # Set the total runtime as an output variable
+          # Set total runtime as an output variable.
           echo "total_runtime=${TOTAL_RUNTIME}" >> $GITHUB_ENV
 
-      - name: Send mail on success with runtimes
+      - name: Send mail on success with runtimes.
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: ${{ secrets.EMAIL_SERVER }}
@@ -183,4 +152,3 @@ jobs:
           
           to: ${{ secrets.PERSONAL_EMAIL_USERNAME }}
           from: "${{ secrets.EMAIL_USERNAME }}"
-
