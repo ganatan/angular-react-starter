@@ -1,6 +1,4 @@
 name: Angular Actions pipeline
-#TODO: Add email notifications
-# TODOL Add time measurements
 on:
   push:
     branches:
@@ -19,9 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 nam  e: Start Timer
-        id: start_timer
-        run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
+          node-version: 22 
 
       - name: Start Timer
         id: start_timer
