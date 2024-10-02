@@ -144,9 +144,9 @@ jobs:
       - name: Calculate Total Runtime
         id: calculate_runtime
         run: |
-          RUN_TESTS_DURATION=${{ needs.run-tests.outputs.duration }}
-          BUILD_ANGULAR_DURATION=${{ needs.build-angular.outputs.duration }}
-          DOCKER_DURATION=${{ needs.docker.outputs.duration }}
+          RUN_TESTS_DURATION=${{ steps.run-tests.outputs.duration }}
+          BUILD_ANGULAR_DURATION=${{ steps.build-angular.outputs.duration }}
+          DOCKER_DURATION=${{ steps.docker.outputs.duration }}
 
           TOTAL_RUNTIME=$((RUN_TESTS_DURATION + BUILD_ANGULAR_DURATION + DOCKER_DURATION))
 
