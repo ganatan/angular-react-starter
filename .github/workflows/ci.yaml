@@ -111,7 +111,7 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
-       - name: Start Timer
+      - name: Start Timer
         id: start_timer
         run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
       - name: Download build artifact
@@ -119,10 +119,10 @@ jobs:
         with:
           name: angular-build
           path: ./dist
-    - name: Build Docker image
+      - name: Build Docker image
         run: |
           docker build -t angular-starter
-    - name: End Timer and Calculate Duration
+      - name: End Timer and Calculate Duration
         id: end_timer
         run: |
           end_time=$(date +%s)
