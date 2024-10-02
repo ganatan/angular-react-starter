@@ -123,7 +123,7 @@ jobs:
           path: ./dist
       - name: Build Docker image
         run: |
-          docker build -t angular-starter
+          docker build -t angular-starter .
       - name: End Timer and Calculate Duration
         id: end_timer
         run: |
