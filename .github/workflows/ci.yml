@@ -13,4 +13,4 @@ jobs:
       - name: Install dependencies
         run: cd angular/ && npm install
       - name: Run tests
-        run: cd angular/ && npm test
+        run: cd angular/ && npm run coverage
