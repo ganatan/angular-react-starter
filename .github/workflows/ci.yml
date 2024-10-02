@@ -14,3 +14,15 @@ jobs:
         run: cd angular/ && npm install
       - name: Run tests
         run: cd angular/ && npm run coverage
+
+      - name: Send failure email
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "CI Pipeline Failure"
+          body: "The CI pipeline has failed."
+          to: ${{ secrets.EMAIL_TO }}
