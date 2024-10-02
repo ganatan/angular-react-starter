@@ -1,4 +1,6 @@
 name: Angular Actions pipeline
+#TODO: Add email notifications
+# TODOL Add time measurements
 on:
   push:
     branches:
@@ -17,8 +19,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-      
+          node-version: 22 nam  e: Start Timer
+        id: start_timer
+        run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Start Timer
+        id: start_timer
+        run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
+
       - name: Run Angular tests
         run: |
           cd angular
@@ -36,7 +44,31 @@ jobs:
           cd $GITHUB_WORKSPACE/react
           npm install
           npm test
-
+      - name: Send mail
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # mail server settings
+          server_address: ${{ secrets.EMAIL_SERVER }}
+          server_port: 465
+          # user credentials
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: ${{ secrets.PERSONAL_EMAIL_USERNAME }}
+          # from email name
+          from: ${{ secrets.EMAIL_USERNAME }}
+      - name: End Timer and Calculate Duration
+        id: end_timer
+        run: |
+          end_time=$(date +%s)
+          duration=$((end_time - start_time))
+          echo "duration=${duration}" >> $GITHUB_ENV
+          echo "::set-output name=duration::${duration}"
   build-angular:
     runs-on: ubuntu-latest
     needs: run-tests
@@ -49,14 +81,86 @@ jobs:
         with:
           node-version: 22
 
+      - name: Start Timer
+        id: start_timer
+        run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
+
       - name: Build Angular app
         run: |
           cd angular
           npm install
-          ng build
+          npm run build --prod
 
-      - name: Build React app
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-build
+          path: dist/angular-starter
+      # - name: Build React app
+      #   run: |
+      #     cd $GITHUB_WORKSPACE/react
+      #     npm install
+      #     npm run build --prod
+
+      - name: End Timer and Calculate Duration
+        id: end_timer
         run: |
-          cd $GITHUB_WORKSPACE/react
-          npm install
-          npm run build
+          end_time=$(date +%s)
+          duration=$((end_time - start_time))
+          echo "duration=${duration}" >> $GITHUB_ENV
+          echo "::set-output name=duration::${duration}"
+  docker:
+    runs-on: ubuntu-latest
+    needs: build-angular
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+       - name: Start Timer
+        id: start_timer
+        run: echo "start_time=$(date +%s)" >> $GITHUB_ENV
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: angular-build
+          path: ./dist
+    - name: Build Docker image
+        run: |
+          docker build -t angular-starter
+    - name: End Timer and Calculate Duration
+        id: end_timer
+        run: |
+          end_time=$(date +%s)
+          duration=$((end_time - start_time))
+          echo "duration=${duration}" >> $GITHUB_ENV
+          echo "::set-output name=duration::${duration}"
+  notify:
+    runs-on: ubuntu-latest
+    needs:
+      - run-tests 
+      - build-angular 
+      - docker  # This ensures it only runs if all previous jobs succeed.
+    if: success()  # Send email only if all jobs are successful.
+    steps:
+      - name: Send mail on success with runtimes
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.EMAIL_SERVER }}
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Angular Actions Pipeline Completed Successfully"
+          body: |
+            The Angular Actions pipeline has completed successfully!
+
+            Job Runtimes (in seconds):
+            --------------------------
+            Run Tests Duration : ${{ needs.run-tests.outputs.duration }}
+            Build Angular Duration : ${{ needs.build-angular.outputs.duration }}
+            Docker Build Duration : ${{ needs.docker.outputs.duration }}
+
+            Total Runtime : ${{ needs.run-tests.outputs.duration | plus(needs.build-angular.outputs.duration) | plus(needs.docker.outputs.duration) }} seconds.
+
+            Thank you!
+          
+          to: ${{ secrets.PERSONAL_EMAIL_USERNAME }}
+          from: "${{ secrets.EMAIL_USERNAME }}"
