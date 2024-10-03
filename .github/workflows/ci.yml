@@ -21,6 +21,7 @@ jobs:
         run: cd angular/ && npm run coverage
 
       - name: Stop timer
+        if: failure()
         id: stop_timer
         run: |
           echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
@@ -30,6 +31,7 @@ jobs:
           echo "EXECUTION_TIME=$EXECUTION_TIME" >> $GITHUB_ENV
 
       - name: Check environment variables
+        if: failure()
         run: |
           echo "START_TIME: ${{ env.START_TIME }}"
           echo "STOP_TIME: ${{ env.STOP_TIME }}"
