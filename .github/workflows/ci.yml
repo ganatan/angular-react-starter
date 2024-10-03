@@ -4,6 +4,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Start timer
+        id: start_timer
+        run: |
+          echo "START_TIME=0" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node.js
