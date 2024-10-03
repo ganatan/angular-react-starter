@@ -24,6 +24,11 @@ jobs:
         id: stop_timer
         run: |
           echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
+          START_TIME=$(echo ${{ env.START_TIME }})
+          STOP_TIME=$(echo ${{ env.STOP_TIME }})
+          EXECUTION_TIME=$((STOP_TIME - START_TIME))
+          echo "EXECUTION_TIME=$EXECUTION_TIME" >> $GITHUB_ENV
+          
 
       - name: Send failure email
         if: failure()
@@ -35,6 +40,6 @@ jobs:
           subject: "CI Pipeline Failure"
           body: |
             Pipeline failed
-            "Execution time: " $((STOP_TIME - START_TIME))" seconds"
+            Final execution time: ${{ env.EXECUTION_TIME }} seconds
           to: clutcherdenis@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
