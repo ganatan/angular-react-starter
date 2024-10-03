@@ -56,7 +56,7 @@ jobs:
           echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
 
       - name: Check environment variables
-        if: failure()
+        if: always()
         run: |
           START_TIME=$(echo ${{ env.START_TIME }})
           STOP_TIME=$(echo ${{ env.STOP_TIME }})
