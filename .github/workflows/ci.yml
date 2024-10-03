@@ -7,7 +7,7 @@ jobs:
       - name: Start timer
         id: start_timer
         run: |
-          echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
+          echo "START_TIME=0" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v4
