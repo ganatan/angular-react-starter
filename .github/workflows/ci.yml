@@ -21,6 +21,7 @@ jobs:
         run: cd angular/ && npm run coverage
 
       - name: Stop timer
+        id: stop_timer
         run: |
           echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
 
@@ -34,6 +35,6 @@ jobs:
           subject: "CI Pipeline Failure"
           body: |
             Pipeline failed
-            "Execution time: $((STOP_TIME - START_TIME)) seconds"
-          to: kristinalysenko3003@gmail.com
+            "Execution time: " $((STOP_TIME - START_TIME))" seconds"
+          to: clutcherdenis@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
