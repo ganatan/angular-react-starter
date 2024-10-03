@@ -4,6 +4,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Start timer
+        id: start_timer
+        run: |
+          echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node.js
@@ -15,11 +20,9 @@ jobs:
       - name: Run tests
         run: cd angular/ && npm run coverage
 
-      - name: Measure pipeline duration
-        id: duration
+      - name: Stop timer
         run: |
-          start_time=$(date +%s)
-          echo "::set-output name=start_time::$start_time"
+          echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
 
       - name: Send failure email
         if: failure()
@@ -31,6 +34,6 @@ jobs:
           subject: "CI Pipeline Failure"
           body: |
             Pipeline failed
-            Duration: ${{ steps.duration.outputs.duration }} seconds
+            "Execution time: $((STOP_TIME - START_TIME)) seconds"
           to: kristinalysenko3003@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
