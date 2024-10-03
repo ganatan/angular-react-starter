@@ -39,9 +39,7 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch
-            type=sha
+
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -72,6 +70,20 @@ jobs:
           echo "Execution time: $HOURS hours $MINUTES minutes $SECONDS seconds"
 
       - name: Send failure email
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "CI Pipeline Success"
+          body: |
+            Pipeline success! 
+            Final execution time: ${{ env.EXECUTION_TIME_HOURS }} hours ${{ env.EXECUTION_TIME_MINUTES }} minutes ${{ env.EXECUTION_TIME_SECONDS }} seconds
+          to: clutcherdenis@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
+
+      - name: Send failure email
         if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
@@ -80,7 +92,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "CI Pipeline Failure"
           body: |
-            Pipeline failed
+            Pipeline failed (
             Final execution time: ${{ env.EXECUTION_TIME_HOURS }} hours ${{ env.EXECUTION_TIME_MINUTES }} minutes ${{ env.EXECUTION_TIME_SECONDS }} seconds
           to: clutcherdenis@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
