@@ -24,19 +24,20 @@ jobs:
         id: stop_timer
         run: |
           echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
-          START_TIME=$(echo ${{ env.START_TIME }})
-          STOP_TIME=$(echo ${{ env.STOP_TIME }})
-          EXECUTION_TIME=$((STOP_TIME - START_TIME))
-          echo "EXECUTION_TIME=$EXECUTION_TIME" >> $GITHUB_ENV
-          echo "Execution time: $EXECUTION_TIME seconds"
-      
 
       - name: Check environment variables
         if: failure()
         run: |
-          echo "START_TIME: ${{ env.START_TIME }}"
-          echo "STOP_TIME: ${{ env.STOP_TIME }}"
-          echo "EXECUTION_TIME: ${{ env.EXECUTION_TIME }}"
+          START_TIME=$(echo ${{ env.START_TIME }})
+          STOP_TIME=$(echo ${{ env.STOP_TIME }})
+          EXECUTION_TIME=$((STOP_TIME - START_TIME))
+          HOURS=$((EXECUTION_TIME / 3600))
+          MINUTES=$((EXECUTION_TIME % 3600 / 60))
+          SECONDS=$((EXECUTION_TIME % 60))
+          echo "EXECUTION_TIME_HOURS=$HOURS" >> $GITHUB_ENV
+          echo "EXECUTION_TIME_MINUTES=$MINUTES" >> $GITHUB_ENV
+          echo "EXECUTION_TIME_SECONDS=$SECONDS" >> $GITHUB_ENV
+          echo "Execution time: $HOURS hours $MINUTES minutes $SECONDS seconds"
 
       - name: Send failure email
         if: failure()
@@ -48,6 +49,6 @@ jobs:
           subject: "CI Pipeline Failure"
           body: |
             Pipeline failed
-            Final execution time: ${{ env.EXECUTION_TIME }} seconds
+            Final execution time: ${{ env.EXECUTION_TIME_HOURS }} hours ${{ env.EXECUTION_TIME_MINUTES }} minutes ${{ env.EXECUTION_TIME_SECONDS }} seconds
           to: clutcherdenis@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
