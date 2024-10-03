@@ -7,7 +7,7 @@ jobs:
       - name: Start timer
         id: start_timer
         run: |
-          echo "START_TIME=0" >> $GITHUB_ENV
+         echo "START_TIME=$(date +"%H:%M:%S")" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node.js
@@ -23,7 +23,20 @@ jobs:
         if: failure()
         id: stop_timer
         run: |
-          echo "STOP_TIME=$(date +"%M:%S")" >> $GITHUB_ENV
+          echo "STOP_TIME=$(date +"%H:%M:%S")" >> $GITHUB_ENV
+          START_TIME=$(echo ${{ env.START_TIME }})
+          STOP_TIME=$(echo ${{ env.STOP_TIME }})
+          EXECUTION_TIME=$((STOP_TIME - START_TIME))
+          echo "EXECUTION_TIME=$EXECUTION_TIME" >> $GITHUB_ENV
+          echo "Execution time: $EXECUTION_TIME seconds"
+      
+
+      - name: Check environment variables
+        if: failure()
+        run: |
+          echo "START_TIME: ${{ env.START_TIME }}"
+          echo "STOP_TIME: ${{ env.STOP_TIME }}"
+          echo "EXECUTION_TIME: ${{ env.EXECUTION_TIME }}"
 
       - name: Send failure email
         if: failure()
@@ -35,6 +48,6 @@ jobs:
           subject: "CI Pipeline Failure"
           body: |
             Pipeline failed
-            Final execution time: ${{ env.STOP_TIME }} seconds
+            Final execution time: ${{ env.EXECUTION_TIME }} seconds
           to: clutcherdenis@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
