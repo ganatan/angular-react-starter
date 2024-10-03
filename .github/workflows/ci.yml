@@ -15,6 +15,14 @@ jobs:
       - name: Run tests
         run: cd angular/ && npm run coverage
 
+      - name: Measure pipeline duration
+        id: duration
+        run: |
+          start_time=$(date +%s)
+          end_time=$(date +%s)
+          duration=$((end_time - start_time))
+          echo "::set-output name=duration::$duration"
+
       - name: Send failure email
         if: failure()
         uses: dawidd6/action-send-mail@v3
@@ -23,6 +31,8 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "CI Pipeline Failure"
-          body: "The CI pipeline has failed."
+          body: |
+            Pipeline failed
+            Duration: ${{ steps.duration.outputs.duration }} seconds
           to: kristinalysenko3003@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
