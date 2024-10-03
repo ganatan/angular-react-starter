@@ -18,10 +18,8 @@ jobs:
       - name: Measure pipeline duration
         id: duration
         run: |
-          start_time=0
-          end_time=$(date +%s)
-          duration=$((end_time - start_time))
-          echo "::set-output name=duration::$duration"
+          start_time=$(date +%s)
+          echo "::set-output name=start_time::$start_time"
 
       - name: Send failure email
         if: failure()
