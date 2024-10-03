@@ -23,7 +23,9 @@ jobs:
         if: failure()
         id: stop_timer
         run: |
-          echo "STOP_TIME=$(date +"%M:%S") >> $GITHUB_ENV      
+          echo "STOP_TIME=$(date +"%M:%S") >> $GITHUB_ENV
+          START_TIME=$(echo ${{ env.START_TIME }})
+          STOP_TIME=$(echo ${{ env.STOP_TIME }})
 
       - name: Send failure email
         if: failure()
