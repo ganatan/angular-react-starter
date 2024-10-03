@@ -47,6 +47,6 @@ jobs:
           subject: "CI Pipeline Failure"
           body: |
             Pipeline failed
-            Final execution time: ${{ env.EXECUTION_TIME }} seconds
+            Final execution time: ${{ env.STOP_TIME }} seconds
           to: clutcherdenis@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
