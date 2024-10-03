@@ -7,7 +7,7 @@ jobs:
       - name: Start timer
         id: start_timer
         run: |
-         echo "START_TIME=$(date +"%H:%M:%S")" >> $GITHUB_ENV
+         echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node.js
@@ -23,7 +23,7 @@ jobs:
         if: failure()
         id: stop_timer
         run: |
-          echo "STOP_TIME=$(date +"%H:%M:%S")" >> $GITHUB_ENV
+          echo "STOP_TIME=$(date +%s)" >> $GITHUB_ENV
           START_TIME=$(echo ${{ env.START_TIME }})
           STOP_TIME=$(echo ${{ env.STOP_TIME }})
           EXECUTION_TIME=$((STOP_TIME - START_TIME))
