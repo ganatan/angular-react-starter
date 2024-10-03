@@ -25,7 +25,8 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: cd angular/ && npm install
-
+      - name: Run tests
+        run: cd angular/ && npm coverage
 
       - name: Log in to the Container registry
 
