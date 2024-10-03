@@ -18,7 +18,7 @@ jobs:
       - name: Measure pipeline duration
         id: duration
         run: |
-          start_time=$(date +%s)
+          start_time=0
           end_time=$(date +%s)
           duration=$((end_time - start_time))
           echo "::set-output name=duration::$duration"
