@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: cd angular/ && npm install
       - name: Run tests
-        run: cd angular/ && npm coverage
+        run: cd angular/ && npm run coverage
 
       - name: Log in to the Container registry
 
