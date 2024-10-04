@@ -1,220 +1,116 @@
-# Angular 18 , React 18 & Node Examples Starter
+# Angular-React-Starter
 
-<table>
-<tr>
-<td>
-  <a href="https://www.ganatan.com/en">
-    <img src="./img/ganatan-about-github.png" align="right"
-    alt="Ganatan Angular Example Demo" width="140" height="140">
-  </a>
+This repository contains a starter template for an Angular and React application, along with a CI/CD pipeline setup using GitHub Actions. The project is designed to facilitate the development and deployment of modern web applications.
 
-it's part of a repo series designed
+## Table of Contents
 
-to create a **Web Application with Angular 18**
-
-* Featuring [**Angular 18.2.1**](https://github.com/angular/angular/releases) & [**Angular CLI 18.2.1**](https://github.com/angular/angular-cli/releases/)
-
-
-* See the [**Angular Live demo**](#angular-live-demo), Test the repo with [**Quick start**](#angular-quick-start) and for more information Read the step by step [**Tutorial**](#angular-tutorial) or read the [**Getting started**](#angular-getting-started)
-
-
-to create a **Web Application with React 18**
+- [Angular-React-Starter](#angular-react-starter)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Cloning the Repository](#cloning-the-repository)
+  - [Running the Application](#running-the-application)
+    - [Local Development](#local-development)
+    - [Running with Docker](#running-with-docker)
+  - [GitHub Actions Pipeline](#github-actions-pipeline)
+    - [Workflow Details](#workflow-details)
+  - [Building and Running with Docker](#building-and-running-with-docker)
 
 
-* Featuring [**React 18.3.1**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
+## Project Overview
 
+This project consists of three main applications:
+- **Angular**: The Angular frontend application.
+- **Node**: The Node.js backend API.
+- **React**: The React frontend application.
 
-to create a **Node Application with Express 4**
+It is based on the project [granatan/angular-react-starter](https://github.com/ganatan/angular-react-starter).
 
+The goal of this project is to provide a robust foundation for developing and deploying web applications using Angular with an emphasis on CI/CD practices.
 
-* Featuring [**Express 4.19.2**](https://github.com/expressjs/express/releases)
+## Getting Started
 
+### Prerequisites
 
-</td>
-</tr>
-</table>
+- Node.js (version 22 or higher)
+- Docker (for containerization)
 
-# [Angular Live Demo](#angular-live-demo)
-Here is a working Angular live demo :  https://angular.ganatan.com
+### Cloning the Repository
 
-<p align="center">
-  <p align="center">
-    <a href="https://angular.ganatan.com/">
-      <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular 16 Example 
-      Application"/>
-    </a>
-  </p>
-</p>
+Clone the repository to your local machine and checkout the branch with the pipeleine:
 
-
-# [Angular Quick start](#angular-quick-start)
-
-```bash
-# choose a repo
-# download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-react-starter.git
-
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-react-starter.git
-
-# change directory
+``` bash
+git clone https://github.com/The18thHuman/angular-react-starter.git
 cd angular-react-starter
-cd angular 
-
-# install the repo with npm
-npm install
-
-# start the server
-npm start
-
+git checkout feature/ci-pipeline 
 ```
-in your browser go to [http://localhost:4200](http://localhost:4200) 
+## Running the Application
+### Local Development
 
+1. Install Dependencies:
+Navigate to each application folder (Angular, Node, React) and run:
 
-
-# [React Quick start](#react-quick-start)
-
-```bash
-# choose a repo
-# download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-react-starter.git
-
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-react-starter.git
-
-# change directory
-cd angular-react-starter
-cd react
-
-# install the repo with npm
+``` bash
 npm install
-
-# start the server
-npm start
-
-
 ```
 
-in your browser go to [http://localhost:3000](http://localhost:3000) 
+  2. Start the Development Server:
 
++ For Angular:
 
-# [Node Quick start](#node-quick-start)
+``` bash
+cd angular
+ng serve
+```
 
-```bash
-# choose a repo
-# download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-react-starter.git
-
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-react-starter.git
-
-# change directory
-cd angular-react-starter
++ For Node:
+``` bash
 cd node
-
-# install the repo with npm
-npm install
-
-# start the server
-npm start
-
-
+node index.js
 ```
++ For React:
 
-in your browser go to [http://localhost:5000](http://localhost:5000) 
+``` bash
+cd react
+npm start
+```
+### Running with Docker
 
+You can run the angular application using Docker Compose:
 
-# [Angular Tutorial](#angular-quick-start)
+1. Build and Start Services:
 
-Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-started-with-angular
+``` bash
+cd angular
+docker-compose up -d
+```
+2. Access the Application: Open your web browser and go to http://localhost:8080 to access the Angular application.
+## GitHub Actions Pipeline
 
-<p align="center">
-  <a href="https://www.ganatan.com/tutorials/getting-started-with-angular">
-    <img src="img/ganatan-angular-starter-github.png" alt="Demo example"/>
-  </a>
-</p>
+The project includes a GitHub Actions pipeline for continuous integration and deployment. The pipeline runs tests for Angular, Node.js, and React applications, builds the Angular application, creates a Docker image, and pushes it to the GitHub Container Registry.
+### Workflow Details
 
-# [Angular Getting started](#angular-getting-started)
++ Trigger: The pipeline is triggered on push events to the dev branch or any feature branches and on pull requests to the main branch.
++ Jobs:
+  + run-tests: Executes unit tests for all applications.
+  + build-angular: Builds the Angular application.
+  + docker: Builds and pushes the Docker image.
+  + notify: Sends email notifications based on the job status.
 
+## Building and Running with Docker
 
-## Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
+1. Build Docker Image: The pipeline builds the Docker image for the Angular application and pushes it to the GitHub Container Registry.
 
-## Development
-* `npm run start`
-* in your browser go to [http://localhost:4200](http://localhost:4200) 
+2. Pull Docker Image: You can pull the Docker image using the following command:
 
-## Production 
-* `npm run build`
+``` bash
 
-## Linter
-* `npm run lint`
+docker pull ghcr.io/the18thhuman/angular-react-starter:feature-ci-pipeline
+```
+3. Run Docker Container: To run the Docker container, use the following command:
 
-## Tests
-* `npm run test`
-* `npm run coverage`
+``` bash
 
-
-
-# [React Getting started](#react-getting-started)
-
-
-## Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
-
-## Development
-* `npm run start`
-* in your browser go to [http://localhost:3000](http://localhost:3000) 
-
-## Production 
-* `npm run build`
-
-## Linter
-* `npm run lint`
-
-## Tests
-* `npm run test`
-* `npm run coverage`
-
-
-# [Node Getting started](#node-getting-started)
-
-
-## Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
-
-## Development
-* `npm run start`
-* in your browser go to [http://localhost:5000](http://localhost:5000) 
-
-## Production 
-* `npm run build`
-
-## Linter
-* `npm run lint`
-
-## Tests
-* `npm run test`
-* `npm run coverage`
-
-
-
-# [Author](#author)
-* Author  : danny
-
-## [Angular English Tutorials](#english-tutorials)
-- Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
-- Tutorials Step by Step - https://www.ganatan.com/tutorials/en
-
-## [Tutoriels Angular en français](#french-tutorials)
-- Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
-- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
-
-
-## [Tutoriels React en français](#french-tutorials)
-- Installation - https://www.ganatan.com/tutorials/demarrer-avec-react
-- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
-
+docker run -p 8080:80 ghcr.io/the18thhuman/angular-react-starter:feature-ci-pipeline
+```
