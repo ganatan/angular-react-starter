@@ -146,10 +146,10 @@ jobs:
           password: ${{ secrets.ACCESS_TOKEN }}
       - name: Tag Docker image
         run: |
-            docker tag angular-starter ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            docker tag angular-starter ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):${{ github.ref_name }}
       - name: Push Docker image
         run: |
-            docker push ghcr.io/${{ github.repository }}:latest
+            docker push ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')::latest
       - name: End Timer and Calculate Duration
         id: end_timer
         run: |
