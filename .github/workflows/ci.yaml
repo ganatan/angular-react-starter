@@ -146,7 +146,7 @@ jobs:
           password: ${{ secrets.ACCESS_TOKEN }}
       - name: Tag Docker image
         run: |
-            docker tag angular-starter ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):${{ github.ref_name }}
+            docker tag angular-starter ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):$(echo "${{ github.ref_name }}" | tr '/' '-')
       - name: Push Docker image
         run: |
             docker push ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')::latest
