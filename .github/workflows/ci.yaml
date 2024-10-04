@@ -29,19 +29,19 @@ jobs:
         run: |
           cd angular
           npm install
-          npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI
+          npm test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI || exit 1
           
       - name: Run Node tests
         run: |
           cd $GITHUB_WORKSPACE/node
           npm install
-          npm test
+          npm test || exit 1
 
       - name: Run React tests
         run: |
           cd $GITHUB_WORKSPACE/react
           npm install
-          npm test
+          npm test || exit 1
       #- name: Simulate a failure # Test that the failure email is sent 
       #  run: exit 1  # This will cause the job to fail
 

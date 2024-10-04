@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  angular-react-app:
+    image: ghcr.io/the18thhuman/angular-react-starter:feature-ci-pipeline
+    ports:
+      - "8080:80"  # Map container port 80 to host port 8080
+    restart: always
