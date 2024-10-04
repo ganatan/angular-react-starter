@@ -149,7 +149,7 @@ jobs:
             docker tag angular-starter ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):$(echo "${{ github.ref_name }}" | tr '/' '-')
       - name: Push Docker image
         run: |
-            docker push ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):latest
+            docker push ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]'):$(echo "${{ github.ref_name }}" | tr '/' '-')
       - name: End Timer and Calculate Duration
         id: end_timer
         run: |
