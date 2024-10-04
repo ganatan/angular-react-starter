@@ -143,13 +143,13 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.ACCESS_TOKEN }}
       - name: Tag Docker image
         run: |
-          docker tag angular-starter ghcr.io/${{ github.repository }}:latest
+            docker tag angular-starter ghcr.io/${{ github.repository }}:${{ github.ref_name }}
       - name: Push Docker image
         run: |
-          docker tag angular-starter ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            docker push ghcr.io/${{ github.repository }}:latest
       - name: End Timer and Calculate Duration
         id: end_timer
         run: |
