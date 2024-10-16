@@ -13,8 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Run tests
-    - run: cd node/
-    - run: npm run install
-    - run: npm run test
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+        
+    - name: Installation of related packages
+      run: npm ci
+      
+    - name: RUN SuperTest API Testing
+      run: npm test
