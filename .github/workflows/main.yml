@@ -8,11 +8,13 @@ on:
 
 jobs:
 
-  test:
+  create-image:
   
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    - name: Run tests
+    - run: cd node/
     - run: npm run install
     - run: npm run test
