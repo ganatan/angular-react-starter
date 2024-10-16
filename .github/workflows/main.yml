@@ -22,4 +22,8 @@ jobs:
       
     - name: RUN SuperTest API Testing
       working-directory: ./node
+<<<<<<< HEAD
       run: npm run test
+=======
+      run: npm run test
+>>>>>>> a57f095 (changed readme)
