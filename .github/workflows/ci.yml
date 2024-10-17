@@ -1,4 +1,4 @@
-name: Custom workflow
+name: Nginx image creator
 
 on:
   push:
