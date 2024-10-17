@@ -1,5 +1,5 @@
 # nginxinc/nginx-unprivileged:alpine3.20-perl
-FROM nginx@sha256:b7757ba03fb5510a28c595387d765b2e715475e1c1ba23042e35288f62ed6b77
+FROM nginx-unprivileged@sha256:b7757ba03fb5510a28c595387d765b2e715475e1c1ba23042e35288f62ed6b77
 
 RUN adduser -D Nginx
 USER Nginx
