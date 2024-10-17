@@ -2,9 +2,6 @@ services:
 
   nginx-ang:
     container_name: nginx-ang
-    build: ./
-    user: nginx
-    # env_file:
-    #   - ./.env
-    # stdin_open: true # docker run -i DEBUG PURPOSE
-    # tty: true        # docker run -t DEBUG PURPOSE
+    web:
+      image: "ghcr.io/lepavuki/angular-react-devops-case:master"
+    user: Nginx
