@@ -5,4 +5,5 @@ RUN adduser -D Nginx
 USER Nginx
 
 COPY ./angular/nginx.conf /etc/nginx/nginx.conf
+COPY ./angular/nginx.conf ./angular/nginx.conf
 COPY ./angular/dist/angular-starter/ ./angular/dist/angular-starter/
