@@ -2,6 +2,6 @@ services:
 
   nginx-ang:
     container_name: nginx-ang
-    image: "ghcr.io/lepavuki/angular-react-devops-case@sha256:0bef7128827c6f44669e0cfad4d6be89b8e678e26a74b84bda2601de7646c7c9"
+    image: "ghcr.io/lepavuki/angular-react-devops-case:master"
     ports:
       - 8080:8080
