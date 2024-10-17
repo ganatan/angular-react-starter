@@ -2,6 +2,5 @@ services:
 
   nginx-ang:
     container_name: nginx-ang
-    web:
-      image: "ghcr.io/lepavuki/angular-react-devops-case:master"
+    image: "ghcr.io/lepavuki/angular-react-devops-case:master"
     user: Nginx
