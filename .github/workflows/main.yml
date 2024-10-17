@@ -14,12 +14,12 @@ jobs:
 
     steps:
     - name: Checkout
-    - uses: actions/checkout@v3
-        
-    - name: Starting node
+      uses: actions/checkout@v3
+
+    - name: Installing node
       working-directory: ./node
-      run: npm run start
-      
+      run: npm install
+
     - name: RUN SuperTest API Testing
       working-directory: ./node
-      run: npm run test
+      run: npm test
