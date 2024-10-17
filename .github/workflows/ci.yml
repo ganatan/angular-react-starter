@@ -16,10 +16,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Installing node
+    - name: Installing Node
       working-directory: ./node
       run: npm install
 
     - name: RUN SuperTest API Testing
       working-directory: ./node
       run: npm test
+
+    - name: Build Angular
+      working-directory: ./angular
+      run: |
+        npm link @angular/cli
+        ng build
