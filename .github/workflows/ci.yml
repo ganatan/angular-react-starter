@@ -45,7 +45,7 @@ jobs:
       uses: docker/login-action@v3.3.0
       with:
         registry: ${{ env.REGISTRY }}
-        username: ${{ secrets.GITHUB_USERNAME }}
+        username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push Docker images
