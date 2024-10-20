@@ -1,0 +1,135 @@
+name: CI Pipeline
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    test-and-build:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Bonus: STEAP 1 - Record time of job forund here - https://stackoverflow.com/a/72175840
+            # - name: Set start timestamp
+            #   id: start
+            #   run: |
+            #       printf 'timestamp=%(%s)T\n' >> "$GITHUB_OUTPUT"
+
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.15.0
+
+            - name: Install packages
+              run: npm install
+              working-directory: app/angular
+
+            - name: Lint code
+              run: npm run lint
+              working-directory: app/angular
+
+            - name: Run tests
+              # No need for "continue-on-error: false" as it is Github Actions default
+              run: npm run coverage # "1.0.4" - npm run coverage would open browser so added "browsers": "ChromeHeadless" TO angular.json
+              working-directory: app/angular
+
+            - name: Build
+              if: success()
+              run: npm run build
+              working-directory: app/angular
+
+            # Github Packages explanation https://youtu.be/t3xRLAA_Y7Y
+            # Example of docker/setup-buildx-action https://dev.to/ken_mwaura1/automate-docker-image-builds-and-push-to-github-registry-using-github-actions-4h20
+
+            # Set up Docker Buildx
+            - name: Set up Docker Buildx
+              if: success()
+              uses: docker/setup-buildx-action@v3
+
+            # Log in to GitHub Container Registry
+            - name: Log in to GitHub Container Registry
+              if: success()
+              uses: docker/login-action@v3
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GHUB_TOKEN }}
+
+            # Got from https://cicube.io/workflow-hub/docker-build-push-action/#how-to-push-docker-images-to-github-container-registry-with-github-actions .
+            - name: Build and push Docker image
+              if: success()
+              uses: docker/build-push-action@v2
+              with:
+                  context: ./app/
+                  push: true
+                  # Error: buildx failed with: ERROR: invalid tag "ghcr.io/Amexei/angular-react-starter:latest": repository name must be lowercase
+                  # Can't use github.repository as it's in uppercase my name Amexei
+                  #
+                  # Have to manually attach package to repository so it is visible inside repo https://stackoverflow.com/questions/73485013/github-package-successfully-published-but-not-showing-up-in-packages-section
+                  tags: ghcr.io/${{ secrets.GHUB_REPOSITORY }}:lastest
+
+            # Bonus: STEP 2 - Record time of job forund here - https://stackoverflow.com/a/72175840
+            # - name: Set start timestamp
+            #   id: duration
+            #   run: |
+            #       printf -v now '%(%s)T'
+            #       duration=$((now - ${{ steps.start.outputs.timestamp }}))
+
+            # Bonus calucate time Much easier solution - https://github.com/marketplace/actions/github-workflow-duration-calculator
+            - name: Calculate Steps Log Time
+              if: always()
+              id: duration
+              uses: RockyIsHere/actions-calculate-log-time@v0.2.4
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GHUB_TOKEN }}
+
+            - name: Print Calculated Time
+              run: |
+                  echo "Calculated Time: ${{ steps.duration.outputs.duration }}"
+
+            # If failure of success - https://stackoverflow.com/a/58859404
+            # Got an exanole from - https://github.com/go-gitea/gitea/issues/23725#issuecomment-1691883600
+            # Requires APP_PASSWORD from gmail https://stackoverflow.com/a/70929145
+            - name: Send success email
+              if: success()
+              uses: dawidd6/action-send-mail@v3
+              with:
+                  server_address: smtp.gmail.com
+                  server_port: 587
+                  username: ${{ secrets.SMTP_USERNAME }}
+                  password: ${{ secrets.SMTP_PASSWORD }}
+                  subject: ${{ github.repository }} ${{ github.workflow }} Success
+                  priority: high
+                  to: ${{ secrets.MAIL_TO }}
+                  from: ${{ secrets.MAIL_FROM }}
+                  convert_markdown: true
+                  html_body: |
+                      ### testing-code ${{ job.status }}
+
+                      *Duration*: ${{ steps.duration.outputs.duration }}
+
+                      ${{ github.repository }}: [${{ github.ref }}@${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/actions)
+
+            - name: Send failure email
+              if: failure()
+              uses: dawidd6/action-send-mail@v3
+              with:
+                  server_address: smtp.gmail.com
+                  server_port: 587
+                  username: ${{ secrets.SMTP_USERNAME }}
+                  password: ${{ secrets.SMTP_PASSWORD }}
+                  subject: ${{ github.repository }} ${{github.workflow}} ${{ job.status }}
+                  priority: high
+                  to: ${{ secrets.MAIL_TO }}
+                  from: ${{ secrets.MAIL_FROM }}
+                  convert_markdown: true
+                  html_body: |
+                      ### testing-code ${{ job.status }}
+
+                      *Duration*: ${{ steps.duration.outputs.duration }}
+
+                      ${{ github.repository }}: [${{ github.ref }}@${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/actions)

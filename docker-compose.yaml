@@ -1,0 +1,15 @@
+# Name of Stack for easier Portainer view
+name: angular-web-task2
+
+# 👉 CMD to run: docker compose up
+services:
+    web:
+        image: "ghcr.io/amexei/angular-react-starter:lastest"
+        ports:
+            - "80:80"
+        command: nginx -g "daemon off;"
+# 👉 CMD to run docker build image for first part of the task
+# docker run -d -p 80:80 angular-web-task-web
+# docker exec -it ❗container_id❗ /bin/sh
+# curl localhost:80
+# docker container stop ❗container_id❗
