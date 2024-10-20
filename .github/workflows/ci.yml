@@ -26,21 +26,21 @@ jobs:
 
             - name: Install packages
               run: npm install
-              working-directory: app/angular
+              working-directory: angular
 
             - name: Lint code
               run: npm run lint
-              working-directory: app/angular
+              working-directory: angular
 
             - name: Run tests
               # No need for "continue-on-error: false" as it is Github Actions default
               run: npm run coverage # "1.0.4" - npm run coverage would open browser so added "browsers": "ChromeHeadless" TO angular.json
-              working-directory: app/angular
+              working-directory: angular
 
             - name: Build
               if: success()
               run: npm run build
-              working-directory: app/angular
+              working-directory: angular
 
             # Github Packages explanation https://youtu.be/t3xRLAA_Y7Y
             # Example of docker/setup-buildx-action https://dev.to/ken_mwaura1/automate-docker-image-builds-and-push-to-github-registry-using-github-actions-4h20
@@ -64,7 +64,7 @@ jobs:
               if: success()
               uses: docker/build-push-action@v2
               with:
-                  context: ./app/
+                  context: .
                   push: true
                   # Error: buildx failed with: ERROR: invalid tag "ghcr.io/Amexei/angular-react-starter:latest": repository name must be lowercase
                   # Can't use github.repository as it's in uppercase my name Amexei
