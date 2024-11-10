@@ -59,7 +59,7 @@ git clone https://gitlab.com/ganatan/angular-react-starter.git
 
 # change directory
 cd angular-react-starter
-cd angular 
+cd frontend-angular 
 
 # install the repo with npm
 npm install
@@ -84,7 +84,7 @@ git clone https://gitlab.com/ganatan/angular-react-starter.git
 
 # change directory
 cd angular-react-starter
-cd react
+cd frontend-react
 
 # install the repo with npm
 npm install
@@ -110,7 +110,7 @@ git clone https://gitlab.com/ganatan/angular-react-starter.git
 
 # change directory
 cd angular-react-starter
-cd node
+cd backend-node
 
 # install the repo with npm
 npm install
