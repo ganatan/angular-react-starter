@@ -10,7 +10,7 @@
 
 it's part of a repo series designed
 
-to create a **Web Application with Angular 18**
+to create a **Web Application with Angular 19**
 
 * Featuring [**Angular 19.0.1**](https://github.com/angular/angular/releases) & [**Angular CLI 19.0.2**](https://github.com/angular/angular-cli/releases/)
 
