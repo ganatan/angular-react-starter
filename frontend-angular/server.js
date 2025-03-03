@@ -9,7 +9,8 @@ app.get('/*', function (req, res) {
 });
 
 const port = 4000;
+const host = 'localhost';
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server running at http://${host}:${port}`);
 })
 
