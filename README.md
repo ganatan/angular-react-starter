@@ -30,12 +30,14 @@ to create a **Web Application with React 18**
 ## 🔧 Continuous Integration
 
 [![Frontend Angular CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml)
+[![Frontend React CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-react.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-react.yml)
 
 ---
 
 ## 📦 Tech Stack
 
 ![Angular](https://img.shields.io/badge/angular-19-red)
+![React](https://img.shields.io/badge/react-18-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ganatan/angular-react-starter/blob/master/LICENSE)
 
 </div>
