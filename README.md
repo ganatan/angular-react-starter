@@ -165,36 +165,12 @@ Here is a step by step Tutorial :  https://www.ganatan.com/en/tutorials/getting-
 * `npm run test`
 * `npm run coverage`
 
-
-# [Node Getting started](#node-getting-started)
-
-
-## Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
-
-## Development
-* `npm run start`
-* in your browser go to [http://localhost:5000](http://localhost:5000) 
-
-## Production 
-* `npm run build`
-
-## Linter
-* `npm run lint`
-
-## Tests
-* `npm run test`
-* `npm run coverage`
-
-
-
 # [Author](#author)
 * Author  : danny
 
 ## [Angular English Tutorials](#english-tutorials)
-- Installation - https://www.ganatan.com/tutorials/getting-started-with-angular
-- Tutorials Step by Step - https://www.ganatan.com/tutorials/en
+- Installation - https://www.ganatan.com/en/tutorials/getting-started-with-angular
+- Tutorials Step by Step - https://www.ganatan.com/en/tutorials
 
 ## [Tutoriels Angular en français](#french-tutorials)
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
