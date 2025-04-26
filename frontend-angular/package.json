@@ -13,6 +13,9 @@
     "lint": "ng lint",
     "serve": "node server.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@angular/animations": "19.2.8",

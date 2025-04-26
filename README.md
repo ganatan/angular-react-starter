@@ -24,10 +24,27 @@ to create a **Web Application with React 18**
 * Featuring [**React 18.3.1**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
 
 
-to create a **Node Application with Express 4**
 
+---
 
-* Featuring [**Express 4.19.2**](https://github.com/expressjs/express/releases)
+<div align="center">
+
+## 🔧 Continuous Integration
+
+[![Frontend Angular CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml)
+
+---
+
+Modern fullstack applications built with Angular 19, Node.js 20.x, and Java 21, featuring a modular, scalable, and production-ready architecture.
+
+## 📦 Tech Stack
+
+![Angular](https://img.shields.io/badge/angular-19-red)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ganatan/angular-react-starter/blob/master/LICENSE)
+
+</div>
+
+---
 
 
 </td>

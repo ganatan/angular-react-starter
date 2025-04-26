@@ -1,6 +1,9 @@
 {
   "name": "react-starter",
   "version": "18.3.1",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "6.6.3",
