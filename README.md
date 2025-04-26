@@ -23,8 +23,6 @@ to create a **Web Application with React 18**
 
 * Featuring [**React 18.3.1**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
 
-
-
 ---
 
 <div align="center">
@@ -34,8 +32,6 @@ to create a **Web Application with React 18**
 [![Frontend Angular CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml)
 
 ---
-
-Modern fullstack applications built with Angular 19, Node.js 20.x, and Java 21, featuring a modular, scalable, and production-ready architecture.
 
 ## 📦 Tech Stack
 
