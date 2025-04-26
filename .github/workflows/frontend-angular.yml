@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: angular-starter
+        working-directory: frontend-angular
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
