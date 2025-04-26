@@ -12,7 +12,7 @@ it's part of a repo series designed
 
 to create a **Web Application with Angular 19**
 
-* Featuring [**Angular 19.2.7**](https://github.com/angular/angular/releases) & [**Angular CLI 19.2.8**](https://github.com/angular/angular-cli/releases/)
+* Featuring [**Angular 19.2.8**](https://github.com/angular/angular/releases) & [**Angular CLI 19.2.9**](https://github.com/angular/angular-cli/releases/)
 
 
 * See the [**Angular Live demo**](#angular-live-demo), Test the repo with [**Quick start**](#angular-quick-start) and for more information Read the step by step [**Tutorial**](#angular-tutorial) or read the [**Getting started**](#angular-getting-started)
@@ -96,32 +96,6 @@ npm start
 ```
 
 in your browser go to [http://localhost:3000](http://localhost:3000) 
-
-
-# [Node Quick start](#node-quick-start)
-
-```bash
-# choose a repo
-# download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-react-starter.git
-
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-react-starter.git
-
-# change directory
-cd angular-react-starter
-cd backend-node
-
-# install the repo with npm
-npm install
-
-# start the server
-npm start
-
-
-```
-
-in your browser go to [http://localhost:5000](http://localhost:5000) 
 
 
 # [Angular Tutorial](#angular-quick-start)
