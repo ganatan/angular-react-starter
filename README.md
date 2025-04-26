@@ -184,10 +184,14 @@ Here is a step by step Tutorial :  https://www.ganatan.com/en/tutorials/getting-
 - Installation - https://www.ganatan.com/en/tutorials/getting-started-with-angular
 - Tutorials Step by Step - https://www.ganatan.com/en/tutorials
 
+## [React English Tutorials](#english-tutorials)
+- Installation - https://www.ganatan.com/en/tutorials/getting-started-with-react
+- Tutorials Step by Step - https://www.ganatan.com/en/tutorials
+
+
 ## [Tutoriels Angular en français](#french-tutorials)
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
 - Tutoriels Etape par étape - https://www.ganatan.com/tutorials
-
 
 ## [Tutoriels React en français](#french-tutorials)
 - Installation - https://www.ganatan.com/tutorials/demarrer-avec-react
