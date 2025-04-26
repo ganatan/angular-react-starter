@@ -1,4 +1,4 @@
-# Angular 19 , React 18 & Node Examples Starter
+# Angular 19 , React 18 Examples Starter
 
 <table>
 <tr>
