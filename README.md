@@ -113,10 +113,10 @@ in your browser go to [http://localhost:3000](http://localhost:3000)
 
 # [Angular Tutorial](#angular-quick-start)
 
-Here is a step by step Tutorial :  https://www.ganatan.com/tutorials/getting-started-with-angular
+Here is a step by step Tutorial :  https://www.ganatan.com/en/tutorials/getting-started-with-angular
 
 <p align="center">
-  <a href="https://www.ganatan.com/tutorials/getting-started-with-angular">
+  <a href="https://www.ganatan.com/en/tutorials/getting-started-with-angular">
     <img src="img/ganatan-angular-starter-github.png" alt="Demo example"/>
   </a>
 </p>
