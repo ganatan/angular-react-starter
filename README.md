@@ -36,8 +36,8 @@ to create a **Web Application with React 19**
 
 ## 📦 Tech Stack
 
-![Angular](https://img.shields.io/badge/angular-19-red)
-![React](https://img.shields.io/badge/react-18-blue)
+![Angular](https://img.shields.io/badge/angular-20-red)
+![React](https://img.shields.io/badge/react-19-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ganatan/angular-react-starter/blob/master/LICENSE)
 
 </div>
