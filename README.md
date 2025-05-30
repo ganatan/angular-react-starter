@@ -1,4 +1,5 @@
-# Angular 20 , React 19 Examples Starter
+
+# Angular 20 / React 19 Starter
 
 <table>
 <tr>
@@ -8,20 +9,25 @@
     alt="Ganatan Angular Example Demo" width="140" height="140">
   </a>
 
-it's part of a repo series designed
+This repository is part of a series designed to create production-ready web applications.
 
-to create a **Web Application with Angular 20**
+### Angular 20
 
-* Featuring [**Angular 20.0.0**](https://github.com/angular/angular/releases) & [**Angular CLI 20.0.0**](https://github.com/angular/angular-cli/releases/)
+- Based on [**Angular 20.0.0**](https://github.com/angular/angular/releases)
+- Using [**Angular CLI 20.0.0**](https://github.com/angular/angular-cli/releases)
+- [Live Demo](#angular-live-demo)
+- [Quick Start](#angular-quick-start)
+- [Step-by-step Tutorial](#angular-tutorial)
+- [Getting Started Guide](#angular-getting-started)
 
+### React 19
 
-* See the [**Angular Live demo**](#angular-live-demo), Test the repo with [**Quick start**](#angular-quick-start) and for more information Read the step by step [**Tutorial**](#angular-tutorial) or read the [**Getting started**](#angular-getting-started)
+- Based on [**React 19.1.0**](https://github.com/facebook/react/releases)
+- Using [**Create React App 5.0.1**](https://github.com/facebook/create-react-app/releases)
 
-
-to create a **Web Application with React 19**
-
-
-* Featuring [**React 19.1.0**](https://github.com/facebook/react/releases) & [**Create-react-app 5.0.1**](https://github.com/facebook/create-react-app/releases)
+</td>
+</tr>
+</table>
 
 ---
 
@@ -29,8 +35,8 @@ to create a **Web Application with React 19**
 
 ## 🔧 Continuous Integration
 
-[![Frontend Angular CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml)
-[![Frontend React CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-react.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-react.yml)
+[![Angular CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-angular.yml)
+[![React CI](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-react.yml/badge.svg?branch=master)](https://github.com/ganatan/angular-react-starter/actions/workflows/frontend-react.yml)
 
 ---
 
@@ -44,156 +50,153 @@ to create a **Web Application with React 19**
 
 ---
 
+## 🔴 Angular Live Demo
 
-</td>
-</tr>
-</table>
-
-# [Angular Live Demo](#angular-live-demo)
-Here is a working Angular live demo :  https://angular.ganatan.com
+👉 https://angular.ganatan.com
 
 <p align="center">
-  <p align="center">
-    <a href="https://angular.ganatan.com/">
-      <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular 16 Example 
-      Application"/>
-    </a>
-  </p>
+  <a href="https://angular.ganatan.com/">
+    <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular App Preview"/>
+  </a>
 </p>
 
+---
 
-# [Angular Quick start](#angular-quick-start)
-
-```bash
-# choose a repo
-# download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-react-starter.git
-
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-react-starter.git
-
-# change directory
-cd angular-react-starter
-cd frontend-angular 
-
-# install the repo with npm
-npm install
-
-# start the server
-npm start
-
-```
-in your browser go to [http://localhost:4200](http://localhost:4200) 
-
-
-
-# [React Quick start](#react-quick-start)
+## ⚡ Angular Quick Start
 
 ```bash
-# choose a repo
-# download the example or clone the repo from github
 git clone https://github.com/ganatan/angular-react-starter.git
-
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-react-starter.git
-
-# change directory
-cd angular-react-starter
-cd frontend-react
-
-# install the repo with npm
+cd angular-react-starter/frontend-angular
 npm install
-
-# start the server
 npm start
-
-
 ```
 
-in your browser go to [http://localhost:3000](http://localhost:3000) 
+Navigate to [http://localhost:4200](http://localhost:4200)
 
+---
 
-# [Angular Tutorial](#angular-quick-start)
+## ⚡ React Quick Start
 
-Here is a step by step Tutorial :  https://www.ganatan.com/en/tutorials/getting-started-with-angular
+```bash
+git clone https://github.com/ganatan/angular-react-starter.git
+cd angular-react-starter/frontend-react
+npm install
+npm start
+```
+
+Navigate to [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📘 Angular Tutorial
+
+👉 https://www.ganatan.com/en/tutorials/getting-started-with-angular
 
 <p align="center">
   <a href="https://www.ganatan.com/en/tutorials/getting-started-with-angular">
-    <img src="img/ganatan-angular-starter-github.png" alt="Demo example"/>
+    <img src="img/ganatan-angular-starter-github.png" alt="Angular Tutorial Preview"/>
   </a>
 </p>
 
-# [Angular Getting started](#angular-getting-started)
+---
 
+## 🛠 Angular - Getting Started
 
-## Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
+### Installation
+```bash
+npm install
+npm outdated
+```
 
-## Development
-* `npm run start`
-* in your browser go to [http://localhost:4200](http://localhost:4200) 
+### Development
+```bash
+npm run start
+```
+Go to [http://localhost:4200](http://localhost:4200)
 
-## Production 
-* `npm run build`
+### Production
+```bash
+npm run build
+```
 
-## Linter
-* `npm run lint`
+### Linter
+```bash
+npm run lint
+```
 
-## Tests
-* `npm run test`
-* `npm run coverage`
+### Tests
+```bash
+npm run test
+npm run coverage
+```
 
+---
 
-# [React Tutorial](#react-quick-start)
+## 📘 React Tutorial
 
-Here is a step by step Tutorial :  https://www.ganatan.com/en/tutorials/getting-started-with-react
+👉 https://www.ganatan.com/en/tutorials/getting-started-with-react
 
 <p align="center">
   <a href="https://www.ganatan.com/en/tutorials/getting-started-with-react">
-    <img src="img/ganatan-react-starter-github.png" alt="Demo example"/>
+    <img src="img/ganatan-react-starter-github.png" alt="React Tutorial Preview"/>
   </a>
 </p>
 
+---
 
-# [React Getting started](#react-getting-started)
+## 🛠 React - Getting Started
 
+### Installation
+```bash
+npm install
+npm outdated
+```
 
-## Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
+### Development
+```bash
+npm run start
+```
+Go to [http://localhost:3000](http://localhost:3000)
 
-## Development
-* `npm run start`
-* in your browser go to [http://localhost:3000](http://localhost:3000) 
+### Production
+```bash
+npm run build
+```
 
-## Production 
-* `npm run build`
+### Linter
+```bash
+npm run lint
+```
 
-## Linter
-* `npm run lint`
+### Tests
+```bash
+npm run test
+npm run coverage
+```
 
-## Tests
-* `npm run test`
-* `npm run coverage`
+---
 
-# [Author](#author)
-* Author  : danny
+## 👨‍💻 Author
 
-## [Angular English Tutorials](#english-tutorials)
-- Installation - https://www.ganatan.com/en/tutorials/getting-started-with-angular
-- Tutorials Step by Step - https://www.ganatan.com/en/tutorials
+**Danny Collodet** – [LinkedIn](https://www.linkedin.com/in/dannyganatan) – [www.ganatan.com](https://www.ganatan.com)
 
-## [React English Tutorials](#english-tutorials)
-- Installation - https://www.ganatan.com/en/tutorials/getting-started-with-react
-- Tutorials Step by Step - https://www.ganatan.com/en/tutorials
+---
 
+## 🌐 Tutorials
 
-## [Tutoriels Angular en français](#french-tutorials)
-- Installation - https://www.ganatan.com/tutorials/demarrer-avec-angular
-- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
+### Angular (EN)
+- [Getting Started](https://www.ganatan.com/en/tutorials/getting-started-with-angular)
+- [Step by Step Tutorials](https://www.ganatan.com/en/tutorials)
 
-## [Tutoriels React en français](#french-tutorials)
-- Installation - https://www.ganatan.com/tutorials/demarrer-avec-react
-- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
+### React (EN)
+- [Getting Started](https://www.ganatan.com/en/tutorials/getting-started-with-react)
+- [Step by Step Tutorials](https://www.ganatan.com/en/tutorials)
+
+### Angular (FR)
+- [Démarrer avec Angular](https://www.ganatan.com/tutorials/demarrer-avec-angular)
+- [Tutoriels complets](https://www.ganatan.com/tutorials)
+
+### React (FR)
+- [Démarrer avec React](https://www.ganatan.com/tutorials/demarrer-avec-react)
+- [Tutoriels complets](https://www.ganatan.com/tutorials)
 
