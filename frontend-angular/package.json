@@ -11,7 +11,9 @@
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "coverage": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
-    "serve": "node server.js"
+    "serve": "node server.js",
+    "docker:build": "docker build -t frontend-angular .",
+    "docker:run": "docker run -p 4000:4000 frontend-angular"
   },
   "private": true,
   "dependencies": {
