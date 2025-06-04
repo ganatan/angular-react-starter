@@ -10,7 +10,8 @@
     "test": "ng test",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "coverage": "ng test --no-watch --code-coverage",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "serve": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/forms": "20.0.0",
     "@angular/platform-browser": "20.0.0",
     "@angular/router": "20.0.0",
+    "express": "5.1.0",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",
     "zone.js": "0.15.1"
@@ -29,7 +31,7 @@
     "@angular/cli": "20.0.0",
     "@angular/compiler-cli": "20.0.0",
     "@types/jasmine": "5.1.8",
-    "angular-eslint": "19.7.0",
+    "angular-eslint": "19.7.1",
     "eslint": "9.28.0",
     "jasmine-core": "5.7.1",
     "karma": "6.4.4",
