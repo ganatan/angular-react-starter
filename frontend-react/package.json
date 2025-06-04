@@ -22,7 +22,11 @@
     "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
-    "serve": "node server"
+    "serve": "node server",
+    "docker:list-containers": "docker ps -a",
+    "docker:list-images": "docker images",
+    "docker:build": "docker build -t frontend-react-starter .",
+    "docker:run": "docker run -p 3000:3000 frontend-react-starter"
   },
   "eslintConfig": {
     "extends": [

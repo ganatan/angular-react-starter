@@ -12,8 +12,10 @@
     "coverage": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
     "serve": "node server.js",
-    "docker:build": "docker build -t frontend-angular .",
-    "docker:run": "docker run -p 4000:4000 frontend-angular"
+    "docker:list-containers": "docker ps -a",
+    "docker:list-images": "docker images",
+    "docker:build": "docker build -t frontend-angular-starter .",
+    "docker:run": "docker run -p 4000:4000 frontend-angular-starter"
   },
   "private": true,
   "dependencies": {
